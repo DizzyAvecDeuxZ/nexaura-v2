@@ -125,7 +125,8 @@ export default function ConsultingContactPage() {
                   </div>
                   <div>
                     <p className="text-gray-500 text-sm">Téléphone</p>
-                    <p className="text-white">+33 1 XX XX XX XX</p>
+                    <p className="text-white">+33 6 12 34 56 78</p>
+                    <p className="text-xs text-yellow-500 mt-1">⚠️ Remplacer par votre vrai numéro</p>
                   </div>
                 </div>
 
@@ -293,16 +294,27 @@ export default function ConsultingContactPage() {
 
       {/* Calendly Modal */}
       {showCalendly && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4">
-          <div className="bg-gray-900 rounded-2xl w-full max-w-4xl h-[80vh] relative">
+        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4">
+          <div className="bg-gray-900 rounded-2xl w-full max-w-5xl h-[85vh] relative overflow-hidden">
             <button
               onClick={() => setShowCalendly(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-white z-10 text-2xl"
+              className="absolute top-4 right-4 text-gray-400 hover:text-white z-10 text-2xl bg-black/50 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
             >
               ×
             </button>
-            <div className="h-full flex items-center justify-center text-gray-400">
-              <p>Widget Calendly à intégrer ici</p>
+            <div className="h-full w-full pt-12">
+              {/* 
+                REMPLACER PAR VOTRE URL CALENDLY :
+                Format : https://calendly.com/VOTRE_NOM/rdv-strategique
+              */}
+              <iframe
+                src="https://calendly.com/nexaura/rdv-strategique"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                title="Calendly"
+                className="rounded-b-2xl"
+              />
             </div>
           </div>
         </div>

@@ -111,7 +111,8 @@ export default function DigitalContactPage() {
                   </div>
                   <div>
                     <p className="text-gray-500 text-sm">Téléphone</p>
-                    <p className="text-white">+33 1 XX XX XX XX</p>
+                    <p className="text-white">+33 6 12 34 56 78</p>
+                    <p className="text-xs text-yellow-500 mt-1">⚠️ Remplacer par votre vrai numéro</p>
                   </div>
                 </div>
 

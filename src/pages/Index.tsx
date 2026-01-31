@@ -8,6 +8,7 @@ import { ShinyText } from "@/components/ui/shiny-text";
 import { NexauraLogo3DChrome } from "@/components/NexauraLogo3DChrome";
 import { FloatingParticles } from "@/components/FloatingParticles";
 import { BackgroundBeams } from "@/components/ui/background-beams";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const ContactModal = lazy(() => import("@/components/ContactModal"));
@@ -208,6 +209,9 @@ const Index = () => {
               <ChevronDown className="w-6 h-6 text-gray-600" />
             </motion.div>
           </section>
+
+          {/* Testimonials Section */}
+          <TestimonialsSection />
 
           {/* About Section */}
           <section className="py-24 px-4 bg-gradient-to-b from-transparent via-black/50 to-black/80">
