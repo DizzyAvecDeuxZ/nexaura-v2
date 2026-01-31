@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "offers": "Pricing",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Create Tomorrow's Web Experience",
+    "subtitle": "We create impressive websites and apps. Futuristic design, modern technology, fast delivery.",
+    "cta_projects": "View Our Projects",
+    "cta_call": "Book a Call"
+  },
+  "stats": {
+    "projects": "Projects Delivered",
+    "delivery": "Average Delivery",
+    "satisfaction": "Client Satisfaction",
+    "response": "Response Guaranteed"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "project_type": "Project Type",
+    "message": "Message",
+    "want_call": "I want a free 20-minute call",
+    "submit": "Send My Request",
+    "success_title": "Message Sent!",
+    "success_message": "We'll contact you within 24h"
+  },
+  "footer": {
+    "description": "Next-gen web agency. Futuristic design, cutting-edge technology.",
+    "quick_links": "Quick Links",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "legal": "Legal Notice",
+    "terms": "Terms"
+  }
+}

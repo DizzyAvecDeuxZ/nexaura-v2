@@ -1,0 +1,41 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "offers": "Offres",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Créer l'expérience web de demain",
+    "subtitle": "Nous créons des sites et applications qui impressionnent. Design futuriste, technologie moderne, livraison rapide.",
+    "cta_projects": "Voir nos projets",
+    "cta_call": "Réserver un appel"
+  },
+  "stats": {
+    "projects": "Projets livrés",
+    "delivery": "Délai moyen",
+    "satisfaction": "Clients satisfaits",
+    "response": "Réponse garantie"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "name": "Nom complet",
+    "email": "Email",
+    "phone": "Téléphone (optionnel)",
+    "project_type": "Type de projet",
+    "message": "Message",
+    "want_call": "Je veux un appel gratuit de 20 minutes",
+    "submit": "Envoyer ma demande",
+    "success_title": "Message envoyé !",
+    "success_message": "On vous recontacte sous 24h"
+  },
+  "footer": {
+    "description": "Agence web next-gen. Design futuriste, technologie de pointe.",
+    "quick_links": "Liens rapides",
+    "contact": "Contact",
+    "rights": "Tous droits réservés.",
+    "legal": "Mentions légales",
+    "terms": "CGU"
+  }
+}
