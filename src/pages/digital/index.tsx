@@ -9,6 +9,8 @@ import { TiltedCard } from "@/components/ui/tilted-card";
 import { GlareHover } from "@/components/ui/glare-hover";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
+import { FloatingParticles, AnimatedLines } from "@/components/FloatingParticles";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import { CurrencyToggle } from "@/components/shared/CurrencyToggle";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { WebPortfolioSection } from "@/components/WebPortfolioSection";
@@ -44,6 +46,11 @@ export default function DigitalPage() {
         baseSpeed={0.01}
         rangeSpeed={0.3}
       />
+      
+      {/* Particules et faisceaux violets */}
+      <FloatingParticles count={8} colors={["violet", "fuchsia"]} className="fixed" />
+      <AnimatedLines variant="violet" className="fixed" />
+      <BackgroundBeams color="violet" className="fixed" />
 
       <Header 
         variant="digital" 

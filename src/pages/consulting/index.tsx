@@ -7,6 +7,8 @@ import { ShinyText } from "@/components/ui/shiny-text";
 import { TiltedCard } from "@/components/ui/tilted-card";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
+import { FloatingParticles, AnimatedLines } from "@/components/FloatingParticles";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import { CurrencyToggle } from "@/components/shared/CurrencyToggle";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { consultingOffers, aiUseCases } from "@/lib/data/pricing";
@@ -31,10 +33,15 @@ export default function ConsultingPage() {
         backgroundColor="black"
         className="fixed inset-0"
         particleCount={isMobile ? 50 : 150}
-        baseHue={240}
+        baseHue={45}
         baseSpeed={0.008}
         rangeSpeed={0.2}
       />
+      
+      {/* Particules et faisceaux jaunes */}
+      <FloatingParticles count={8} colors={["yellow", "amber"]} className="fixed" />
+      <AnimatedLines variant="amber" className="fixed" />
+      <BackgroundBeams color="amber" className="fixed" />
 
       <Header 
         variant="consulting" 

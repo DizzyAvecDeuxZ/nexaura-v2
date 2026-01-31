@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 
+type ParticleColor = "violet" | "green" | "yellow" | "amber" | "indigo" | "fuchsia";
+
 interface Particle {
   id: number;
   size: number;
@@ -8,10 +10,13 @@ interface Particle {
   y: number;
   duration: number;
   delay: number;
-  color: "violet" | "green";
+  color: ParticleColor;
 }
 
-const generateParticles = (count: number): Particle[] => {
+const colorOptions: ParticleColor[] = ["violet", "green", "yellow", "amber", "indigo", "fuchsia"];
+
+const generateParticles = (count: number, colors?: ParticleColor[]): Particle[] => {
+  const availableColors = colors && colors.length > 0 ? colors : ["violet", "green"];
   return Array.from({ length: count }, (_, i) => ({
     id: i,
     size: Math.random() * 80 + 40,
@@ -19,23 +24,33 @@ const generateParticles = (count: number): Particle[] => {
     y: Math.random() * 100,
     duration: Math.random() * 10 + 15,
     delay: Math.random() * 5,
-    color: Math.random() > 0.5 ? "violet" : "green",
+    color: availableColors[Math.floor(Math.random() * availableColors.length)],
   }));
 };
 
 interface FloatingParticlesProps {
   count?: number;
   className?: string;
+  colors?: ParticleColor[];
 }
 
-export function FloatingParticles({ count = 6, className = "" }: FloatingParticlesProps) {
+const colorClasses: Record<ParticleColor, string> = {
+  violet: "bg-primary/10",
+  green: "bg-secondary/10", 
+  yellow: "bg-yellow-500/10",
+  amber: "bg-amber-500/10",
+  indigo: "bg-indigo-500/10",
+  fuchsia: "bg-fuchsia-500/10",
+};
+
+export function FloatingParticles({ count = 6, className = "", colors }: FloatingParticlesProps) {
   const [particles, setParticles] = useState<Particle[]>([]);
   const [key, setKey] = useState(0);
 
   const regenerateParticles = useCallback(() => {
-    setParticles(generateParticles(count));
+    setParticles(generateParticles(count, colors));
     setKey(prev => prev + 1);
-  }, [count]);
+  }, [count, colors]);
 
   useEffect(() => {
     regenerateParticles();
@@ -58,9 +73,7 @@ export function FloatingParticles({ count = 6, className = "" }: FloatingParticl
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className={`absolute rounded-full blur-3xl ${
-            particle.color === "violet" ? "bg-primary/10" : "bg-secondary/10"
-          }`}
+          className={`absolute rounded-full blur-3xl ${colorClasses[particle.color]}`}
           style={{
             width: particle.size,
             height: particle.size,
@@ -85,8 +98,35 @@ export function FloatingParticles({ count = 6, className = "" }: FloatingParticl
   );
 }
 
-export function AnimatedLines({ className = "" }: { className?: string }) {
+interface AnimatedLinesProps {
+  className?: string;
+  variant?: "violet" | "yellow" | "amber";
+}
+
+const lineColorSchemes = {
+  violet: {
+    left: "from-transparent via-violet-500/20 to-transparent",
+    right: "from-transparent via-fuchsia-500/20 to-transparent",
+    leftOrb: "bg-violet-500/50",
+    rightOrb: "bg-fuchsia-500/50",
+  },
+  yellow: {
+    left: "from-transparent via-yellow-500/20 to-transparent",
+    right: "from-transparent via-amber-500/20 to-transparent",
+    leftOrb: "bg-yellow-500/50",
+    rightOrb: "bg-amber-500/50",
+  },
+  amber: {
+    left: "from-transparent via-amber-500/20 to-transparent",
+    right: "from-transparent via-yellow-500/20 to-transparent",
+    leftOrb: "bg-amber-500/50",
+    rightOrb: "bg-yellow-500/50",
+  },
+};
+
+export function AnimatedLines({ className = "", variant = "violet" }: AnimatedLinesProps) {
   const [key, setKey] = useState(0);
+  const colors = lineColorSchemes[variant];
 
   useEffect(() => {
     const handleResize = () => {
@@ -106,13 +146,13 @@ export function AnimatedLines({ className = "" }: { className?: string }) {
     <div key={key} className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
       {/* Vertical lines */}
       <motion.div
-        className="absolute left-[10%] top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent"
+        className={`absolute left-[10%] top-0 w-px h-full bg-gradient-to-b ${colors.left}`}
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       />
       <motion.div
-        className="absolute left-[90%] top-0 w-px h-full bg-gradient-to-b from-transparent via-secondary/20 to-transparent"
+        className={`absolute left-[90%] top-0 w-px h-full bg-gradient-to-b ${colors.right}`}
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
         transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
@@ -120,12 +160,12 @@ export function AnimatedLines({ className = "" }: { className?: string }) {
       
       {/* Floating orbs on lines */}
       <motion.div
-        className="absolute left-[10%] w-2 h-2 rounded-full bg-primary/50"
+        className={`absolute left-[10%] w-2 h-2 rounded-full ${colors.leftOrb}`}
         animate={{ y: ["0vh", "100vh"] }}
         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
       />
       <motion.div
-        className="absolute left-[90%] w-2 h-2 rounded-full bg-secondary/50"
+        className={`absolute left-[90%] w-2 h-2 rounded-full ${colors.rightOrb}`}
         animate={{ y: ["100vh", "0vh"] }}
         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       />

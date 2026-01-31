@@ -6,6 +6,8 @@ import { Vortex } from "@/components/ui/vortex";
 import { GradientText } from "@/components/ui/gradient-text";
 import { ShinyText } from "@/components/ui/shiny-text";
 import { NexauraLogo3DChrome } from "@/components/NexauraLogo3DChrome";
+import { FloatingParticles } from "@/components/FloatingParticles";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const ContactModal = lazy(() => import("@/components/ContactModal"));
@@ -24,16 +26,20 @@ const Index = () => {
         Aller au contenu principal
       </a>
 
-      {/* Vortex global background */}
+      {/* Vortex global background - mix violet/jaune */}
       <div className="fixed inset-0 z-0" aria-hidden="true">
         <Vortex
           backgroundColor="black"
           className="w-full h-full"
           particleCount={particleCount}
-          baseHue={270}
+          baseHue={280}
           rangeSpeed={rangeSpeed}
         />
       </div>
+
+      {/* Particules mixtes jaunes + violets pour la holding */}
+      <FloatingParticles count={10} colors={["violet", "yellow", "fuchsia", "amber"]} className="fixed z-0" />
+      <BackgroundBeams color="violet" className="fixed z-0 opacity-50" />
 
       {/* Content */}
       <div className="relative z-10">

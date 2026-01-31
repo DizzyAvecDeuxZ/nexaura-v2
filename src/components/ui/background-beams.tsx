@@ -6,10 +6,31 @@ import { cn } from "@/lib/utils"
 
 export interface BackgroundBeamsProps {
   className?: string;
+  color?: "violet" | "yellow" | "amber" | "indigo";
 }
 
+const colorSchemes = {
+  violet: {
+    start: "#a855f7",
+    middle: "#ec4899",
+  },
+  yellow: {
+    start: "#eab308",
+    middle: "#f59e0b",
+  },
+  amber: {
+    start: "#f59e0b",
+    middle: "#fbbf24",
+  },
+  indigo: {
+    start: "#6366f1",
+    middle: "#8b5cf6",
+  },
+};
+
 export const BackgroundBeams = React.memo(
-  ({ className }: BackgroundBeamsProps) => {
+  ({ className, color = "violet" }: BackgroundBeamsProps) => {
+    const colors = colorSchemes[color];
     const paths = [
       "M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875",
       "M-373 -197C-373 -197 -305 208 159 335C623 462 691 867 691 867",
@@ -67,10 +88,10 @@ export const BackgroundBeams = React.memo(
                   delay: Math.random() * 10,
                 }}
               >
-                <stop stopColor="#a855f7" stopOpacity="0" />
-                <stop stopColor="#a855f7" />
-                <stop offset="32.5%" stopColor="#ec4899" />
-                <stop offset="100%" stopColor="#ec4899" stopOpacity="0" />
+                <stop stopColor={colors.start} stopOpacity="0" />
+                <stop stopColor={colors.start} />
+                <stop offset="32.5%" stopColor={colors.middle} />
+                <stop offset="100%" stopColor={colors.middle} stopOpacity="0" />
               </motion.linearGradient>
             ))}
           </defs>
