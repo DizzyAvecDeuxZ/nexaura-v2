@@ -9,6 +9,7 @@ import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
 import { CurrencyToggle } from "@/components/shared/CurrencyToggle";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
+import { WebPortfolioSection } from "@/components/WebPortfolioSection";
 import { websiteTiers } from "@/lib/data/pricing";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -152,6 +153,9 @@ export default function SitesPage() {
             </div>
           </div>
         </section>
+
+        {/* Portfolio Section */}
+        <WebPortfolioSection />
 
         {/* CTA */}
         <section className="py-20 px-4">

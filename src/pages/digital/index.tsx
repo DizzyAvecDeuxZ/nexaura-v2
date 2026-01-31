@@ -11,6 +11,7 @@ import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
 import { CurrencyToggle } from "@/components/shared/CurrencyToggle";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
+import { WebPortfolioSection } from "@/components/WebPortfolioSection";
 import { websiteTiers, appTiers } from "@/lib/data/pricing";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -247,6 +248,9 @@ export default function DigitalPage() {
             </div>
           </div>
         </section>
+
+        {/* Portfolio */}
+        <WebPortfolioSection />
 
         {/* Process */}
         <section className="py-24 px-4">
