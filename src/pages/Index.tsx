@@ -114,7 +114,7 @@ const Index = () => {
                     {[
                       "100% responsive",
                       "SEO natif",
-                      "< 2s chargement"
+                      "Maintenance & support inclus"
                     ].map((item, i) => (
                       <span 
                         key={i} 
@@ -129,7 +129,7 @@ const Index = () => {
                     variant="outline" 
                     className="w-full bg-violet-500/10 border-violet-500/50 text-violet-300 hover:bg-violet-500/20 group"
                   >
-                    Explorer Digital
+                    Découvrir nos solutions
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
@@ -177,7 +177,7 @@ const Index = () => {
                     variant="outline" 
                     className="w-full bg-gradient-to-r from-yellow-500/20 to-amber-500/10 border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/30 hover:border-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] group transition-all duration-300"
                   >
-                    Explorer Consulting
+                    Auditer mon projet
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
