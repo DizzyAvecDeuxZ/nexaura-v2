@@ -44,7 +44,7 @@ const brandColors = {
 const textColors = {
   holding: "text-white",
   digital: "text-violet-400",
-  consulting: "text-indigo-400"
+  consulting: "bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent"
 };
 
 export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
@@ -89,9 +89,15 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
               <div className="hidden sm:block">
                 <span className="text-white font-bold text-lg">Nexaura</span>
                 {variant !== "holding" && (
-                  <span className={`font-bold text-lg ml-1 ${textColors[variant]}`}>
-                    {variant === "digital" ? "Digital" : "Consulting"}
-                  </span>
+                  {variant === "digital" ? (
+                    <span className="font-bold text-lg ml-1 text-violet-400">
+                      Digital
+                    </span>
+                  ) : (
+                    <span className="font-bold text-lg ml-1 bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
+                      Consulting
+                    </span>
+                  )}
                 )}
               </div>
             </a>
