@@ -63,10 +63,22 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-16"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-6"
             >
               <GradientText>Nexaura</GradientText>
             </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg md:text-xl text-gray-400 text-center max-w-3xl mb-16 px-4"
+            >
+              Nexaura accompagne les entreprises dans leur transformation digitale, 
+              de la création de sites web performants à l'intégration de l'IA dans 
+              leurs processus métier.
+            </motion.p>
 
             {/* Split Cards - Digital vs Consulting */}
             <motion.div
@@ -90,22 +102,28 @@ const Index = () => {
                     Nexaura <span className="text-violet-400">Digital</span>
                   </h2>
 
+                  <p className="text-violet-300/80 text-sm font-medium tracking-wide uppercase mb-4">
+                    Votre présence digitale, optimisée par la data
+                  </p>
+
                   <p className="text-gray-400 mb-6">
                     Sites web, applications mobiles, e-commerce
                   </p>
 
-                  <ul className="space-y-2 mb-8">
+                  <div className="flex flex-wrap gap-2 mb-8">
                     {[
-                      "Livraison en 1-4 semaines",
-                      "Maintenance & support inclus",
-                      "À partir de 990 €"
+                      "100% responsive",
+                      "SEO natif",
+                      "< 2s chargement"
                     ].map((item, i) => (
-                      <li key={i} className="flex items-center gap-2 text-gray-300 text-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+                      <span 
+                        key={i} 
+                        className="px-3 py-1 text-xs font-medium bg-violet-500/20 text-violet-300 rounded-full border border-violet-500/30"
+                      >
                         {item}
-                      </li>
+                      </span>
                     ))}
-                  </ul>
+                  </div>
 
                   <Button 
                     variant="outline" 
@@ -132,22 +150,28 @@ const Index = () => {
                     Nexaura <span className="bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent font-extrabold">Consulting</span>
                   </h2>
 
+                  <p className="text-yellow-300/80 text-sm font-medium tracking-wide uppercase mb-4">
+                    L'intelligence artificielle au service de vos décisions
+                  </p>
+
                   <p className="text-gray-400 mb-6">
                     Intelligence artificielle, automatisation, transformation
                   </p>
 
-                  <ul className="space-y-2 mb-8">
+                  <div className="flex flex-wrap gap-2 mb-8">
                     {[
-                      "Audit & POC sur-mesure",
-                      "Accompagnement stratégique",
-                      "ROI mesurable et concret"
+                      "ROI mesurable",
+                      "Automatisation 24/7",
+                      "Prédictions temps réel"
                     ].map((item, i) => (
-                      <li key={i} className="flex items-center gap-2 text-gray-300 text-sm group-hover:text-yellow-100 transition-colors">
-                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 group-hover:shadow-[0_0_8px_rgba(250,204,21,0.8)] transition-shadow" />
+                      <span 
+                        key={i} 
+                        className="px-3 py-1 text-xs font-medium bg-yellow-500/20 text-yellow-300 rounded-full border border-yellow-500/30 group-hover:bg-yellow-500/30 transition-colors"
+                      >
                         {item}
-                      </li>
+                      </span>
                     ))}
-                  </ul>
+                  </div>
 
                   <Button 
                     variant="outline" 
@@ -158,6 +182,23 @@ const Index = () => {
                   </Button>
                 </div>
               </motion.a>
+            </motion.div>
+
+            {/* CTA de secours */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="mt-16 text-center"
+            >
+              <p className="text-gray-500 mb-4">Votre projet ne rentre dans aucune case ?</p>
+              <Button 
+                onClick={() => setIsContactOpen(true)}
+                variant="outline" 
+                className="bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-white/40"
+              >
+                Parlons-en
+              </Button>
             </motion.div>
           </section>
 
