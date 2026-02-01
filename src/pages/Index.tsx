@@ -144,17 +144,19 @@ const Index = () => {
               <motion.a
                 href="/consulting"
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="group relative bg-gradient-to-br from-indigo-500/10 via-transparent to-amber-500/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-indigo-500/30 hover:border-indigo-500 transition-all duration-500"
+                className="group relative bg-gradient-to-br from-yellow-500/10 via-transparent to-amber-500/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-yellow-500/30 hover:border-yellow-400 transition-all duration-500 hover:shadow-[0_0_40px_rgba(250,204,21,0.3)]"
               >
-                <div className="absolute inset-0 bg-indigo-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Glow effect jaune au hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 via-amber-500/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+                <div className="absolute inset-0 bg-yellow-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative">
-                  <div className="w-16 h-16 rounded-2xl bg-indigo-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Brain className="w-8 h-8 text-indigo-400" />
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/30 to-amber-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-yellow-500/20">
+                    <Brain className="w-8 h-8 text-yellow-400" />
                   </div>
 
                   <h2 className="text-3xl font-bold text-white mb-2">
-                    Nexaura <span className="text-indigo-400">Consulting</span>
+                    Nexaura <span className="bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent font-extrabold">Consulting</span>
                   </h2>
 
                   <p className="text-gray-400 mb-6">
@@ -167,8 +169,8 @@ const Index = () => {
                       "Accompagnement stratégique",
                       "ROI mesurable et concret"
                     ].map((item, i) => (
-                      <li key={i} className="flex items-center gap-2 text-gray-300 text-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+                      <li key={i} className="flex items-center gap-2 text-gray-300 text-sm group-hover:text-yellow-100 transition-colors">
+                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 group-hover:shadow-[0_0_8px_rgba(250,204,21,0.8)] transition-shadow" />
                         {item}
                       </li>
                     ))}
@@ -176,7 +178,7 @@ const Index = () => {
 
                   <Button 
                     variant="outline" 
-                    className="w-full bg-indigo-500/10 border-indigo-500/50 text-indigo-300 hover:bg-indigo-500/20 group"
+                    className="w-full bg-gradient-to-r from-yellow-500/20 to-amber-500/10 border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/30 hover:border-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] group transition-all duration-300"
                   >
                     Explorer Consulting
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

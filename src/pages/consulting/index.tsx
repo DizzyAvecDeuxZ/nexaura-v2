@@ -61,7 +61,7 @@ export default function ConsultingPage() {
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
                 Transformez votre entreprise{" "}
-                <span className="text-indigo-400">avec l'IA</span>
+                <span className="bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent font-extrabold">avec l'IA</span>
               </h1>
 
               <ShinyText className="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
@@ -73,7 +73,7 @@ export default function ConsultingPage() {
                 <Button 
                   variant="cta" 
                   size="xl" 
-                  className="bg-indigo-500 hover:bg-indigo-600"
+                  className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black font-semibold shadow-[0_0_30px_rgba(250,204,21,0.4)] hover:shadow-[0_0_50px_rgba(250,204,21,0.6)] transition-all duration-300"
                   onClick={() => setShowCalendly(true)}
                 >
                   <Calendar className="w-5 h-5 mr-2" />
@@ -82,6 +82,7 @@ export default function ConsultingPage() {
                 <Button 
                   variant="outline" 
                   size="xl"
+                  className="border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/20 hover:border-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.3)] transition-all duration-300"
                   onClick={() => document.getElementById('offers')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Découvrir nos offres
@@ -129,30 +130,30 @@ export default function ConsultingPage() {
                   transition={{ delay: index * 0.1 }}
                 >
                   <TiltedCard
-                    className={`relative h-full bg-white/5 backdrop-blur-xl rounded-2xl p-6 border-2 ${
-                      offer.popular ? 'border-indigo-500' : 'border-white/10'
-                    } hover:border-indigo-500/50 transition-all duration-300`}
+                    className={`group relative h-full bg-white/5 backdrop-blur-xl rounded-2xl p-6 border-2 ${
+                      offer.popular ? 'border-yellow-400 shadow-[0_0_30px_rgba(250,204,21,0.2)]' : 'border-white/10'
+                    } hover:border-yellow-400 hover:shadow-[0_0_40px_rgba(250,204,21,0.3)] transition-all duration-300`}
                   >
                     {offer.popular && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-amber-500 text-white text-xs font-semibold px-4 py-1 rounded-full">
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-amber-500 text-black text-xs font-bold px-4 py-1 rounded-full shadow-[0_0_15px_rgba(250,204,21,0.5)]">
                         Recommandé
                       </span>
                     )}
 
-                    <div className={`w-12 h-12 rounded-xl ${offer.popular ? 'bg-indigo-500/20' : 'bg-white/10'} flex items-center justify-center mb-4`}>
-                      {offer.id === "audit-express" && <Lightbulb className="w-6 h-6 text-indigo-400" />}
-                      {offer.id === "audit-strategique" && <Brain className="w-6 h-6 text-indigo-400" />}
-                      {offer.id === "poc-custom" && <LineChart className="w-6 h-6 text-indigo-400" />}
+                    <div className={`w-12 h-12 rounded-xl ${offer.popular ? 'bg-gradient-to-br from-yellow-400/30 to-amber-500/20' : 'bg-white/10 group-hover:bg-yellow-500/20'} flex items-center justify-center mb-4 transition-all duration-300 shadow-lg group-hover:shadow-yellow-500/30`}>
+                      {offer.id === "audit-express" && <Lightbulb className="w-6 h-6 text-yellow-400" />}
+                      {offer.id === "audit-strategique" && <Brain className="w-6 h-6 text-yellow-400" />}
+                      {offer.id === "poc-custom" && <LineChart className="w-6 h-6 text-yellow-400" />}
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-2">{offer.name}</h3>
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-yellow-100 transition-colors">{offer.name}</h3>
                     <p className="text-gray-400 text-sm mb-4">{offer.description}</p>
 
                     <PriceDisplay 
                       priceEUR={offer.priceEUR} 
                       priceDZD={offer.priceDZD} 
                       currency={currency}
-                      className="text-indigo-400 mb-2"
+                      className="text-yellow-400 mb-2"
                     />
 
                     <p className="text-gray-500 text-sm mb-2">⏱️ {offer.duration}</p>
@@ -160,8 +161,8 @@ export default function ConsultingPage() {
 
                     <ul className="space-y-2 mb-6">
                       {offer.deliverables.slice(0, 4).map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
-                          <Check className="w-4 h-4 text-indigo-400 mt-0.5 flex-shrink-0" />
+                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300 group-hover:text-yellow-50 transition-colors">
+                          <Check className="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0 group-hover:shadow-[0_0_8px_rgba(250,204,21,0.6)]" />
                           {item}
                         </li>
                       ))}
@@ -169,7 +170,7 @@ export default function ConsultingPage() {
 
                     <Button 
                       variant={offer.popular ? "cta" : "outline"}
-                      className={`w-full ${offer.popular ? 'bg-indigo-500 hover:bg-indigo-600' : ''}`}
+                      className={`w-full ${offer.popular ? 'bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black font-semibold shadow-[0_0_20px_rgba(250,204,21,0.4)]' : 'border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/20 hover:border-yellow-400'}`}
                       onClick={() => setShowCalendly(true)}
                     >
                       {offer.cta}
@@ -182,11 +183,11 @@ export default function ConsultingPage() {
         </section>
 
         {/* Use Cases */}
-        <section id="cases" className="py-24 px-4 bg-gradient-to-b from-black via-indigo-950/10 to-black">
+        <section id="cases" className="py-24 px-4 bg-gradient-to-b from-black via-yellow-950/10 to-black">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                Cas d'<span className="text-amber-400">usage</span>
+                Cas d'<span className="bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">usage</span>
               </h2>
               <ShinyText className="text-lg text-gray-400">
                 Implémentations concrètes avec ROI mesurable
@@ -201,11 +202,11 @@ export default function ConsultingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-amber-500/30 transition-all group"
+                  className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-yellow-400/50 hover:shadow-[0_0_30px_rgba(250,204,21,0.15)] transition-all group"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-                      <Sparkles className="w-5 h-5 text-amber-400" />
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-400/30 to-amber-500/20 flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-yellow-500/40 transition-shadow">
+                      <Sparkles className="w-5 h-5 text-yellow-400" />
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-white mb-1">{useCase.title}</h3>
@@ -226,7 +227,7 @@ export default function ConsultingPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                Notre <span className="text-indigo-400">méthodologie</span>
+                Notre <span className="bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">méthodologie</span>
               </h2>
               <ShinyText className="text-lg text-gray-400">
                 Un processus éprouvé de la stratégie à l'échelle
@@ -243,7 +244,7 @@ export default function ConsultingPage() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 text-center"
                 >
-                  <span className="inline-block w-10 h-10 rounded-full bg-indigo-500/20 text-indigo-400 font-bold flex items-center justify-center mb-4">
+                  <span className="inline-block w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400/30 to-amber-500/20 text-yellow-400 font-bold flex items-center justify-center mb-4 shadow-lg shadow-yellow-500/20">
                     {step.step}
                   </span>
                   <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
@@ -255,7 +256,7 @@ export default function ConsultingPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-24 px-4 bg-gradient-to-t from-indigo-950/20 to-black">
+        <section className="py-24 px-4 bg-gradient-to-t from-yellow-950/20 to-black">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               Prêt à explorer le potentiel de l'IA ?
@@ -267,7 +268,7 @@ export default function ConsultingPage() {
             <Button 
               variant="cta" 
               size="xl" 
-              className="bg-indigo-500 hover:bg-indigo-600"
+              className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black font-semibold shadow-[0_0_30px_rgba(250,204,21,0.4)] hover:shadow-[0_0_50px_rgba(250,204,21,0.6)] transition-all duration-300"
               onClick={() => setShowCalendly(true)}
             >
               <Calendar className="w-5 h-5 mr-2" />
