@@ -29,12 +29,21 @@ const Index = () => {
 
       {/* Vortex global background - mix violet/jaune */}
       <div className="fixed inset-0 z-0" aria-hidden="true">
+        {/* Couche violette */}
         <Vortex
           backgroundColor="black"
-          className="w-full h-full"
+          className="w-full h-full absolute inset-0"
           particleCount={particleCount}
-          baseHue={280}
+          baseHue={270}
           rangeSpeed={rangeSpeed}
+        />
+        {/* Couche jaune par-dessus */}
+        <Vortex
+          backgroundColor="transparent"
+          className="w-full h-full absolute inset-0"
+          particleCount={80}
+          baseHue={45}
+          rangeSpeed={0.6}
         />
       </div>
 
