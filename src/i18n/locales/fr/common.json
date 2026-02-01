@@ -1,41 +1,47 @@
 {
   "nav": {
     "home": "Accueil",
-    "services": "Services",
-    "portfolio": "Portfolio",
-    "offers": "Offres",
+    "digital": "Digital",
+    "consulting": "Consulting",
+    "about": "À propos",
     "contact": "Contact"
   },
   "hero": {
-    "title": "Créer l'expérience web de demain",
-    "subtitle": "Nous créons des sites et applications qui impressionnent. Design futuriste, technologie moderne, livraison rapide.",
-    "cta_projects": "Voir nos projets",
-    "cta_call": "Réserver un appel"
+    "title": "Nexaura",
+    "description": "Nexaura accompagne les entreprises dans leur transformation digitale, de la création de sites web performants à l'intégration de l'IA dans leurs processus métier."
   },
-  "stats": {
-    "projects": "Projets livrés",
-    "delivery": "Délai moyen",
-    "satisfaction": "Clients satisfaits",
-    "response": "Réponse garantie"
+  "cards": {
+    "digital": {
+      "title": "Nexaura Digital",
+      "tagline": "Votre présence digitale, optimisée par la data",
+      "description": "Sites web, applications mobiles, e-commerce",
+      "stats": {
+        "responsive": "100% responsive",
+        "seo": "SEO natif",
+        "support": "Maintenance & support inclus"
+      },
+      "cta": "Découvrir nos solutions"
+    },
+    "consulting": {
+      "title": "Nexaura Consulting",
+      "tagline": "L'intelligence artificielle au service de vos décisions",
+      "description": "Intelligence artificielle, automatisation, transformation",
+      "stats": {
+        "roi": "ROI mesurable",
+        "automation": "Automatisation 24/7",
+        "predictions": "Prédictions temps réel"
+      },
+      "cta": "Auditer mon projet"
+    }
   },
-  "contact": {
-    "title": "Contactez-nous",
-    "name": "Nom complet",
-    "email": "Email",
-    "phone": "Téléphone (optionnel)",
-    "project_type": "Type de projet",
-    "message": "Message",
-    "want_call": "Je veux un appel gratuit de 20 minutes",
-    "submit": "Envoyer ma demande",
-    "success_title": "Message envoyé !",
-    "success_message": "On vous recontacte sous 24h"
+  "cta": {
+    "question": "Votre projet ne rentre dans aucune case ?",
+    "button": "Parlons-en"
   },
   "footer": {
-    "description": "Agence web next-gen. Design futuriste, technologie de pointe.",
-    "quick_links": "Liens rapides",
-    "contact": "Contact",
-    "rights": "Tous droits réservés.",
-    "legal": "Mentions légales",
-    "terms": "CGU"
+    "digital": "Digital",
+    "consulting": "Consulting",
+    "about": "À propos",
+    "rights": "Tous droits réservés."
   }
 }

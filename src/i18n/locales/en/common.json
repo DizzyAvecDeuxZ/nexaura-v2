@@ -1,41 +1,47 @@
 {
   "nav": {
     "home": "Home",
-    "services": "Services",
-    "portfolio": "Portfolio",
-    "offers": "Pricing",
+    "digital": "Digital",
+    "consulting": "Consulting",
+    "about": "About",
     "contact": "Contact"
   },
   "hero": {
-    "title": "Create Tomorrow's Web Experience",
-    "subtitle": "We create impressive websites and apps. Futuristic design, modern technology, fast delivery.",
-    "cta_projects": "View Our Projects",
-    "cta_call": "Book a Call"
+    "title": "Nexaura",
+    "description": "Nexaura helps businesses in their digital transformation, from creating high-performance websites to integrating AI into their business processes."
   },
-  "stats": {
-    "projects": "Projects Delivered",
-    "delivery": "Average Delivery",
-    "satisfaction": "Client Satisfaction",
-    "response": "Response Guaranteed"
+  "cards": {
+    "digital": {
+      "title": "Nexaura Digital",
+      "tagline": "Your digital presence, optimized by data",
+      "description": "Websites, mobile applications, e-commerce",
+      "stats": {
+        "responsive": "100% responsive",
+        "seo": "Native SEO",
+        "support": "Maintenance & support included"
+      },
+      "cta": "Discover our solutions"
+    },
+    "consulting": {
+      "title": "Nexaura Consulting",
+      "tagline": "Artificial intelligence at the service of your decisions",
+      "description": "Artificial intelligence, automation, transformation",
+      "stats": {
+        "roi": "Measurable ROI",
+        "automation": "Automation 24/7",
+        "predictions": "Real-time predictions"
+      },
+      "cta": "Audit my project"
+    }
   },
-  "contact": {
-    "title": "Contact Us",
-    "name": "Full Name",
-    "email": "Email",
-    "phone": "Phone (optional)",
-    "project_type": "Project Type",
-    "message": "Message",
-    "want_call": "I want a free 20-minute call",
-    "submit": "Send My Request",
-    "success_title": "Message Sent!",
-    "success_message": "We'll contact you within 24h"
+  "cta": {
+    "question": "Your project doesn't fit any category?",
+    "button": "Let's talk"
   },
   "footer": {
-    "description": "Next-gen web agency. Futuristic design, cutting-edge technology.",
-    "quick_links": "Quick Links",
-    "contact": "Contact",
-    "rights": "All rights reserved.",
-    "legal": "Legal Notice",
-    "terms": "Terms"
+    "digital": "Digital",
+    "consulting": "Consulting",
+    "about": "About",
+    "rights": "All rights reserved."
   }
 }

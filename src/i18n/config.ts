@@ -4,10 +4,12 @@ import LanguageDetector from "i18next-browser-languagedetector";
 
 import fr from "./locales/fr/common.json";
 import en from "./locales/en/common.json";
+import ar from "./locales/ar/common.json";
 
 const resources = {
   fr: { translation: fr },
-  en: { translation: en }
+  en: { translation: en },
+  ar: { translation: ar }
 };
 
 i18n
@@ -17,6 +19,7 @@ i18n
     resources,
     fallbackLng: "fr",
     lng: "fr",
+    rtlLanguages: ["ar"],
     interpolation: {
       escapeValue: false
     },

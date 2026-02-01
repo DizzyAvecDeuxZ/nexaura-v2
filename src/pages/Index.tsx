@@ -1,9 +1,11 @@
 import { useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Linkedin } from "lucide-react";
+import { ArrowRight, Linkedin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Vortex } from "@/components/ui/vortex";
 import { GradientText } from "@/components/ui/gradient-text";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 
 
@@ -14,6 +16,9 @@ const ContactModal = lazy(() => import("@/components/ContactModal"));
 const Index = () => {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const isMobile = useIsMobile();
+  const { t, i18n } = useTranslation();
+  
+  const isRTL = i18n.language === "ar";
 
   const particleCount = isMobile ? 50 : 150;
   const rangeSpeed = isMobile ? 0.5 : 0.8;
@@ -73,11 +78,9 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-lg md:text-xl text-gray-400 text-center max-w-3xl mb-16 px-4"
+              className={`text-lg md:text-xl text-gray-400 text-center max-w-3xl mb-16 px-4 ${isRTL ? 'rtl' : ''}`}
             >
-              Nexaura accompagne les entreprises dans leur transformation digitale, 
-              de la création de sites web performants à l'intégration de l'IA dans 
-              leurs processus métier.
+              {t('hero.description')}
             </motion.p>
 
             {/* Split Cards - Digital vs Consulting */}
@@ -99,26 +102,26 @@ const Index = () => {
                 
                 <div className="relative flex flex-col flex-1">
                   <h2 className="text-3xl font-bold text-white mb-2">
-                    Nexaura <span className="text-violet-400">Digital</span>
+                    {t('cards.digital.title')}
                   </h2>
 
                   <p className="text-violet-300/80 text-sm font-medium tracking-wide uppercase mb-4">
-                    Votre présence digitale, optimisée par la data
+                    {t('cards.digital.tagline')}
                   </p>
 
                   <p className="text-gray-400 mb-6">
-                    Sites web, applications mobiles, e-commerce
+                    {t('cards.digital.description')}
                   </p>
 
                   <div className="grid grid-cols-2 gap-2 mb-8">
                     <span className="px-3 py-1 text-xs font-medium bg-violet-500/20 text-violet-300 rounded-full border border-violet-500/30 text-center">
-                      100% responsive
+                      {t('cards.digital.stats.responsive')}
                     </span>
                     <span className="px-3 py-1 text-xs font-medium bg-violet-500/20 text-violet-300 rounded-full border border-violet-500/30 text-center">
-                      SEO natif
+                      {t('cards.digital.stats.seo')}
                     </span>
                     <span className="col-span-2 px-3 py-1 text-xs font-medium bg-violet-500/20 text-violet-300 rounded-full border border-violet-500/30 text-center">
-                      Maintenance & support inclus
+                      {t('cards.digital.stats.support')}
                     </span>
                   </div>
 
@@ -127,7 +130,7 @@ const Index = () => {
                       variant="outline" 
                       className="w-full bg-violet-500/10 border-violet-500/50 text-violet-300 hover:bg-violet-500/20 group"
                     >
-                      Découvrir nos solutions
+                      {t('cards.digital.cta')}
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </div>
@@ -150,22 +153,22 @@ const Index = () => {
                   </h2>
 
                   <p className="text-yellow-300/80 text-sm font-medium tracking-wide uppercase mb-4">
-                    L'intelligence artificielle au service de vos décisions
+                    {t('cards.consulting.tagline')}
                   </p>
 
                   <p className="text-gray-400 mb-6">
-                    Intelligence artificielle, automatisation, transformation
+                    {t('cards.consulting.description')}
                   </p>
 
                   <div className="grid grid-cols-2 gap-2 mb-8">
                     <span className="px-3 py-1 text-xs font-medium bg-yellow-500/20 text-yellow-300 rounded-full border border-yellow-500/30 group-hover:bg-yellow-500/30 transition-colors text-center">
-                      Automatisation 24/7
+                      {t('cards.consulting.stats.automation')}
                     </span>
                     <span className="px-3 py-1 text-xs font-medium bg-yellow-500/20 text-yellow-300 rounded-full border border-yellow-500/30 group-hover:bg-yellow-500/30 transition-colors text-center">
-                      Prédictions temps réel
+                      {t('cards.consulting.stats.predictions')}
                     </span>
                     <span className="col-span-2 px-3 py-1 text-xs font-medium bg-yellow-500/20 text-yellow-300 rounded-full border border-yellow-500/30 group-hover:bg-yellow-500/30 transition-colors text-center">
-                      ROI mesurable
+                      {t('cards.consulting.stats.roi')}
                     </span>
                   </div>
 
@@ -174,7 +177,7 @@ const Index = () => {
                       variant="outline" 
                       className="w-full bg-gradient-to-r from-yellow-500/20 to-amber-500/10 border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/30 hover:border-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] group transition-all duration-300"
                     >
-                      Auditer mon projet
+                      {t('cards.consulting.cta')}
                       <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </div>
@@ -189,12 +192,12 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="mt-16 text-center"
             >
-              <p className="text-gray-500 mb-4">Votre projet ne rentre dans aucune case ?</p>
+              <p className="text-gray-500 mb-4">{t('cta.question')}</p>
               <Button 
                 onClick={() => setIsContactOpen(true)}
                 className="bg-gradient-to-r from-violet-600 to-amber-500 text-white border-0 hover:from-violet-500 hover:to-amber-400 shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.5)] transition-all duration-300"
               >
-                Parlons-en
+                {t('cta.button')}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </motion.div>
@@ -204,19 +207,20 @@ const Index = () => {
           <footer className="py-8 px-4 border-t border-white/10 bg-black">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-600 text-sm">
-                © 2026 Nexaura. Tous droits réservés.
+                © 2026 Nexaura. {t('footer.rights')}
               </p>
               <div className="flex items-center gap-6">
                 <a href="/digital" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">
-                  Digital
+                  {t('footer.digital')}
                 </a>
                 <a href="/consulting" className="text-gray-500 hover:text-amber-400 text-sm transition-colors">
-                  Consulting
+                  {t('footer.consulting')}
                 </a>
                 <a href="/holding/a-propos" className="text-gray-500 hover:text-white text-sm transition-colors">
-                  À propos
+                  {t('footer.about')}
                 </a>
                 <div className="w-px h-4 bg-gray-700" />
+                <LanguageSwitcher />
                 <a 
                   href="mailto:services@nexauraholding.com"
                   className="text-gray-500 hover:text-red-500 transition-colors"
