@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, LineChart, Users, Lightbulb, Check, Calendar, Sparkles } from "lucide-react";
+import { ArrowRight, Brain, LineChart, Users, Lightbulb, Check, Calendar, Sparkles, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Vortex } from "@/components/ui/vortex";
 import { ShinyText } from "@/components/ui/shiny-text";
@@ -283,29 +283,32 @@ export default function ConsultingPage() {
 
       <Footer variant="consulting" />
 
-      {/* Calendly Modal */}
+      {/* Google Calendar Modal */}
       {showCalendly && (
         <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4">
-          <div className="bg-gray-900 rounded-2xl w-full max-w-4xl h-[80vh] relative">
+          <div className="bg-gray-900 rounded-2xl w-full max-w-md relative p-8">
             <button
               onClick={() => setShowCalendly(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-white z-10 text-2xl"
             >
               ×
             </button>
-            <div className="h-full flex flex-col items-center justify-center text-gray-400 p-8">
-              <Calendar className="w-16 h-16 text-indigo-400 mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Calendly à intégrer</h3>
-              <p className="mb-4 text-center">Remplacez ce bloc par votre widget Calendly</p>
-              <code className="bg-black/50 px-4 py-2 rounded text-sm mb-4">
-                data-url="https://calendly.com/votre-lien"
-              </code>
-              <Button 
-                className="bg-indigo-500 hover:bg-indigo-600"
-                onClick={() => window.open('https://calendly.com', '_blank')}
+            <div className="text-center">
+              <Calendar className="w-16 h-16 text-indigo-400 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Prendre rendez-vous</h3>
+              <p className="text-gray-400 mb-6">
+                Envoyez-nous un email avec vos disponibilités. Nous vous proposerons un créneau sous 24h.
+              </p>
+              <a
+                href="mailto:alexis.pinalopez@nexauraholding.com?subject=Demande%20de%20rendez-vous%20-%20Nexaura%20Consulting&body=Bonjour,%0A%0AJe%20souhaite%20prendre%20rendez-vous%20pour%20discuter%20de%20mon%20projet.%0A%0AMes%20disponibilités%20:%0A-%0A-%0A-%0A%0ACordialement,"
+                className="inline-flex items-center justify-center w-full px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-xl transition-colors"
               >
-                Ouvrir Calendly
-              </Button>
+                <Mail className="w-5 h-5 mr-2" />
+                Envoyer une demande de RDV
+              </a>
+              <p className="text-gray-500 text-sm mt-4">
+                alexis.pinalopez@nexauraholding.com
+              </p>
             </div>
           </div>
         </div>

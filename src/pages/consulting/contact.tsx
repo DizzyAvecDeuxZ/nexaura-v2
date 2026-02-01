@@ -121,12 +121,12 @@ export default function ConsultingContactPage() {
 
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-indigo-400" />
+                    <Calendar className="w-6 h-6 text-indigo-400" />
                   </div>
                   <div>
-                    <p className="text-gray-500 text-sm">Téléphone</p>
-                    <p className="text-white">+33 6 12 34 56 78</p>
-                    <p className="text-xs text-yellow-500 mt-1">⚠️ Remplacer par votre vrai numéro</p>
+                    <p className="text-gray-500 text-sm">Rendez-vous</p>
+                    <p className="text-white">Sur demande par email</p>
+                    <p className="text-xs text-indigo-400 mt-1">Réponse sous 24h</p>
                   </div>
                 </div>
 
@@ -292,29 +292,32 @@ export default function ConsultingContactPage() {
 
       <Footer variant="consulting" />
 
-      {/* Calendly Modal */}
+      {/* Google Calendar Modal */}
       {showCalendly && (
         <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex items-center justify-center p-4">
-          <div className="bg-gray-900 rounded-2xl w-full max-w-5xl h-[85vh] relative overflow-hidden">
+          <div className="bg-gray-900 rounded-2xl w-full max-w-md relative overflow-hidden p-8">
             <button
               onClick={() => setShowCalendly(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-white z-10 text-2xl bg-black/50 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
             >
               ×
             </button>
-            <div className="h-full w-full pt-12">
-              {/* 
-                REMPLACER PAR VOTRE URL CALENDLY :
-                Format : https://calendly.com/VOTRE_NOM/rdv-strategique
-              */}
-              <iframe
-                src="https://calendly.com/nexaura/rdv-strategique"
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                title="Calendly"
-                className="rounded-b-2xl"
-              />
+            <div className="text-center">
+              <Calendar className="w-16 h-16 text-indigo-400 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">Prendre rendez-vous</h3>
+              <p className="text-gray-400 mb-6">
+                Envoyez-nous un email avec vos disponibilités. Nous vous proposerons un créneau sous 24h.
+              </p>
+              <a
+                href="mailto:alexis.pinalopez@nexauraholding.com?subject=Demande%20de%20rendez-vous%20-%20Nexaura%20Consulting&body=Bonjour,%0A%0AJe%20souhaite%20prendre%20rendez-vous%20pour%20discuter%20de%20mon%20projet.%0A%0AMes%20disponibilités%20:%0A-%0A-%0A-%0A%0ACordialement,"
+                className="inline-flex items-center justify-center w-full px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-xl transition-colors"
+              >
+                <Mail className="w-5 h-5 mr-2" />
+                Envoyer une demande de RDV
+              </a>
+              <p className="text-gray-500 text-sm mt-4">
+                alexis.pinalopez@nexauraholding.com
+              </p>
             </div>
           </div>
         </div>
