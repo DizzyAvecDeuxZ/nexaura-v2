@@ -54,7 +54,7 @@ const Index = () => {
               className="mb-8"
             >
               <img 
-                src="/logo-nexaura-white.png" 
+                src="/logo-nexaura-white.webp" 
                 alt="Nexaura" 
                 className={isMobile ? "w-32 h-auto" : "w-48 h-auto"}
               />
