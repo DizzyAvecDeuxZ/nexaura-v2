@@ -47,10 +47,10 @@ export default function DigitalPage() {
         rangeSpeed={0.3}
       />
       
-      {/* Particules et faisceaux violets */}
-      <FloatingParticles count={8} colors={["violet", "fuchsia"]} className="fixed" />
-      <AnimatedLines variant="violet" className="fixed" />
-      <BackgroundBeams color="violet" className="fixed" />
+      {/* Particules et faisceaux violets - répartis sur toute la hauteur */}
+      <FloatingParticles count={25} colors={["violet", "fuchsia"]} spread={4} fixed={true} />
+      <AnimatedLines variant="violet" className="fixed inset-0" />
+      <BackgroundBeams color="violet" className="fixed inset-0" />
 
       <Header 
         variant="digital" 

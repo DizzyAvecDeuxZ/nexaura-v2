@@ -15,13 +15,13 @@ interface Particle {
 
 const colorOptions: ParticleColor[] = ["violet", "green", "yellow", "amber", "indigo", "fuchsia"];
 
-const generateParticles = (count: number, colors?: ParticleColor[]): Particle[] => {
+const generateParticles = (count: number, colors?: ParticleColor[], spread: number = 1): Particle[] => {
   const availableColors = colors && colors.length > 0 ? colors : ["violet", "green"];
   return Array.from({ length: count }, (_, i) => ({
     id: i,
-    size: Math.random() * 80 + 40,
+    size: Math.random() * 100 + 60,
     x: Math.random() * 100,
-    y: Math.random() * 100,
+    y: Math.random() * 100 * spread,
     duration: Math.random() * 10 + 15,
     delay: Math.random() * 5,
     color: availableColors[Math.floor(Math.random() * availableColors.length)],
@@ -32,6 +32,8 @@ interface FloatingParticlesProps {
   count?: number;
   className?: string;
   colors?: ParticleColor[];
+  spread?: number; // Multiplicateur de hauteur (1 = 100vh, 3 = 300vh)
+  fixed?: boolean; // Si true, les particules restent visibles en scrollant
 }
 
 const colorClasses: Record<ParticleColor, string> = {
@@ -43,14 +45,14 @@ const colorClasses: Record<ParticleColor, string> = {
   fuchsia: "bg-fuchsia-500/20",
 };
 
-export function FloatingParticles({ count = 6, className = "", colors }: FloatingParticlesProps) {
+export function FloatingParticles({ count = 6, className = "", colors, spread = 1, fixed = true }: FloatingParticlesProps) {
   const [particles, setParticles] = useState<Particle[]>([]);
   const [key, setKey] = useState(0);
 
   const regenerateParticles = useCallback(() => {
-    setParticles(generateParticles(count, colors));
+    setParticles(generateParticles(count, colors, spread));
     setKey(prev => prev + 1);
-  }, [count, colors]);
+  }, [count, colors, spread]);
 
   useEffect(() => {
     regenerateParticles();
@@ -68,8 +70,10 @@ export function FloatingParticles({ count = 6, className = "", colors }: Floatin
     };
   }, [regenerateParticles]);
 
+  const positionClass = fixed ? 'fixed' : 'absolute';
+  
   return (
-    <div key={key} className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
+    <div key={key} className={`${positionClass} inset-0 overflow-visible pointer-events-none ${className}`} style={{ height: `${spread * 100}vh` }}>
       {particles.map((particle) => (
         <motion.div
           key={particle.id}

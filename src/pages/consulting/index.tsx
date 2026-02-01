@@ -29,6 +29,7 @@ export default function ConsultingPage() {
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
+      {/* Vortex - fond animé fixe */}
       <Vortex
         backgroundColor="black"
         className="fixed inset-0"
@@ -38,10 +39,10 @@ export default function ConsultingPage() {
         rangeSpeed={0.2}
       />
       
-      {/* Particules et faisceaux jaunes */}
-      <FloatingParticles count={8} colors={["yellow", "amber"]} className="fixed" />
-      <AnimatedLines variant="amber" className="fixed" />
-      <BackgroundBeams color="amber" className="fixed" />
+      {/* Particules et faisceaux jaunes - répartis sur toute la hauteur de la page */}
+      <FloatingParticles count={25} colors={["yellow", "amber"]} spread={4} fixed={true} />
+      <AnimatedLines variant="amber" className="fixed inset-0" />
+      <BackgroundBeams color="amber" className="fixed inset-0" />
 
       <Header 
         variant="consulting" 
