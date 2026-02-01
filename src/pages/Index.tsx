@@ -1,6 +1,6 @@
 import { useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Vortex } from "@/components/ui/vortex";
 import { GradientText } from "@/components/ui/gradient-text";
@@ -192,10 +192,10 @@ const Index = () => {
               <p className="text-gray-500 mb-4">Votre projet ne rentre dans aucune case ?</p>
               <Button 
                 onClick={() => setIsContactOpen(true)}
-                variant="outline" 
-                className="bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-white/40"
+                className="bg-gradient-to-r from-violet-600 to-amber-500 text-white border-0 hover:from-violet-500 hover:to-amber-400 shadow-[0_0_30px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.5)] transition-all duration-300"
               >
                 Parlons-en
+                <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </motion.div>
           </section>
@@ -206,15 +206,32 @@ const Index = () => {
               <p className="text-gray-600 text-sm">
                 © 2026 Nexaura. Tous droits réservés.
               </p>
-              <div className="flex gap-6">
+              <div className="flex items-center gap-6">
                 <a href="/digital" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">
                   Digital
                 </a>
-                <a href="/consulting" className="text-gray-500 hover:text-indigo-400 text-sm transition-colors">
+                <a href="/consulting" className="text-gray-500 hover:text-amber-400 text-sm transition-colors">
                   Consulting
                 </a>
                 <a href="/holding/a-propos" className="text-gray-500 hover:text-white text-sm transition-colors">
                   À propos
+                </a>
+                <div className="w-px h-4 bg-gray-700" />
+                <a 
+                  href="mailto:services@nexauraholding.com"
+                  className="text-gray-500 hover:text-white text-sm transition-colors flex items-center gap-2"
+                >
+                  <Mail className="w-3.5 h-3.5" />
+                  services@nexauraholding.com
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/alexis-pina-lopez-aa61b517b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-[#0A66C2] transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4" />
                 </a>
               </div>
             </div>
