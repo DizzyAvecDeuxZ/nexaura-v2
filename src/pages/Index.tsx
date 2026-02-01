@@ -1,14 +1,12 @@
 import { useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Monitor, Brain, ChevronDown } from "lucide-react";
+import { ArrowRight, Monitor, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Vortex } from "@/components/ui/vortex";
 import { GradientText } from "@/components/ui/gradient-text";
-import { ShinyText } from "@/components/ui/shiny-text";
 
 
-import { BackgroundBeams } from "@/components/ui/background-beams";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const ContactModal = lazy(() => import("@/components/ContactModal"));
@@ -65,29 +63,10 @@ const Index = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-4"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-16"
             >
-              <GradientText>Nexaura Holding</GradientText>
+              <GradientText>Nexaura</GradientText>
             </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-xl md:text-2xl text-gray-400 text-center mb-4"
-            >
-              Une holding. Deux expertises.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              <ShinyText className="text-lg text-gray-500 text-center max-w-xl mb-16">
-                Technologie opérationnelle & conseil stratégique pour votre transformation digitale
-              </ShinyText>
-            </motion.div>
 
             {/* Split Cards - Digital vs Consulting */}
             <motion.div
@@ -186,60 +165,13 @@ const Index = () => {
                 </div>
               </motion.a>
             </motion.div>
-
-            {/* Trust Badges */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-              className="mt-16 flex flex-wrap justify-center gap-8 text-gray-500 text-sm"
-            >
-              <span>50+ projets livrés</span>
-              <span className="hidden md:block">•</span>
-              <span>98% clients satisfaits</span>
-              <span className="hidden md:block">•</span>
-              <span>Présence France & Algérie</span>
-            </motion.div>
-
-            {/* Scroll indicator */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, y: [0, 10, 0] }}
-              transition={{ 
-                opacity: { delay: 1.2 },
-                y: { duration: 2, repeat: Infinity }
-              }}
-              className="mt-12"
-            >
-              <ChevronDown className="w-6 h-6 text-gray-600" />
-            </motion.div>
-          </section>
-
-          {/* Testimonials Section */}
-          <TestimonialsSection />
-
-          {/* About Section */}
-          <section className="py-24 px-4 bg-gradient-to-b from-transparent via-black/50 to-black/80">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Pourquoi séparer <span className="gradient-text">Digital</span> et <span className="text-indigo-400">Consulting</span> ?
-              </h2>
-              <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                Parce qu'un site vitrine à 2 000 € et une transformation IA à 50 000 € 
-                ne s'adressent pas aux mêmes organisations, aux mêmes budgets, aux mêmes enjeux.
-              </p>
-              <p className="text-gray-500">
-                Nexaura regroupe deux expertises complémentaires sous une même holding.
-                Vous choisissez votre porte d'entrée, nous vous accompagnons avec la même exigence.
-              </p>
-            </div>
           </section>
 
           {/* Footer */}
           <footer className="py-8 px-4 border-t border-white/10 bg-black">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-600 text-sm">
-                © 2026 Nexaura Holding. Tous droits réservés.
+                © 2026 Nexaura. Tous droits réservés.
               </p>
               <div className="flex gap-6">
                 <a href="/digital" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">
