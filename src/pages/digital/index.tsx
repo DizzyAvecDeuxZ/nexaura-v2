@@ -2,20 +2,19 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Globe, Smartphone, Zap, Clock, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Vortex } from "@/components/ui/vortex";
+
 import { GradientText } from "@/components/ui/gradient-text";
 import { ShinyText } from "@/components/ui/shiny-text";
 import { TiltedCard } from "@/components/ui/tilted-card";
 import { GlareHover } from "@/components/ui/glare-hover";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
-import { FloatingParticles, AnimatedLines } from "@/components/FloatingParticles";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+import { PageParticles } from "@/components/PageParticles";
 import { CurrencyToggle } from "@/components/shared/CurrencyToggle";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { WebPortfolioSection } from "@/components/WebPortfolioSection";
 import { websiteTiers, appTiers } from "@/lib/data/pricing";
-import { useIsMobile } from "@/hooks/use-mobile";
+
 
 const stats = [
   { value: "50+", label: "Projets livrés", icon: Check },
@@ -34,23 +33,12 @@ const processSteps = [
 
 export default function DigitalPage() {
   const [currency, setCurrency] = useState<"eur" | "dzd">("eur");
-  const isMobile = useIsMobile();
+
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
-      <Vortex
-        backgroundColor="black"
-        className="fixed inset-0"
-        particleCount={isMobile ? 50 : 150}
-        baseHue={270}
-        baseSpeed={0.01}
-        rangeSpeed={0.3}
-      />
-      
-      {/* Particules et faisceaux violets - répartis sur toute la hauteur */}
-      <FloatingParticles count={8} colors={["violet", "fuchsia"]} layers={4} />
-      <AnimatedLines variant="violet" className="fixed inset-0" />
-      <BackgroundBeams color="violet" className="fixed inset-0" />
+      {/* Particules violettes visibles */}
+      <PageParticles color="violet" />
 
       <Header 
         variant="digital" 

@@ -2,17 +2,16 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Brain, LineChart, Users, Lightbulb, Check, Calendar, Sparkles, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Vortex } from "@/components/ui/vortex";
+
 import { ShinyText } from "@/components/ui/shiny-text";
 import { TiltedCard } from "@/components/ui/tilted-card";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
-import { FloatingParticles, AnimatedLines } from "@/components/FloatingParticles";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+import { PageParticles } from "@/components/PageParticles";
 import { CurrencyToggle } from "@/components/shared/CurrencyToggle";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { consultingOffers, aiUseCases } from "@/lib/data/pricing";
-import { useIsMobile } from "@/hooks/use-mobile";
+
 
 const methodology = [
   { step: "01", title: "Diagnostic", desc: "Audit complet de vos processus" },
@@ -25,24 +24,12 @@ const methodology = [
 export default function ConsultingPage() {
   const [currency, setCurrency] = useState<"eur" | "dzd">("eur");
   const [showCalendly, setShowCalendly] = useState(false);
-  const isMobile = useIsMobile();
+
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
-      {/* Vortex - fond animé fixe */}
-      <Vortex
-        backgroundColor="black"
-        className="fixed inset-0"
-        particleCount={isMobile ? 50 : 150}
-        baseHue={45}
-        baseSpeed={0.008}
-        rangeSpeed={0.2}
-      />
-      
-      {/* Particules et faisceaux jaunes - répartis sur toute la hauteur de la page */}
-      <FloatingParticles count={8} colors={["yellow", "amber"]} layers={4} />
-      <AnimatedLines variant="amber" className="fixed inset-0" />
-      <BackgroundBeams color="amber" className="fixed inset-0" />
+      {/* Particules jaunes visibles */}
+      <PageParticles color="yellow" />
 
       <Header 
         variant="consulting" 
