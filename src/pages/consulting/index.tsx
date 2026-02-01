@@ -40,7 +40,7 @@ export default function ConsultingPage() {
       />
       
       {/* Particules et faisceaux jaunes - répartis sur toute la hauteur de la page */}
-      <FloatingParticles count={25} colors={["yellow", "amber"]} spread={4} fixed={true} />
+      <FloatingParticles count={8} colors={["yellow", "amber"]} layers={4} />
       <AnimatedLines variant="amber" className="fixed inset-0" />
       <BackgroundBeams color="amber" className="fixed inset-0" />
 

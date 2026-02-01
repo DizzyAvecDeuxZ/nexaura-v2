@@ -48,7 +48,7 @@ export default function DigitalPage() {
       />
       
       {/* Particules et faisceaux violets - répartis sur toute la hauteur */}
-      <FloatingParticles count={25} colors={["violet", "fuchsia"]} spread={4} fixed={true} />
+      <FloatingParticles count={8} colors={["violet", "fuchsia"]} layers={4} />
       <AnimatedLines variant="violet" className="fixed inset-0" />
       <BackgroundBeams color="violet" className="fixed inset-0" />
 

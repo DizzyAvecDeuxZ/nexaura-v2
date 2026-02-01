@@ -15,13 +15,13 @@ interface Particle {
 
 const colorOptions: ParticleColor[] = ["violet", "green", "yellow", "amber", "indigo", "fuchsia"];
 
-const generateParticles = (count: number, colors?: ParticleColor[], spread: number = 1): Particle[] => {
+const generateParticles = (count: number, colors?: ParticleColor[]): Particle[] => {
   const availableColors = colors && colors.length > 0 ? colors : ["violet", "green"];
   return Array.from({ length: count }, (_, i) => ({
     id: i,
     size: Math.random() * 100 + 60,
     x: Math.random() * 100,
-    y: Math.random() * 100 * spread,
+    y: Math.random() * 100,
     duration: Math.random() * 10 + 15,
     delay: Math.random() * 5,
     color: availableColors[Math.floor(Math.random() * availableColors.length)],
@@ -32,8 +32,7 @@ interface FloatingParticlesProps {
   count?: number;
   className?: string;
   colors?: ParticleColor[];
-  spread?: number; // Multiplicateur de hauteur (1 = 100vh, 3 = 300vh)
-  fixed?: boolean; // Si true, les particules restent visibles en scrollant
+  layers?: number; // Nombre de couches (1 = 100vh, 4 = 400vh)
 }
 
 const colorClasses: Record<ParticleColor, string> = {
@@ -45,35 +44,34 @@ const colorClasses: Record<ParticleColor, string> = {
   fuchsia: "bg-fuchsia-500/20",
 };
 
-export function FloatingParticles({ count = 6, className = "", colors, spread = 1, fixed = true }: FloatingParticlesProps) {
+// Composant pour une seule couche de particules
+function ParticleLayer({ 
+  count, 
+  colors, 
+  offset 
+}: { 
+  count: number; 
+  colors?: ParticleColor[]; 
+  offset: number;
+}) {
   const [particles, setParticles] = useState<Particle[]>([]);
   const [key, setKey] = useState(0);
 
   const regenerateParticles = useCallback(() => {
-    setParticles(generateParticles(count, colors, spread));
+    setParticles(generateParticles(count, colors));
     setKey(prev => prev + 1);
-  }, [count, colors, spread]);
+  }, [count, colors]);
 
   useEffect(() => {
     regenerateParticles();
-
-    const handleResize = () => {
-      regenerateParticles();
-    };
-
-    window.addEventListener('resize', handleResize);
-    document.addEventListener('fullscreenchange', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      document.removeEventListener('fullscreenchange', handleResize);
-    };
   }, [regenerateParticles]);
 
-  const positionClass = fixed ? 'fixed' : 'absolute';
-  
   return (
-    <div key={key} className={`${positionClass} inset-0 overflow-visible pointer-events-none ${className}`} style={{ height: `${spread * 100}vh` }}>
+    <div 
+      key={key} 
+      className="fixed left-0 right-0 h-screen overflow-visible pointer-events-none"
+      style={{ top: `${offset * 100}vh` }}
+    >
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
@@ -96,6 +94,21 @@ export function FloatingParticles({ count = 6, className = "", colors, spread = 
             repeat: Infinity,
             ease: "easeInOut",
           }}
+        />
+      ))}
+    </div>
+  );
+}
+
+export function FloatingParticles({ count = 6, className = "", colors, layers = 1 }: FloatingParticlesProps) {
+  return (
+    <div className={className}>
+      {Array.from({ length: layers }, (_, i) => (
+        <ParticleLayer 
+          key={i} 
+          count={count} 
+          colors={colors} 
+          offset={i}
         />
       ))}
     </div>
@@ -147,7 +160,7 @@ export function AnimatedLines({ className = "", variant = "violet" }: AnimatedLi
   }, []);
 
   return (
-    <div key={key} className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
+    <div key={key} className={`fixed inset-0 overflow-hidden pointer-events-none ${className}`}>
       {/* Vertical lines */}
       <motion.div
         className={`absolute left-[10%] top-0 w-px h-full bg-gradient-to-b ${colors.left}`}

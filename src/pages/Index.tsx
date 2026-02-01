@@ -39,7 +39,7 @@ const Index = () => {
       </div>
 
       {/* Particules mixtes jaunes + violets pour la holding */}
-      <FloatingParticles count={20} colors={["violet", "yellow", "fuchsia", "amber"]} spread={3} fixed={true} className="z-0" />
+      <FloatingParticles count={6} colors={["violet", "yellow", "fuchsia", "amber"]} layers={3} className="z-0" />
       <BackgroundBeams color="violet" className="fixed inset-0 z-0 opacity-50" />
 
       {/* Content */}
