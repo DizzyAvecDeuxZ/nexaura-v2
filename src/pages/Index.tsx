@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Vortex } from "@/components/ui/vortex";
 import { GradientText } from "@/components/ui/gradient-text";
 import { ShinyText } from "@/components/ui/shiny-text";
-import { NexauraLogo3DChrome } from "@/components/NexauraLogo3DChrome";
+import logoWhite from "@/assets/logo-nexaura-white.png";
 
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
@@ -53,7 +53,11 @@ const Index = () => {
               transition={{ duration: 0.8 }}
               className="mb-8"
             >
-              <NexauraLogo3DChrome size={isMobile ? 120 : 200} />
+              <img 
+                src={logoWhite} 
+                alt="Nexaura" 
+                className={isMobile ? "w-32 h-auto" : "w-48 h-auto"}
+              />
             </motion.div>
 
             {/* Title */}
