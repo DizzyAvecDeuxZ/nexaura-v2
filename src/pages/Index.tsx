@@ -1,6 +1,6 @@
 import { useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Monitor, Brain } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Vortex } from "@/components/ui/vortex";
 import { GradientText } from "@/components/ui/gradient-text";
@@ -52,9 +52,9 @@ const Index = () => {
               className="mb-8"
             >
               <img 
-                src="/logo-nexaura-white.webp" 
+                src="/logo-icon-white.png" 
                 alt="Nexaura" 
-                className={isMobile ? "w-32 h-auto" : "w-48 h-auto"}
+                className={isMobile ? "w-20 h-auto" : "w-32 h-auto"}
               />
             </motion.div>
 
@@ -79,15 +79,13 @@ const Index = () => {
               <motion.a
                 href="/digital"
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="group relative bg-gradient-to-br from-violet-500/10 via-transparent to-purple-500/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-violet-500/30 hover:border-violet-500 transition-all duration-500"
+                className="group relative bg-gradient-to-br from-violet-500/10 via-transparent to-purple-500/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-violet-500/30 hover:border-violet-400 transition-all duration-500 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]"
               >
+                {/* Glow effect violet au hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
                 <div className="absolute inset-0 bg-violet-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative">
-                  <div className="w-16 h-16 rounded-2xl bg-violet-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Monitor className="w-8 h-8 text-violet-400" />
-                  </div>
-
                   <h2 className="text-3xl font-bold text-white mb-2">
                     Nexaura <span className="text-violet-400">Digital</span>
                   </h2>
@@ -130,10 +128,6 @@ const Index = () => {
                 <div className="absolute inset-0 bg-yellow-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/30 to-amber-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-yellow-500/20">
-                    <Brain className="w-8 h-8 text-yellow-400" />
-                  </div>
-
                   <h2 className="text-3xl font-bold text-white mb-2">
                     Nexaura <span className="bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent font-extrabold">Consulting</span>
                   </h2>
