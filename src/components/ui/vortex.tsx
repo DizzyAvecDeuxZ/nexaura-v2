@@ -17,6 +17,7 @@ interface VortexProps {
   baseRadius?: number;
   rangeRadius?: number;
   backgroundColor?: string;
+  mixed?: boolean; // Alterne entre violet et jaune
 }
 
 export const Vortex = (props: VortexProps) => {
@@ -33,6 +34,7 @@ export const Vortex = (props: VortexProps) => {
   const baseRadius = props.baseRadius || 1;
   const rangeRadius = props.rangeRadius || 2;
   const baseHue = props.baseHue || 270;
+  const mixed = props.mixed || false;
   const rangeHue = 60;
   const noiseSteps = 3;
   const xOff = 0.00125;
@@ -93,7 +95,8 @@ export const Vortex = (props: VortexProps) => {
     ttl = baseTTL + rand(rangeTTL);
     speed = baseSpeed + rand(rangeSpeed);
     radius = baseRadius + rand(rangeRadius);
-    hue = baseHue + rand(rangeHue);
+    // Si mixed, alterne entre violet (270) et jaune (45)
+    hue = mixed ? (i % 2 === 0 ? 270 : 45) : baseHue + rand(rangeHue);
 
     particleProps.set([x, y, vx, vy, life, ttl, speed, radius, hue], i);
   };

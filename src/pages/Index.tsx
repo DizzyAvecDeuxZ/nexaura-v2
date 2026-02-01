@@ -27,23 +27,13 @@ const Index = () => {
         Aller au contenu principal
       </a>
 
-      {/* Vortex MIX - violet + jaune mélangés */}
+      {/* Vortex MIX - violet + jaune mélangés dans un seul canvas */}
       <div className="fixed inset-0 z-0" aria-hidden="true">
-        {/* Vortex violet */}
         <Vortex
           backgroundColor="black"
-          className="w-full h-full absolute inset-0"
-          particleCount={particleCount / 2}
-          baseHue={270}
-          baseSpeed={0.0}
-          rangeSpeed={rangeSpeed}
-        />
-        {/* Vortex jaune par-dessus (transparent) */}
-        <Vortex
-          backgroundColor="transparent"
-          className="w-full h-full absolute inset-0"
-          particleCount={particleCount / 2}
-          baseHue={45}
+          className="w-full h-full"
+          particleCount={particleCount}
+          mixed={true}
           baseSpeed={0.0}
           rangeSpeed={rangeSpeed}
         />
