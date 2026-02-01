@@ -27,44 +27,26 @@ const Index = () => {
         Aller au contenu principal
       </a>
 
-      {/* Vortex global background - mix violet/jaune (parfait comme ça) */}
+      {/* Vortex MIX - violet + jaune mélangés */}
       <div className="fixed inset-0 z-0" aria-hidden="true">
+        {/* Vortex violet */}
         <Vortex
           backgroundColor="black"
-          className="w-full h-full"
-          particleCount={particleCount}
-          baseHue={280}
+          className="w-full h-full absolute inset-0"
+          particleCount={particleCount / 2}
+          baseHue={270}
+          baseSpeed={0.0}
           rangeSpeed={rangeSpeed}
         />
-      </div>
-
-      {/* Particules flottantes jaunes - moitié moitié */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              left: `${5 + (i * 8) % 90}%`,
-              top: `${10 + (i * 12) % 80}%`,
-              width: 80 + (i % 5) * 30,
-              height: 80 + (i % 5) * 30,
-              background: "radial-gradient(circle, rgba(250,204,21,0.35) 0%, transparent 65%)",
-              filter: "blur(15px)",
-            }}
-            animate={{
-              y: [0, -50, 0],
-              x: [0, 30, 0],
-              scale: [1, 1.3, 1],
-            }}
-            transition={{
-              duration: 8 + (i % 6),
-              delay: i * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+        {/* Vortex jaune par-dessus (transparent) */}
+        <Vortex
+          backgroundColor="transparent"
+          className="w-full h-full absolute inset-0"
+          particleCount={particleCount / 2}
+          baseHue={45}
+          baseSpeed={0.0}
+          rangeSpeed={rangeSpeed}
+        />
       </div>
 
 
