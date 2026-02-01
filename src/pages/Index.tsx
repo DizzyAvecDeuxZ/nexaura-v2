@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Vortex } from "@/components/ui/vortex";
 import { GradientText } from "@/components/ui/gradient-text";
 import { ShinyText } from "@/components/ui/shiny-text";
-import logoWhite from "@/assets/logo-nexaura-white.png";
+
 
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
@@ -54,7 +54,7 @@ const Index = () => {
               className="mb-8"
             >
               <img 
-                src={logoWhite} 
+                src="/logo-nexaura-white.png" 
                 alt="Nexaura" 
                 className={isMobile ? "w-32 h-auto" : "w-48 h-auto"}
               />
