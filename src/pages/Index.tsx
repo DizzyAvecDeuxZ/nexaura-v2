@@ -219,10 +219,12 @@ const Index = () => {
                 <div className="w-px h-4 bg-gray-700" />
                 <a 
                   href="mailto:services@nexauraholding.com"
-                  className="text-gray-500 hover:text-white text-sm transition-colors flex items-center gap-2"
+                  className="text-gray-500 hover:text-red-500 transition-colors"
+                  aria-label="Email"
                 >
-                  <Mail className="w-3.5 h-3.5" />
-                  services@nexauraholding.com
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
                 </a>
                 <a 
                   href="https://www.linkedin.com/in/alexis-pina-lopez-aa61b517b/"
