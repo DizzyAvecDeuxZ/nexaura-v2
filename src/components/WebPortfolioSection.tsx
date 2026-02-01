@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { GradientText } from "@/components/ui/gradient-text";
 import { ShinyText } from "@/components/ui/shiny-text";
@@ -30,25 +31,29 @@ const webProjects = [
     link: "https://martin-law-studio.vercel.app",
   },
   {
-    title: "Agence Immobilière Luxe",
-    category: "Site Vitrine",
-    description: "Site premium avec galerie de biens et formulaire de contact avancé",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop",
-    tags: ["React", "Animations", "Maps"],
+    title: "Horizon Experience",
+    category: "Experience 3D",
+    description: "Voyage immersif à travers les révolutions technologiques avec Three.js",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop",
+    tags: ["Three.js", "WebGL", "Immersif"],
+    link: "https://horizon-gules-one.vercel.app",
   },
   {
-    title: "Startup Tech Dashboard",
-    category: "Web App",
-    description: "Dashboard analytics moderne avec visualisation de données en temps réel",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-    tags: ["Vue.js", "D3.js", "API"],
+    title: "FitXP",
+    category: "Application Mobile",
+    description: "App de suivi sportif avec programmes personnalisés et nutrition",
+    image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&h=400&fit=crop",
+    tags: ["React", "PWA", "Mobile"],
+    link: "/fitxp",
+    isInternal: true,
   },
   {
-    title: "Centre de Fitness Pro",
-    category: "Site Vitrine",
-    description: "Site dynamique avec planning des cours et abonnements en ligne",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
-    tags: ["React", "PWA", "Stripe"],
+    title: "Coaching Pro App",
+    category: "Web Application",
+    description: "Plateforme de coaching avec prise de rendez-vous, vidéos et suivi client",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
+    tags: ["React", "Video", "Dashboard"],
+    link: "https://nexaura-zeta.vercel.app",
   },
 ];
 
@@ -67,7 +72,7 @@ export function WebPortfolioSection() {
             Nos réalisations
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Sites web que nous avons <GradientText>créés</GradientText>
+            Sites web que j'ai <GradientText>créés</GradientText>
           </h2>
           <ShinyText className="text-lg text-gray-400 max-w-2xl mx-auto">
             Des projets variés, du site vitrine à l'e-commerce, tous conçus sur mesure
@@ -93,12 +98,21 @@ export function WebPortfolioSection() {
                 {/* Glassmorphism overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-violet-600/80 via-violet-500/40 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm flex items-center justify-center">
                   {item.link ? (
-                    <a href={item.link} target="_blank" rel="noopener noreferrer">
-                      <Button variant="glass" size="sm" className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 bg-white/20 hover:bg-white/30 text-white border-white/30">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Voir le site
-                      </Button>
-                    </a>
+                    item.isInternal ? (
+                      <Link to={item.link}>
+                        <Button variant="glass" size="sm" className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 bg-white/20 hover:bg-white/30 text-white border-white/30">
+                          <ArrowRight className="w-4 h-4 mr-2" />
+                          Découvrir
+                        </Button>
+                      </Link>
+                    ) : (
+                      <a href={item.link} target="_blank" rel="noopener noreferrer">
+                        <Button variant="glass" size="sm" className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 bg-white/20 hover:bg-white/30 text-white border-white/30">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Voir le site
+                        </Button>
+                      </a>
+                    )
                   ) : (
                     <Button variant="glass" size="sm" className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 bg-white/20 hover:bg-white/30 text-white border-white/30 cursor-not-allowed opacity-70">
                       Projet confidentiel
