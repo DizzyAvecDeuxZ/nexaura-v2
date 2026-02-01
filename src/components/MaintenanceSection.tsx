@@ -70,7 +70,7 @@ const maintenanceOffers = {
             "Tout l'offre Business",
             "Support 24/7",
             "SLA garanti 99.9%",
-            "Équipe dédiée",
+            "Accompagnement prioritaire",
             "Infrastructure personnalisée",
             "Sécurité avancée",
             "Audit trimestriel"
@@ -139,7 +139,7 @@ const maintenanceOffers = {
             "Tout l'offre Business",
             "Support 24/7",
             "SLA garanti 99.9%",
-            "Équipe dédiée",
+            "Accompagnement prioritaire",
             "Infrastructure personnalisée",
             "Sécurité avancée",
             "Audit trimestriel"
@@ -210,7 +210,7 @@ const maintenanceOffers = {
             "Tout l'offre Business",
             "Support 24/7",
             "SLA garanti 99.9%",
-            "Équipe dédiée",
+            "Accompagnement prioritaire",
             "Infrastructure personnalisée",
             "Sécurité avancée",
             "Audit trimestriel"
@@ -279,7 +279,7 @@ const maintenanceOffers = {
             "Tout l'offre Business",
             "Support 24/7",
             "SLA garanti 99.9%",
-            "Équipe dédiée",
+            "Accompagnement prioritaire",
             "Infrastructure personnalisée",
             "Sécurité avancée",
             "Audit trimestriel"
@@ -352,7 +352,7 @@ const maintenanceOffers = {
             "Tout l'offre Business",
             "Support 24/7",
             "SLA garanti 99.9%",
-            "Équipe dédiée",
+            "Accompagnement prioritaire",
             "Infrastructure dédiée",
             "DevOps inclus",
             "Audit trimestriel"
@@ -421,7 +421,7 @@ const maintenanceOffers = {
             "Tout l'offre Business",
             "Support 24/7",
             "SLA garanti 99.9%",
-            "Équipe dédiée",
+            "Accompagnement prioritaire",
             "Infrastructure dédiée",
             "DevOps inclus",
             "Audit trimestriel"
@@ -492,7 +492,7 @@ const maintenanceOffers = {
             "Tout l'offre Business",
             "Support 24/7",
             "SLA garanti 99.9%",
-            "Équipe dédiée",
+            "Accompagnement prioritaire",
             "Infrastructure dédiée",
             "DevOps inclus",
             "Audit trimestriel"
@@ -561,7 +561,7 @@ const maintenanceOffers = {
             "Tout l'offre Business",
             "Support 24/7",
             "SLA garanti 99.9%",
-            "Équipe dédiée",
+            "Accompagnement prioritaire",
             "Infrastructure dédiée",
             "DevOps inclus",
             "Audit trimestriel"

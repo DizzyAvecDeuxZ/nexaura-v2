@@ -54,7 +54,7 @@ export function TestimonialsSection() {
             Ils nous ont fait <GradientText>confiance</GradientText>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Des entrepreneurs, des dirigeants, des équipes qui ont transformé leur présence digitale avec Nexaura.
+            Des entrepreneurs et dirigeants qui ont transformé leur présence digitale avec Nexaura.
           </p>
         </motion.div>
 

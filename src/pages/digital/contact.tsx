@@ -63,7 +63,7 @@ export default function DigitalContactPage() {
             </div>
             <h1 className="text-3xl font-bold text-white mb-4">Message envoyé !</h1>
             <p className="text-gray-400 mb-8">
-              Merci pour votre demande. Notre équipe vous répondra sous 24h ouvrées.
+              Merci pour votre demande. Je vous réponds sous 24h ouvrées.
             </p>
             <Button variant="cta" onClick={() => window.location.href = "/digital"}>
               Retourner à l'accueil

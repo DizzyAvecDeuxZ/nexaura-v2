@@ -19,7 +19,7 @@ const detailedCases = [
     results: [
       { metric: "-70%", label: "Temps de traitement", icon: Clock },
       { metric: "-95%", label: "Erreurs de saisie", icon: TrendingUp },
-      { metric: "+40%", label: "Productivité équipe", icon: Users }
+      { metric: "+40%", label: "Productivité opérationnelle", icon: Users }
     ],
     technologies: ["Google Document AI", "Python", "API REST", "Dashboard React"],
     duration: "6 semaines",
@@ -62,7 +62,7 @@ const detailedCases = [
     icon: "Bot",
     title: "Agents IA Internes",
     subtitle: "Automatisation workflows métier",
-    challenge: "Une équipe RH passait 60% de son temps sur des tâches administratives répétitives. Turnover élevé.",
+    challenge: "Le service RH passait 60% de son temps sur des tâches administratives répétitives. Turnover élevé.",
     solution: "3 agents IA autonomes : tri CV, génération offres, onboarding documents. Intégration Slack + ATS.",
     results: [
       { metric: "-50%", label: "Tâches manuelles", icon: Clock },

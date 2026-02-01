@@ -13,7 +13,7 @@ import { consultingOffers } from "@/lib/data/pricing";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const auditSteps = [
-  { icon: Search, title: "Analyse terrain", desc: "Entretiens avec vos équipes clés" },
+  { icon: Search, title: "Analyse terrain", desc: "Entretiens avec les collaborateurs clés" },
   { icon: FileText, title: "Cartographie", desc: "Identification des processus automatisables" },
   { icon: BarChart3, title: "Benchmark", desc: "Comparaison avec les leaders du secteur" },
   { icon: Users, title: "Recommandations", desc: "Roadmap priorisée avec ROI estimé" }

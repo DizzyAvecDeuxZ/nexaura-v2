@@ -226,7 +226,7 @@ const Index = () => {
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed mb-8">
                 Parce qu'un site vitrine à 2 000 € et une transformation IA à 50 000 € 
-                ne s'adressent pas aux mêmes équipes, aux mêmes budgets, aux mêmes enjeux.
+                ne s'adressent pas aux mêmes organisations, aux mêmes budgets, aux mêmes enjeux.
               </p>
               <p className="text-gray-500">
                 Nexaura regroupe deux expertises complémentaires sous une même holding.

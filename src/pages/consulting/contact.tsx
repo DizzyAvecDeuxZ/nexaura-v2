@@ -23,7 +23,7 @@ const interests = [
   "POC sur-mesure",
   "Accompagnement mensuel",
   "Transformation IA",
-  "Formation équipes",
+  "Formation sur mesure",
   "Autre"
 ];
 
@@ -70,7 +70,7 @@ export default function ConsultingContactPage() {
             </div>
             <h1 className="text-3xl font-bold text-white mb-4">Demande envoyée !</h1>
             <p className="text-gray-400 mb-8">
-              Notre équipe vous contactera sous 24h pour planifier un échange.
+              Je vous recontacte sous 24h pour planifier un échange.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="cta" className="bg-indigo-500 hover:bg-indigo-600" onClick={() => setShowCalendly(true)}>

@@ -93,7 +93,7 @@ const AboutPage = () => {
               <p className="text-gray-400 text-lg leading-relaxed mt-4">
                 Plutôt que de mélanger ces deux univers sous une même offre confuse, nous avons 
                 choisi de créer deux entités clairement distinctes, chacune avec son positionnement, 
-                ses méthodes et ses équipes spécialisées.
+                ses méthodes et son expertise spécialisée.
               </p>
             </div>
           </div>

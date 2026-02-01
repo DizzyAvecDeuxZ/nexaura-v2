@@ -241,7 +241,7 @@ export const maintenanceTiers: MaintenanceTier[] = [
       "Infrastructure dédiée",
       "Support 24/7",
       "SLA garanti 99.9%",
-      "Équipe dédiée",
+      "Accompagnement personnalisé",
       "Sécurité avancée",
       "Audit trimestriel",
       "DRP (Plan reprise)"
@@ -277,7 +277,7 @@ export const consultingOffers: ConsultingOffer[] = [
     duration: "2-3 jours",
     targetAudience: "PME & Startups",
     deliverables: [
-      "Entretien avec équipes clés (2-3 pers.)",
+      "Entretiens avec collaborateurs clés (2-3 pers.)",
       "Analyse de 3 processus prioritaires",
       "Rapport 20 pages avec recommandations",
       "Roadmap d'implémentation 12 mois",
@@ -319,7 +319,7 @@ export const consultingOffers: ConsultingOffer[] = [
       "Tests avec données réelles anonymisées",
       "Documentation technique complète",
       "Plan de déploiement industrialisé",
-      "Formation équipe interne"
+      "Formation des utilisateurs finaux"
     ],
     popular: false,
     cta: "Discuter de mon POC"
@@ -358,9 +358,9 @@ export const retainerOffers: RetainerOffer[] = [
     priceDZDMonthly: 0,
     description: "Projet complet de transformation sur 3-6 mois",
     features: [
-      "Équipe dédiée (2-4 consultants)",
+      "Accompagnement end-to-end",
       "Audit + POC + Déploiement",
-      "Formation des équipes (jusqu'à 20 pers.)",
+      "Formation des utilisateurs (jusqu'à 20 pers.)",
       "Change management & communication",
       "Suivi ROI sur 12 mois",
       "Garantie résultats ou remboursement"
@@ -410,7 +410,7 @@ export const aiUseCases: UseCase[] = [
     id: "ai-agents",
     title: "Agents IA Internes",
     description: "Automatisation des workflows métier répétitifs par des agents IA autonomes intégrés à vos outils existants",
-    impact: "Libération temps équipes sur tâches à faible valeur",
+    impact: "Libération temps des collaborateurs sur tâches à faible valeur",
     metrics: "-50% tâches manuelles",
     icon: "Bot"
   }
