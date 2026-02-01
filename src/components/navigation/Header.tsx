@@ -79,7 +79,15 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
             )}
             
             <a href={`/${variant === "holding" ? "" : variant}`} className="flex items-center gap-3">
-              <NexauraLogo3DChrome size={isScrolled ? 45 : 55} />
+              {variant === "holding" ? (
+                <NexauraLogo3DChrome size={isScrolled ? 45 : 55} />
+              ) : (
+                <img 
+                  src="/logo-nexaura-white.webp" 
+                  alt="Nexaura" 
+                  className={isScrolled ? "w-10 h-auto" : "w-12 h-auto"}
+                />
+              )}
               <div className="hidden sm:block">
                 <span className="text-white font-bold text-lg">Nexaura</span>
                 {variant !== "holding" && (
