@@ -27,24 +27,44 @@ const Index = () => {
         Aller au contenu principal
       </a>
 
-      {/* Vortex global background - mix violet/jaune */}
+      {/* Vortex global background - mix violet/jaune (parfait comme ça) */}
       <div className="fixed inset-0 z-0" aria-hidden="true">
-        {/* Couche violette */}
         <Vortex
           backgroundColor="black"
-          className="w-full h-full absolute inset-0"
+          className="w-full h-full"
           particleCount={particleCount}
-          baseHue={270}
+          baseHue={280}
           rangeSpeed={rangeSpeed}
         />
-        {/* Couche jaune par-dessus */}
-        <Vortex
-          backgroundColor="transparent"
-          className="w-full h-full absolute inset-0"
-          particleCount={80}
-          baseHue={45}
-          rangeSpeed={0.6}
-        />
+      </div>
+
+      {/* Particules flottantes jaunes en plus */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              left: `${15 + i * 15}%`,
+              top: `${20 + (i % 3) * 25}%`,
+              width: 100 + i * 20,
+              height: 100 + i * 20,
+              background: "radial-gradient(circle, rgba(250,204,21,0.3) 0%, transparent 70%)",
+              filter: "blur(20px)",
+            }}
+            animate={{
+              y: [0, -40, 0],
+              x: [0, 20, 0],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 10 + i * 2,
+              delay: i * 0.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
       </div>
 
 
