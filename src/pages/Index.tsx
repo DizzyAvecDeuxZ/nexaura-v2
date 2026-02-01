@@ -91,13 +91,13 @@ const Index = () => {
               <motion.a
                 href="/digital"
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="group relative bg-gradient-to-br from-violet-500/10 via-transparent to-purple-500/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-violet-500/30 hover:border-violet-400 transition-all duration-500 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]"
+                className="group relative h-full flex flex-col bg-gradient-to-br from-violet-500/10 via-transparent to-purple-500/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-violet-500/30 hover:border-violet-400 transition-all duration-500 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]"
               >
                 {/* Glow effect violet au hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
                 <div className="absolute inset-0 bg-violet-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <div className="relative">
+                <div className="relative flex flex-col flex-1">
                   <h2 className="text-3xl font-bold text-white mb-2">
                     Nexaura <span className="text-violet-400">Digital</span>
                   </h2>
@@ -110,28 +110,27 @@ const Index = () => {
                     Sites web, applications mobiles, e-commerce
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {[
-                      "100% responsive",
-                      "SEO natif",
-                      "Maintenance & support inclus"
-                    ].map((item, i) => (
-                      <span 
-                        key={i} 
-                        className="px-3 py-1 text-xs font-medium bg-violet-500/20 text-violet-300 rounded-full border border-violet-500/30"
-                      >
-                        {item}
-                      </span>
-                    ))}
+                  <div className="grid grid-cols-2 gap-2 mb-8">
+                    <span className="px-3 py-1 text-xs font-medium bg-violet-500/20 text-violet-300 rounded-full border border-violet-500/30 text-center">
+                      100% responsive
+                    </span>
+                    <span className="px-3 py-1 text-xs font-medium bg-violet-500/20 text-violet-300 rounded-full border border-violet-500/30 text-center">
+                      SEO natif
+                    </span>
+                    <span className="col-span-2 px-3 py-1 text-xs font-medium bg-violet-500/20 text-violet-300 rounded-full border border-violet-500/30 text-center">
+                      Maintenance & support inclus
+                    </span>
                   </div>
 
-                  <Button 
-                    variant="outline" 
-                    className="w-full bg-violet-500/10 border-violet-500/50 text-violet-300 hover:bg-violet-500/20 group"
-                  >
-                    Découvrir nos solutions
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  <div className="mt-auto">
+                    <Button 
+                      variant="outline" 
+                      className="w-full bg-violet-500/10 border-violet-500/50 text-violet-300 hover:bg-violet-500/20 group"
+                    >
+                      Découvrir nos solutions
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </div>
                 </div>
               </motion.a>
 
@@ -139,13 +138,13 @@ const Index = () => {
               <motion.a
                 href="/consulting"
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="group relative bg-gradient-to-br from-yellow-500/10 via-transparent to-amber-500/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-yellow-500/30 hover:border-yellow-400 transition-all duration-500 hover:shadow-[0_0_40px_rgba(250,204,21,0.3)]"
+                className="group relative h-full flex flex-col bg-gradient-to-br from-yellow-500/10 via-transparent to-amber-500/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-yellow-500/30 hover:border-yellow-400 transition-all duration-500 hover:shadow-[0_0_40px_rgba(250,204,21,0.3)]"
               >
                 {/* Glow effect jaune au hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/20 via-amber-500/10 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
                 <div className="absolute inset-0 bg-yellow-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <div className="relative">
+                <div className="relative flex flex-col flex-1">
                   <h2 className="text-3xl font-bold text-white mb-2">
                     Nexaura <span className="bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent font-extrabold">Consulting</span>
                   </h2>
@@ -158,28 +157,27 @@ const Index = () => {
                     Intelligence artificielle, automatisation, transformation
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {[
-                      "ROI mesurable",
-                      "Automatisation 24/7",
-                      "Prédictions temps réel"
-                    ].map((item, i) => (
-                      <span 
-                        key={i} 
-                        className="px-3 py-1 text-xs font-medium bg-yellow-500/20 text-yellow-300 rounded-full border border-yellow-500/30 group-hover:bg-yellow-500/30 transition-colors"
-                      >
-                        {item}
-                      </span>
-                    ))}
+                  <div className="grid grid-cols-2 gap-2 mb-8">
+                    <span className="px-3 py-1 text-xs font-medium bg-yellow-500/20 text-yellow-300 rounded-full border border-yellow-500/30 group-hover:bg-yellow-500/30 transition-colors text-center">
+                      Automatisation 24/7
+                    </span>
+                    <span className="px-3 py-1 text-xs font-medium bg-yellow-500/20 text-yellow-300 rounded-full border border-yellow-500/30 group-hover:bg-yellow-500/30 transition-colors text-center">
+                      Prédictions temps réel
+                    </span>
+                    <span className="col-span-2 px-3 py-1 text-xs font-medium bg-yellow-500/20 text-yellow-300 rounded-full border border-yellow-500/30 group-hover:bg-yellow-500/30 transition-colors text-center">
+                      ROI mesurable
+                    </span>
                   </div>
 
-                  <Button 
-                    variant="outline" 
-                    className="w-full bg-gradient-to-r from-yellow-500/20 to-amber-500/10 border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/30 hover:border-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] group transition-all duration-300"
-                  >
-                    Auditer mon projet
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  <div className="mt-auto">
+                    <Button 
+                      variant="outline" 
+                      className="w-full bg-gradient-to-r from-yellow-500/20 to-amber-500/10 border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/30 hover:border-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.4)] group transition-all duration-300"
+                    >
+                      Auditer mon projet
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </div>
                 </div>
               </motion.a>
             </motion.div>
