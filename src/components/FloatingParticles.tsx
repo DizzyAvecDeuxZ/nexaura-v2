@@ -35,12 +35,12 @@ interface FloatingParticlesProps {
 }
 
 const colorClasses: Record<ParticleColor, string> = {
-  violet: "bg-primary/10",
-  green: "bg-secondary/10", 
-  yellow: "bg-yellow-500/10",
-  amber: "bg-amber-500/10",
-  indigo: "bg-indigo-500/10",
-  fuchsia: "bg-fuchsia-500/10",
+  violet: "bg-primary/20",
+  green: "bg-secondary/20", 
+  yellow: "bg-yellow-400/30",
+  amber: "bg-amber-400/30",
+  indigo: "bg-indigo-500/20",
+  fuchsia: "bg-fuchsia-500/20",
 };
 
 export function FloatingParticles({ count = 6, className = "", colors }: FloatingParticlesProps) {
@@ -81,10 +81,10 @@ export function FloatingParticles({ count = 6, className = "", colors }: Floatin
             top: `${particle.y}%`,
           }}
           animate={{
-            y: [0, -30, 0],
-            x: [0, 15, 0],
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.6, 0.3],
+            y: [0, -40, 0],
+            x: [0, 20, 0],
+            scale: [1, 1.2, 1],
+            opacity: [0.4, 0.8, 0.4],
           }}
           transition={{
             duration: particle.duration,
