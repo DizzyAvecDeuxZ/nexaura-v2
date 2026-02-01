@@ -38,28 +38,28 @@ const Index = () => {
         />
       </div>
 
-      {/* Particules flottantes jaunes en plus */}
+      {/* Particules flottantes jaunes - moitié moitié */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full"
             style={{
-              left: `${15 + i * 15}%`,
-              top: `${20 + (i % 3) * 25}%`,
-              width: 100 + i * 20,
-              height: 100 + i * 20,
-              background: "radial-gradient(circle, rgba(250,204,21,0.3) 0%, transparent 70%)",
-              filter: "blur(20px)",
+              left: `${5 + (i * 8) % 90}%`,
+              top: `${10 + (i * 12) % 80}%`,
+              width: 80 + (i % 5) * 30,
+              height: 80 + (i % 5) * 30,
+              background: "radial-gradient(circle, rgba(250,204,21,0.35) 0%, transparent 65%)",
+              filter: "blur(15px)",
             }}
             animate={{
-              y: [0, -40, 0],
-              x: [0, 20, 0],
-              scale: [1, 1.2, 1],
+              y: [0, -50, 0],
+              x: [0, 30, 0],
+              scale: [1, 1.3, 1],
             }}
             transition={{
-              duration: 10 + i * 2,
-              delay: i * 0.8,
+              duration: 8 + (i % 6),
+              delay: i * 0.5,
               repeat: Infinity,
               ease: "easeInOut",
             }}
