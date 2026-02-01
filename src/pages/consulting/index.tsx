@@ -7,7 +7,7 @@ import { ShinyText } from "@/components/ui/shiny-text";
 import { TiltedCard } from "@/components/ui/tilted-card";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
-import { PageParticles } from "@/components/PageParticles";
+import { Vortex } from "@/components/ui/vortex";
 import { CurrencyToggle } from "@/components/shared/CurrencyToggle";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { consultingOffers, aiUseCases } from "@/lib/data/pricing";
@@ -28,8 +28,17 @@ export default function ConsultingPage() {
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
-      {/* Particules jaunes visibles */}
-      <PageParticles color="yellow" />
+      {/* Vortex jaune - même effet que page d'accueil */}
+      <div className="fixed inset-0 z-0" aria-hidden="true">
+        <Vortex
+          backgroundColor="black"
+          className="w-full h-full"
+          particleCount={150}
+          baseHue={45}
+          baseSpeed={0.5}
+          rangeSpeed={0.8}
+        />
+      </div>
 
       <Header 
         variant="consulting" 

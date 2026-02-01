@@ -9,7 +9,7 @@ import { TiltedCard } from "@/components/ui/tilted-card";
 import { GlareHover } from "@/components/ui/glare-hover";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
-import { PageParticles } from "@/components/PageParticles";
+import { Vortex } from "@/components/ui/vortex";
 import { CurrencyToggle } from "@/components/shared/CurrencyToggle";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
 import { WebPortfolioSection } from "@/components/WebPortfolioSection";
@@ -37,8 +37,17 @@ export default function DigitalPage() {
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
-      {/* Particules violettes visibles */}
-      <PageParticles color="violet" />
+      {/* Vortex violet - même effet que page d'accueil */}
+      <div className="fixed inset-0 z-0" aria-hidden="true">
+        <Vortex
+          backgroundColor="black"
+          className="w-full h-full"
+          particleCount={150}
+          baseHue={270}
+          baseSpeed={0.5}
+          rangeSpeed={0.8}
+        />
+      </div>
 
       <Header 
         variant="digital" 

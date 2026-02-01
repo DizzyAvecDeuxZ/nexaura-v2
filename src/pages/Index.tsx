@@ -6,7 +6,7 @@ import { Vortex } from "@/components/ui/vortex";
 import { GradientText } from "@/components/ui/gradient-text";
 import { ShinyText } from "@/components/ui/shiny-text";
 import { NexauraLogo3DChrome } from "@/components/NexauraLogo3DChrome";
-import { PageParticles } from "@/components/PageParticles";
+
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -38,8 +38,7 @@ const Index = () => {
         />
       </div>
 
-      {/* Particules mixtes pour la holding */}
-      <PageParticles color="mixed" />
+
 
       {/* Content */}
       <div className="relative z-10">
