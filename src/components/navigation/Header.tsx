@@ -41,12 +41,6 @@ const brandColors = {
   consulting: "from-indigo-500 to-amber-500"
 };
 
-const textColors = {
-  holding: "text-white",
-  digital: "text-violet-400",
-  consulting: "bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent"
-};
-
 export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -89,15 +83,9 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
               <div className="hidden sm:block">
                 <span className="text-white font-bold text-lg">Nexaura</span>
                 {variant !== "holding" && (
-                  {variant === "digital" ? (
-                    <span className="font-bold text-lg ml-1 text-violet-400">
-                      Digital
-                    </span>
-                  ) : (
-                    <span className="font-bold text-lg ml-1 bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">
-                      Consulting
-                    </span>
-                  )}
+                  <span className={`font-bold text-lg ml-1 ${variant === "digital" ? "text-violet-400" : "bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent"}`}>
+                    {variant === "digital" ? "Digital" : "Consulting"}
+                  </span>
                 )}
               </div>
             </a>
