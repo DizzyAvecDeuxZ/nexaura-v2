@@ -1,6 +1,6 @@
 import { useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Vortex } from "@/components/ui/vortex";
 import { GradientText } from "@/components/ui/gradient-text";
@@ -182,21 +182,36 @@ const Index = () => {
               </motion.a>
             </motion.div>
 
-            {/* CTA de secours */}
+            {/* CTA Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
               className="mt-16 text-center"
             >
-              <p className="text-gray-500 mb-4">Votre projet ne rentre dans aucune case ?</p>
-              <Button 
-                onClick={() => setIsContactOpen(true)}
-                variant="outline" 
-                className="bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-white/40"
-              >
-                Parlons-en
-              </Button>
+              <p className="text-gray-400 text-lg mb-6">Prêt à démarrer votre transformation ?</p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                {/* Email */}
+                <a 
+                  href="mailto:services@nexauraholding.com"
+                  className="group flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/20 rounded-lg text-white hover:bg-white/10 hover:border-white/40 transition-all"
+                >
+                  <Mail className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+                  services@nexauraholding.com
+                </a>
+                
+                {/* LinkedIn */}
+                <a 
+                  href="https://www.linkedin.com/in/alexis-pina-lopez-aa61b517b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/20 rounded-lg text-white hover:bg-[#0A66C2]/20 hover:border-[#0A66C2]/50 transition-all"
+                >
+                  <Linkedin className="w-4 h-4 text-gray-400 group-hover:text-[#0A66C2] transition-colors" />
+                  LinkedIn
+                </a>
+              </div>
             </motion.div>
           </section>
 
@@ -206,7 +221,7 @@ const Index = () => {
               <p className="text-gray-600 text-sm">
                 © 2026 Nexaura. Tous droits réservés.
               </p>
-              <div className="flex gap-6">
+              <div className="flex items-center gap-6">
                 <a href="/digital" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">
                   Digital
                 </a>
@@ -215,6 +230,15 @@ const Index = () => {
                 </a>
                 <a href="/holding/a-propos" className="text-gray-500 hover:text-white text-sm transition-colors">
                   À propos
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/alexis-pina-lopez-aa61b517b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-[#0A66C2] transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4" />
                 </a>
               </div>
             </div>
