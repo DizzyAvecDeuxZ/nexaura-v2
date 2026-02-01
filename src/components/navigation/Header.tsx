@@ -83,7 +83,7 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
                 <NexauraLogo3DChrome size={isScrolled ? 45 : 55} />
               ) : (
                 <img 
-                  src="/logo-nexaura-white.webp" 
+                  src="/logo-icon-white.png" 
                   alt="Nexaura" 
                   className={isScrolled ? "w-10 h-auto" : "w-12 h-auto"}
                 />
