@@ -55,7 +55,7 @@ export default function ConsultingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-400 text-sm mb-6 border border-indigo-500/20">
+              <span className="inline-block px-4 py-2 rounded-full bg-yellow-500/10 text-yellow-400 text-sm mb-6 border border-yellow-500/20">
                 Intelligence Artificielle & Transformation Digitale
               </span>
 
@@ -112,7 +112,7 @@ export default function ConsultingPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                Nos <span className="text-indigo-400">prestations</span>
+                Nos <span className="text-yellow-400">prestations</span>
               </h2>
               <ShinyText className="text-lg text-gray-400 mb-8">
                 Des solutions adaptées à votre maturité et vos enjeux
@@ -292,14 +292,14 @@ export default function ConsultingPage() {
               ×
             </button>
             <div className="text-center">
-              <Calendar className="w-16 h-16 text-indigo-400 mx-auto mb-4" />
+              <Calendar className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">Prendre rendez-vous</h3>
               <p className="text-gray-400 mb-6">
                 Envoyez-nous un email avec vos disponibilités. Nous vous proposerons un créneau sous 24h.
               </p>
               <a
                 href="mailto:alexis.pinalopez@nexauraholding.com?subject=Demande%20de%20rendez-vous%20-%20Nexaura%20Consulting&body=Bonjour,%0A%0AJe%20souhaite%20prendre%20rendez-vous%20pour%20discuter%20de%20mon%20projet.%0A%0AMes%20disponibilités%20:%0A-%0A-%0A-%0A%0ACordialement,"
-                className="inline-flex items-center justify-center w-full px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-xl transition-colors"
+                className="inline-flex items-center justify-center w-full px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-xl transition-colors"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Envoyer une demande de RDV

@@ -73,7 +73,7 @@ const caseStudies = [
     title: "IA Appels d'Offres",
     subtitle: "Automatisation B2B",
     industry: "Services / BTP",
-    description: "Système d'intelligence artificielle qui analyse les cahiers des charges et génère des réponses structurées aux appels d'offres.",
+    description: "Application métier d'automatisation qui analyse les cahiers des charges et génère des réponses structurées aux appels d'offres. Solution technique concrète, pas de l'IA générique.",
     metrics: [
       { label: "Temps de réponse", value: "-70%", detail: "De 3 jours à 4 heures" },
       { label: "Taux de réussite", value: "+50%", detail: "Meilleure qualité des réponses" },
@@ -111,8 +111,8 @@ const solutions = [
   },
   {
     icon: Zap,
-    title: "Audit & POC Digital",
-    desc: "Validez la faisabilité de votre projet en 4-6 semaines. Preuve de concept concrète avant investissement.",
+    title: "Validation Technique & POC",
+    desc: "Validation technique de votre projet en 4-6 semaines. Architecture, faisabilité et POC concret avant investissement. Pas d'audit stratégique, de la preuve technique.",
     price: "15 000 € - 25 000 €",
     target: "Premier projet digital"
   }

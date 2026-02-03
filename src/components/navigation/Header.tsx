@@ -95,22 +95,51 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
             </Link>
           </div>
 
-          {/* Center: Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {items.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
-                  location.pathname === item.href
-                    ? "text-white bg-white/10"
-                    : "text-gray-300 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          {/* Center: Entity Switcher + Navigation */}
+          <div className="hidden lg:flex items-center gap-6">
+            {/* Entity Switcher - Only show for Digital/Consulting */}
+            {variant !== "holding" && (
+              <div className="flex items-center bg-white/5 rounded-full p-1 border border-white/10">
+                <Link
+                  to="/digital"
+                  className={`px-4 py-1.5 text-sm font-semibold rounded-full transition-all ${
+                    variant === "digital"
+                      ? "bg-violet-500 text-white shadow-lg shadow-violet-500/25"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  Digital
+                </Link>
+                <Link
+                  to="/consulting"
+                  className={`px-4 py-1.5 text-sm font-semibold rounded-full transition-all ${
+                    variant === "consulting"
+                      ? "bg-yellow-500 text-black shadow-lg shadow-yellow-500/25"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  Consulting
+                </Link>
+              </div>
+            )}
+
+            {/* Navigation */}
+            <nav className="flex items-center gap-1">
+              {items.map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
+                    location.pathname === item.href
+                      ? "text-white bg-white/10"
+                      : "text-gray-300 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
           {/* Right: CTA */}
           <div className="flex items-center gap-3">
@@ -118,7 +147,11 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
               <Button 
                 variant="cta" 
                 size="sm"
-                className="hidden sm:flex"
+                className={`hidden sm:flex ${
+                  variant === "consulting" 
+                    ? "bg-yellow-500 hover:bg-yellow-400 text-black" 
+                    : ""
+                }`}
                 onClick={onCtaClick}
               >
                 {ctaLabel}
@@ -175,7 +208,11 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
               {ctaLabel && (
                 <Button 
                   variant="cta" 
-                  className="mt-4 w-full"
+                  className={`mt-4 w-full ${
+                    variant === "consulting" 
+                      ? "bg-yellow-500 hover:bg-yellow-400 text-black" 
+                      : ""
+                  }`}
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     onCtaClick?.();

@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { DigitalLayout, ConsultingLayout } from "@/components/layout";
 
 // ═══════════════════════════════════════════════════════════════
 // NEXAURA HOLDING V2.0 - ROUTER
@@ -54,22 +55,26 @@ const App = () => (
             <Route path="/holding/a-propos" element={<About />} />
 
             {/* ═══════════════════════════════════════════════════
-                DIGITAL - Web & Mobile Development
+                DIGITAL - Layout violet
                ═══════════════════════════════════════════════════ */}
-            <Route path="/digital" element={<Digital />} />
-            <Route path="/digital/sites" element={<DigitalSites />} />
-            <Route path="/digital/apps" element={<DigitalApps />} />
-            <Route path="/digital/maintenance" element={<DigitalMaintenance />} />
-            <Route path="/digital/contact" element={<DigitalContact />} />
+            <Route element={<DigitalLayout />}>
+              <Route path="/digital" element={<Digital />} />
+              <Route path="/digital/sites" element={<DigitalSites />} />
+              <Route path="/digital/apps" element={<DigitalApps />} />
+              <Route path="/digital/maintenance" element={<DigitalMaintenance />} />
+              <Route path="/digital/contact" element={<DigitalContact />} />
+            </Route>
 
             {/* ═══════════════════════════════════════════════════
-                CONSULTING - AI & Digital Transformation
+                CONSULTING - Layout jaune
                ═══════════════════════════════════════════════════ */}
-            <Route path="/consulting" element={<Consulting />} />
-            <Route path="/consulting/audit" element={<ConsultingAudit />} />
-            <Route path="/consulting/poc" element={<ConsultingPoc />} />
-            <Route path="/consulting/cases" element={<ConsultingCases />} />
-            <Route path="/consulting/contact" element={<ConsultingContact />} />
+            <Route element={<ConsultingLayout />}>
+              <Route path="/consulting" element={<Consulting />} />
+              <Route path="/consulting/audit" element={<ConsultingAudit />} />
+              <Route path="/consulting/poc" element={<ConsultingPoc />} />
+              <Route path="/consulting/cases" element={<ConsultingCases />} />
+              <Route path="/consulting/contact" element={<ConsultingContact />} />
+            </Route>
 
             {/* ═══════════════════════════════════════════════════
                 PRODUCTS & LEGACY
