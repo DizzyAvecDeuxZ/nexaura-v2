@@ -26,19 +26,13 @@ const navItems: Record<string, NavItem[]> = {
     { label: "Audit IA", href: "/consulting/audit" },
     { label: "POC", href: "/consulting/poc" },
     { label: "Cas d'usage", href: "/consulting/cases" },
-    { label: "RDV Stratégique", href: "/consulting/contact" }
+    { label: "RDV", href: "/consulting/contact" }
   ],
   holding: [
     { label: "Digital", href: "/digital" },
     { label: "Consulting", href: "/consulting" },
     { label: "À propos", href: "/holding/a-propos" }
   ]
-};
-
-const brandColors = {
-  holding: "from-violet-500 to-indigo-500",
-  digital: "from-violet-500 to-purple-500",
-  consulting: "from-indigo-500 to-amber-500"
 };
 
 export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
@@ -119,11 +113,11 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
 
           {/* Right: CTA */}
           <div className="flex items-center gap-3">
-            {ctaLabel && onCtaClick && (
+            {ctaLabel && (
               <Button 
                 variant="cta" 
                 size="sm"
-                className={`hidden sm:flex bg-gradient-to-r ${brandColors[variant]}`}
+                className="hidden sm:flex"
                 onClick={onCtaClick}
               >
                 {ctaLabel}
@@ -177,13 +171,13 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
                 </Link>
               ))}
               
-              {ctaLabel && onCtaClick && (
+              {ctaLabel && (
                 <Button 
                   variant="cta" 
-                  className={`mt-4 w-full bg-gradient-to-r ${brandColors[variant]}`}
+                  className="mt-4 w-full"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    onCtaClick();
+                    onCtaClick?.();
                   }}
                 >
                   {ctaLabel}
