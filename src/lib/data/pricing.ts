@@ -102,14 +102,15 @@ export const appTiers: PricingTier[] = [
   {
     id: "app-vitrine",
     name: "App Vitrine",
-    description: "iOS ou Android, fonctionnalités de base",
+    description: "iOS ou Android, fonctionnalités de base - idéal pour tester votre concept",
     priceEUR: 8900,
     priceDZD: 1300000,
-    deliveryTime: "3-4 semaines",
+    deliveryTime: "4-6 semaines",
     features: [
       "iOS ou Android (au choix)",
-      "Design natif conforme Apple/Google",
+      "Conception accélérée avec IA",
       "3-5 écrans personnalisés",
+      "Design natif conforme Apple/Google",
       "Publication sur App Store/Play Store",
       "Code source livré",
       "Documentation technique"
@@ -119,18 +120,18 @@ export const appTiers: PricingTier[] = [
   {
     id: "app-business",
     name: "App Business",
-    description: "iOS + Android, authentification, API complète",
-    priceEUR: 18500,
-    priceDZD: 2700000,
-    deliveryTime: "6-8 semaines",
+    description: "iOS + Android, authentification, backend complet",
+    priceEUR: 19500,
+    priceDZD: 2850000,
+    deliveryTime: "8-12 semaines",
     features: [
-      "iOS + Android (deux plateformes)",
-      "Authentification utilisateurs",
-      "API & backend sécurisé",
+      "iOS + Android (React Native/Flutter)",
+      "Conception UI/UX avec IA + validation",
+      "Authentification utilisateurs sécurisée",
+      "API & backend sur mesure",
       "Notifications push",
-      "Analytics intégré (Firebase)",
-      "Optimisation performances",
-      "Support 6 mois inclus"
+      "Analytics & crash reporting",
+      "Support technique 6 mois inclus"
     ],
     popular: true,
     badge: "Recommandé"
@@ -139,13 +140,14 @@ export const appTiers: PricingTier[] = [
     id: "app-premium",
     name: "App Premium",
     description: "Marketplace, temps réel, architecture scalable",
-    priceEUR: 0,
-    priceDZD: 0,
-    deliveryTime: "10+ semaines",
+    priceEUR: 45000,
+    priceDZD: 6570000,
+    deliveryTime: "14-20 semaines",
     features: [
+      "iOS + Android + Web (PWA optionnel)",
       "Architecture scalable (microservices)",
-      "Temps réel (WebSocket)",
-      "Marketplace multi-vendeurs",
+      "Fonctionnalités temps réel (WebSocket)",
+      "Intégrations API tierces multiples",
       "Back-office admin complet",
       "Tests automatisés (CI/CD)",
       "Support 12 mois inclus",
@@ -174,77 +176,78 @@ export interface MaintenanceTier {
 
 export const maintenanceTiers: MaintenanceTier[] = [
   {
-    id: "maint-essential",
-    name: "Essentiel",
-    description: "Maintenance de base pour sites vitrines",
-    priceEURMonthly: 79,
-    priceDZDMonthly: 11500,
-    priceEURYearly: 790,
-    priceDZDYearly: 115000,
-    features: [
-      "Hébergement web sécurisé (SSL)",
-      "Nom de domaine inclus",
-      "Sauvegardes hebdomadaires",
-      "Mises à jour de sécurité",
-      "Support email (48h)",
-      "2 modifications mineures/mois"
-    ],
-    popular: false
-  },
-  {
-    id: "maint-pro",
-    name: "Pro",
-    description: "Performance optimale pour business actif",
+    id: "maint-starter",
+    name: "Starter",
+    description: "Maintenance essentielle pour app simple",
     priceEURMonthly: 199,
     priceDZDMonthly: 29000,
     priceEURYearly: 1990,
     priceDZDYearly: 290000,
     features: [
-      "Tout l'offre Essentiel",
-      "Sauvegardes quotidiennes",
+      "Mises à jour iOS/Android obligatoires",
+      "Correction de bugs critiques",
+      "Monitoring crash reporting",
+      "Support email (48h)",
+      "1 mise à jour fonctionnelle/mois",
+      "Sauvegarde données utilisateurs"
+    ],
+    popular: false
+  },
+  {
+    id: "maint-growth",
+    name: "Growth",
+    description: "Accompagnement continu pour app en activité",
+    priceEURMonthly: 499,
+    priceDZDMonthly: 73000,
+    priceEURYearly: 4990,
+    priceDZDYearly: 730000,
+    features: [
+      "Tout l'offre Starter",
       "Support prioritaire (24h)",
-      "5 modifications/mois",
-      "Monitoring uptime 24/7",
-      "Optimisation SEO mensuelle",
-      "Rapport performance"
+      "Optimisation ASO (App Store)",
+      "3 mises à jour fonctionnelles/mois",
+      "Analytics & rapports mensuels",
+      "A/B testing fonctionnalités",
+      "Gestion avis utilisateurs"
     ],
     popular: true
   },
   {
-    id: "maint-business",
-    name: "Business",
-    description: "Solution premium pour e-commerce",
-    priceEURMonthly: 399,
-    priceDZDMonthly: 58000,
-    priceEURYearly: 3990,
-    priceDZDYearly: 580000,
+    id: "maint-scale",
+    name: "Scale",
+    description: "Solution complète pour app à fort trafic",
+    priceEURMonthly: 999,
+    priceDZDMonthly: 146000,
+    priceEURYearly: 9990,
+    priceDZDYearly: 1460000,
     features: [
-      "Tout l'offre Pro",
+      "Tout l'offre Growth",
       "Support prioritaire (12h)",
       "Modifications illimitées",
-      "CDN mondial inclus",
-      "Optimisation continue",
-      "A/B testing mensuel",
-      "Consultant dédié"
+      "Performance monitoring avancé",
+      "Sécurité renforcée & audits",
+      "Feature flags & déploiement continu",
+      "Product manager dédié",
+      "SLA 99.5% garanti"
     ],
     popular: false
   },
   {
     id: "maint-enterprise",
     name: "Enterprise",
-    description: "Solution sur-mesure pour grands comptes",
+    description: "Infrastructure dédiée pour grands comptes",
     priceEURMonthly: 0,
     priceDZDMonthly: 0,
     priceEURYearly: 0,
     priceDZDYearly: 0,
     features: [
-      "Infrastructure dédiée",
-      "Support 24/7",
+      "Équipe dédiée 24/7",
+      "Infrastructure cloud sur mesure",
       "SLA garanti 99.9%",
-      "Accompagnement personnalisé",
-      "Sécurité avancée",
-      "Audit trimestriel",
-      "DRP (Plan reprise)"
+      "Cybersécurité avancée",
+      "Disaster recovery plan",
+      "Audit trimestriel complet",
+      "Accompagnement stratégique"
     ],
     popular: false
   }

@@ -218,7 +218,7 @@ export default function DigitalPage() {
                       ) : (
                         <>
                           <span className="text-3xl font-bold text-emerald-400">
-                            {currency === "eur" ? tier.priceEURMonthly : tier.priceDZDMonthly}
+                            {new Intl.NumberFormat('fr-FR').format(currency === "eur" ? tier.priceEURMonthly : tier.priceDZDMonthly)}
                             {currency === "eur" ? " €" : " DA"}
                           </span>
                           <span className="text-gray-500 text-sm">/mois</span>

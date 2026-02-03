@@ -13,9 +13,9 @@ import { maintenanceTiers } from "@/lib/data/pricing";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const icons = {
-  "maint-essential": Shield,
-  "maint-pro": Zap,
-  "maint-business": Crown,
+  "maint-starter": Shield,
+  "maint-growth": Zap,
+  "maint-scale": Crown,
   "maint-enterprise": Rocket
 };
 
@@ -115,7 +115,7 @@ export default function MaintenancePage() {
                     <p className="text-gray-400 text-sm mb-4">{tier.description}</p>
 
                     <div className="mb-4">
-                      {price === 0 ? (
+                      {tier.priceEURMonthly === 0 ? (
                         <span className="text-2xl font-bold text-emerald-400">Sur devis</span>
                       ) : (
                         <>
@@ -142,7 +142,7 @@ export default function MaintenancePage() {
                       className="w-full"
                       onClick={() => window.location.href = "/digital/contact"}
                     >
-                      {price === 0 ? "Nous contacter" : "Souscrire"}
+                      {tier.priceEURMonthly === 0 ? "Nous contacter" : "Souscrire"}
                     </Button>
                   </motion.div>
                 );
