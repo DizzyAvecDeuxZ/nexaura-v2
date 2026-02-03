@@ -442,6 +442,8 @@ export function formatPrice(price: number, currency: 'eur' | 'dzd'): string {
 // NEXAURA DIGITAL - GRILLES TARIFAIRES B2B ENTREPRISE
 // ═══════════════════════════════════════════════════════════════
 
+import { Building2 } from "lucide-react";
+
 export interface EnterpriseTier {
   id: string;
   name: string;

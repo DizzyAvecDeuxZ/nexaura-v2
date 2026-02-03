@@ -2,6 +2,10 @@ import { useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+
+// Create motion components
+const MotionLink = motion(Link);
 import { Button } from "@/components/ui/button";
 import { Vortex } from "@/components/ui/vortex";
 import { GradientText } from "@/components/ui/gradient-text";
@@ -91,8 +95,8 @@ const Index = () => {
               className="grid md:grid-cols-2 gap-6 max-w-5xl w-full px-4"
             >
               {/* Digital Card */}
-              <motion.a
-                href="/digital"
+              <MotionLink
+                to="/digital"
                 whileHover={{ scale: 1.02, y: -5 }}
                 className="group relative h-full flex flex-col bg-gradient-to-br from-violet-500/10 via-transparent to-purple-500/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-violet-500/30 hover:border-violet-400 transition-all duration-500 hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]"
               >
@@ -135,11 +139,11 @@ const Index = () => {
                     </Button>
                   </div>
                 </div>
-              </motion.a>
+              </MotionLink>
 
               {/* Consulting Card */}
-              <motion.a
-                href="/consulting"
+              <MotionLink
+                to="/consulting"
                 whileHover={{ scale: 1.02, y: -5 }}
                 className="group relative h-full flex flex-col bg-gradient-to-br from-yellow-500/10 via-transparent to-amber-500/10 backdrop-blur-xl rounded-3xl p-8 border-2 border-yellow-500/30 hover:border-yellow-400 transition-all duration-500 hover:shadow-[0_0_40px_rgba(250,204,21,0.3)]"
               >
@@ -182,7 +186,7 @@ const Index = () => {
                     </Button>
                   </div>
                 </div>
-              </motion.a>
+              </MotionLink>
             </motion.div>
 
             {/* CTA de secours */}
@@ -210,15 +214,15 @@ const Index = () => {
                 © 2026 Nexaura. {t('footer.rights')}
               </p>
               <div className="flex items-center gap-6">
-                <a href="/digital" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">
+                <Link to="/digital" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">
                   {t('footer.digital')}
-                </a>
-                <a href="/consulting" className="text-gray-500 hover:text-amber-400 text-sm transition-colors">
+                </Link>
+                <Link to="/consulting" className="text-gray-500 hover:text-amber-400 text-sm transition-colors">
                   {t('footer.consulting')}
-                </a>
-                <a href="/holding/a-propos" className="text-gray-500 hover:text-white text-sm transition-colors">
+                </Link>
+                <Link to="/holding/a-propos" className="text-gray-500 hover:text-white text-sm transition-colors">
                   {t('footer.about')}
-                </a>
+                </Link>
                 <div className="w-px h-4 bg-gray-700" />
                 <LanguageSwitcher />
                 <a 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, Mail, Phone, MapPin, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -28,6 +29,7 @@ const interests = [
 ];
 
 export default function ConsultingContactPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -77,7 +79,7 @@ export default function ConsultingContactPage() {
                 <Calendar className="w-4 h-4 mr-2" />
                 Prendre RDV directement
               </Button>
-              <Button variant="outline" onClick={() => window.location.href = "/consulting"}>
+              <Button variant="outline" onClick={() => navigate("/consulting")}>
                 Retour
               </Button>
             </div>

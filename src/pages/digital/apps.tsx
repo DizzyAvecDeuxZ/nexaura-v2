@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Smartphone, Apple, Play, Zap, Shield, Clock, Code, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -68,6 +69,7 @@ const processSteps = [
 export default function AppsPage() {
   const [currency, setCurrency] = useState<"eur" | "dzd">("eur");
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
@@ -81,7 +83,7 @@ export default function AppsPage() {
       <Header 
         variant="digital" 
         ctaLabel="Audit gratuit"
-        onCtaClick={() => window.location.href = "/digital/contact"}
+        onCtaClick={() => navigate("/digital/contact")}
       />
 
       <main className="relative z-10 pt-24">
@@ -108,7 +110,7 @@ export default function AppsPage() {
               </ShinyText>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <Button variant="cta" size="xl" onClick={() => window.location.href = "/digital/contact"}>
+                <Button variant="cta" size="xl" onClick={() => navigate("/digital/contact")}>
                   Audit gratuit de mon projet
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
@@ -222,7 +224,7 @@ export default function AppsPage() {
                   <Button 
                     variant={tier.popular ? "cta" : "outline"}
                     className="w-full"
-                    onClick={() => window.location.href = "/digital/contact"}
+                    onClick={() => navigate("/digital/contact")}
                   >
                     {tier.priceEUR === 0 ? "Nous contacter" : "Demander un devis"}
                   </Button>
@@ -335,7 +337,7 @@ export default function AppsPage() {
               estimation précise et une roadmap — même si vous ne travaillez pas avec nous.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cta" size="xl" onClick={() => window.location.href = "/digital/contact"}>
+              <Button variant="cta" size="xl" onClick={() => navigate("/digital/contact")}>
                 Réserver mon audit gratuit
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Monitor, ShoppingCart, Briefcase, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -37,6 +38,7 @@ const features = [
 ];
 
 export default function SitesPage() {
+  const navigate = useNavigate();
   const [currency, setCurrency] = useState<"eur" | "dzd">("eur");
   const isMobile = useIsMobile();
 
@@ -52,7 +54,7 @@ export default function SitesPage() {
       <Header 
         variant="digital" 
         ctaLabel="Demander un devis"
-        onCtaClick={() => window.location.href = "/digital/contact"}
+        onCtaClick={() => navigate("/digital/contact")}
       />
 
       <main className="relative z-10 pt-24">
@@ -118,7 +120,7 @@ export default function SitesPage() {
                   <Button 
                     variant={tier.popular ? "cta" : "outline"}
                     className="w-full"
-                    onClick={() => window.location.href = "/digital/contact"}
+                    onClick={() => navigate("/digital/contact")}
                   >
                     Choisir cette offre
                   </Button>
@@ -163,7 +165,7 @@ export default function SitesPage() {
             <h2 className="text-3xl font-bold text-white mb-6">
               Un projet web en tête ?
             </h2>
-            <Button variant="cta" size="xl" onClick={() => window.location.href = "/digital/contact"}>
+            <Button variant="cta" size="xl" onClick={() => navigate("/digital/contact")}>
               Discutons-en
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>

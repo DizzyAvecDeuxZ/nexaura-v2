@@ -210,7 +210,7 @@ export default function ConsultingPage() {
                     </div>
                     <div>
                       <h3 className="text-lg font-bold text-white mb-1">{useCase.title}</h3>
-                      <p className="text-gray-400 text-sm mb-2">{useCase.desc}</p>
+                      <p className="text-gray-400 text-sm mb-2">{useCase.description}</p>
                       <span className="inline-block px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs">
                         {useCase.metrics}
                       </span>

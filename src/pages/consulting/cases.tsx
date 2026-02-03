@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, TrendingUp, Clock, Users, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -76,6 +77,7 @@ const detailedCases = [
 ];
 
 export default function CasesPage() {
+  const navigate = useNavigate();
   const isMobile = useIsMobile();
 
   return (
@@ -90,7 +92,7 @@ export default function CasesPage() {
       <Header 
         variant="consulting" 
         ctaLabel="Discuter de mon cas"
-        onCtaClick={() => window.location.href = "/consulting/contact"}
+        onCtaClick={() => navigate("/consulting/contact")}
       />
 
       <main className="relative z-10 pt-24">
@@ -179,7 +181,7 @@ export default function CasesPage() {
               variant="cta" 
               size="xl" 
               className="bg-indigo-500 hover:bg-indigo-600"
-              onClick={() => window.location.href = "/consulting/contact"}
+              onClick={() => navigate("/consulting/contact")}
             >
               Discutons de votre projet
               <ArrowRight className="ml-2 w-5 h-5" />

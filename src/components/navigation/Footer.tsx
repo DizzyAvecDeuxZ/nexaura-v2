@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { NexauraLogo3DChrome } from "@/components/NexauraLogo3DChrome";
 
 interface FooterProps {
@@ -30,10 +31,10 @@ export function Footer({ variant = "holding" }: FooterProps) {
           <div>
             <h4 className="text-white font-semibold mb-4">Digital</h4>
             <ul className="space-y-2">
-              <li><a href="/digital/sites" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Sites Web</a></li>
-              <li><a href="/digital/apps" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Applications</a></li>
-              <li><a href="/digital/maintenance" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Maintenance</a></li>
-              <li><a href="/digital/contact" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Contact</a></li>
+              <li><Link to="/digital/sites" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Sites Web</Link></li>
+              <li><Link to="/digital/apps" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Applications</Link></li>
+              <li><Link to="/digital/maintenance" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Maintenance</Link></li>
+              <li><Link to="/digital/contact" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -41,10 +42,10 @@ export function Footer({ variant = "holding" }: FooterProps) {
           <div>
             <h4 className="text-white font-semibold mb-4">Consulting</h4>
             <ul className="space-y-2">
-              <li><a href="/consulting/audit" className="text-gray-500 hover:text-indigo-400 text-sm transition-colors">Audit IA</a></li>
-              <li><a href="/consulting/poc" className="text-gray-500 hover:text-indigo-400 text-sm transition-colors">POC sur-mesure</a></li>
-              <li><a href="/consulting/cases" className="text-gray-500 hover:text-indigo-400 text-sm transition-colors">Cas d'usage</a></li>
-              <li><a href="/consulting/contact" className="text-gray-500 hover:text-indigo-400 text-sm transition-colors">RDV Stratégique</a></li>
+              <li><Link to="/consulting/audit" className="text-gray-500 hover:text-indigo-400 text-sm transition-colors">Audit IA</Link></li>
+              <li><Link to="/consulting/poc" className="text-gray-500 hover:text-indigo-400 text-sm transition-colors">POC sur-mesure</Link></li>
+              <li><Link to="/consulting/cases" className="text-gray-500 hover:text-indigo-400 text-sm transition-colors">Cas d'usage</Link></li>
+              <li><Link to="/consulting/contact" className="text-gray-500 hover:text-indigo-400 text-sm transition-colors">RDV Stratégique</Link></li>
             </ul>
           </div>
         </div>
@@ -55,8 +56,8 @@ export function Footer({ variant = "holding" }: FooterProps) {
             © 2026 Nexaura Holding. Tous droits réservés.
           </p>
           <div className="flex gap-6">
-            <a href="/holding/a-propos" className="text-gray-500 hover:text-white text-sm transition-colors">À propos</a>
-            <a href="/" className="text-gray-500 hover:text-white text-sm transition-colors">Mentions légales</a>
+            <Link to="/holding/a-propos" className="text-gray-500 hover:text-white text-sm transition-colors">À propos</Link>
+            <Link to="/" className="text-gray-500 hover:text-white text-sm transition-colors">Mentions légales</Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Send, Mail, Phone, MapPin, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,7 @@ const projectTypes = [
 ];
 
 export default function DigitalContactPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -65,7 +67,7 @@ export default function DigitalContactPage() {
             <p className="text-gray-400 mb-8">
               Merci pour votre demande. Je vous réponds sous 24h ouvrées.
             </p>
-            <Button variant="cta" onClick={() => window.location.href = "/digital"}>
+            <Button variant="cta" onClick={() => navigate("/digital")}>
               Retourner à l'accueil
             </Button>
           </motion.div>

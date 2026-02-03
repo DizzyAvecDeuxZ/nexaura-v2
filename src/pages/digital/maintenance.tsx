@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Shield, Zap, Crown, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,7 @@ export default function MaintenancePage() {
   const [currency, setCurrency] = useState<"eur" | "dzd">("eur");
   const [period, setPeriod] = useState<"monthly" | "yearly">("monthly");
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
@@ -36,7 +38,7 @@ export default function MaintenancePage() {
       <Header 
         variant="digital" 
         ctaLabel="Souscrire"
-        onCtaClick={() => window.location.href = "/digital/contact"}
+        onCtaClick={() => navigate("/digital/contact")}
       />
 
       <main className="relative z-10 pt-24">
@@ -140,7 +142,7 @@ export default function MaintenancePage() {
                     <Button 
                       variant={tier.popular ? "cta" : "outline"}
                       className="w-full"
-                      onClick={() => window.location.href = "/digital/contact"}
+                      onClick={() => navigate("/digital/contact")}
                     >
                       {tier.priceEURMonthly === 0 ? "Nous contacter" : "Souscrire"}
                     </Button>
@@ -187,7 +189,7 @@ export default function MaintenancePage() {
             <h2 className="text-3xl font-bold text-white mb-6">
               Besoin d'un accompagnement sur mesure ?
             </h2>
-            <Button variant="cta" size="xl" onClick={() => window.location.href = "/digital/contact"}>
+            <Button variant="cta" size="xl" onClick={() => navigate("/digital/contact")}>
               Discuter de mes besoins
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>

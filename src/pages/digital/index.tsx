@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Building2, Zap, Clock, Shield, Wrench, Sparkles, TrendingUp, Users, Truck, HardHat, Factory, Plane, Briefcase, FileText, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -137,7 +138,7 @@ export default function DigitalPage() {
       <Header 
         variant="digital" 
         ctaLabel="Demander un audit gratuit"
-        onCtaClick={() => window.location.href = "/digital/contact"}
+        onCtaClick={() => navigate("/digital/contact")}
       />
 
       <main className="relative z-10">
@@ -164,7 +165,7 @@ export default function DigitalPage() {
               </ShinyText>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                <Button variant="cta" size="xl" onClick={() => window.location.href = "/digital/contact"}>
+                <Button variant="cta" size="xl" onClick={() => navigate("/digital/contact")}>
                   Audit gratuit de mon projet
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
@@ -387,7 +388,7 @@ export default function DigitalPage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                   className="group bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-fuchsia-500/30 hover:bg-white/10 transition-all cursor-pointer"
-                  onClick={() => window.location.href = "/digital/contact"}
+                  onClick={() => navigate("/digital/contact")}
                 >
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-fuchsia-500/20 flex items-center justify-center flex-shrink-0">
@@ -465,7 +466,7 @@ export default function DigitalPage() {
                     <Button 
                       variant={tier.popular ? "cta" : "outline"}
                       className="w-full"
-                      onClick={() => window.location.href = "/digital/contact"}
+                      onClick={() => navigate("/digital/contact")}
                     >
                       {tier.cta}
                     </Button>
@@ -608,7 +609,7 @@ export default function DigitalPage() {
               Audit gratuit de 45 minutes : on analyse vos processus, identifie les gains potentiels, 
               et vous repartez avec une roadmap concrète — même si vous ne travaillez pas avec nous.
             </p>
-            <Button variant="cta" size="xl" onClick={() => window.location.href = "/digital/contact"}>
+            <Button variant="cta" size="xl" onClick={() => navigate("/digital/contact")}>
               Demander mon audit gratuit
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
