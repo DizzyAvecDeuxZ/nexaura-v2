@@ -76,7 +76,7 @@ export default function AppsPage() {
       <Vortex
         backgroundColor="black"
         className="fixed inset-0"
-        particleCount={isMobile ? 50 : 150}
+        particleCount={isMobile ? 30 : 80}
         baseHue={300}
       />
 

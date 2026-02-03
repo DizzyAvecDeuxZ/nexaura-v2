@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SparklesCore } from "@/components/ui/sparkles";
@@ -13,53 +12,25 @@ interface CTASectionProps {
 export function CTASection({ onOpenContact }: CTASectionProps) {
   return (
     <section id="contact" className="relative py-32 bg-gradient-to-br from-black via-violet-950/20 to-black overflow-hidden">
-      {/* Sparkles background */}
+      {/* Sparkles background - densité réduite */}
       <SparklesCore
         id="ctaSparkles"
         background="transparent"
         minSize={0.6}
         maxSize={1.4}
-        particleDensity={60}
+        particleDensity={30}
         className="w-full h-full absolute inset-0"
         particleColor="#a855f7"
       />
 
-      {/* Background decoration */}
+      {/* Background decoration - animations CSS */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute top-0 left-0 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.5, 0.3, 0.5],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '3s' }} />
       </div>
 
       <div className="container-wide relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto"
-        >
+        <div className="text-center max-w-3xl mx-auto animate-slide-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             Prêt à créer quelque chose{" "}
             <span className="gradient-text">d'extraordinaire</span> ?
@@ -68,13 +39,7 @@ export function CTASection({ onOpenContact }: CTASectionProps) {
             Parlons de votre projet. Appel gratuit de 20 minutes, aucun engagement.
           </ShinyText>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.1s' }}>
             <GlareCard>
               <Button
                 variant="cta"
@@ -97,8 +62,8 @@ export function CTASection({ onOpenContact }: CTASectionProps) {
                 En savoir plus
               </Button>
             </GlareHover>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

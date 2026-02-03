@@ -21,7 +21,7 @@ export default function FitXP() {
         <Vortex
           backgroundColor="transparent"
           rangeY={800}
-          particleCount={300}
+          particleCount={100}
           baseHue={270}
           baseSpeed={0.02}
           rangeSpeed={0.8}

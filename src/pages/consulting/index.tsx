@@ -33,7 +33,7 @@ export default function ConsultingPage() {
         <Vortex
           backgroundColor="black"
           className="w-full h-full"
-          particleCount={150}
+          particleCount={80}
           baseHue={45}
           baseSpeed={0.5}
           rangeSpeed={0.8}

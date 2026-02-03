@@ -16,7 +16,6 @@ const About = lazy(() => import("./pages/holding/a-propos"));
 
 // Digital pages
 const Digital = lazy(() => import("./pages/digital"));
-const DigitalSites = lazy(() => import("./pages/digital/sites"));
 const DigitalApps = lazy(() => import("./pages/digital/apps"));
 const DigitalMaintenance = lazy(() => import("./pages/digital/maintenance"));
 const DigitalContact = lazy(() => import("./pages/digital/contact"));
@@ -59,7 +58,6 @@ const App = () => (
                ═══════════════════════════════════════════════════ */}
             <Route element={<DigitalLayout />}>
               <Route path="/digital" element={<Digital />} />
-              <Route path="/digital/sites" element={<DigitalSites />} />
               <Route path="/digital/apps" element={<DigitalApps />} />
               <Route path="/digital/maintenance" element={<DigitalMaintenance />} />
               <Route path="/digital/contact" element={<DigitalContact />} />

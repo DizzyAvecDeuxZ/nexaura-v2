@@ -13,11 +13,11 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { toast } from "sonner";
 
 const projectTypes = [
-  "Site Web Vitrine",
-  "Site E-commerce",
-  "Application Mobile",
-  "Maintenance",
-  "Refonte",
+  "Application métier sur-mesure",
+  "Digitalisation opérationnelle",
+  "Maintenance application",
+  "Migration / Refonte",
+  "Audit technique",
   "Autre"
 ];
 
@@ -51,7 +51,7 @@ export default function DigitalContactPage() {
   if (isSuccess) {
     return (
       <div className="relative min-h-screen bg-black overflow-x-hidden">
-        <Vortex backgroundColor="black" className="fixed inset-0" particleCount={isMobile ? 50 : 150} baseHue={270} />
+        <Vortex backgroundColor="black" className="fixed inset-0" baseHue={270} />
         <Header variant="digital" />
         
         <main className="relative z-10 min-h-screen flex items-center justify-center px-4 pt-24">
@@ -80,7 +80,7 @@ export default function DigitalContactPage() {
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
-      <Vortex backgroundColor="black" className="fixed inset-0" particleCount={isMobile ? 50 : 150} baseHue={270} />
+      <Vortex backgroundColor="black" className="fixed inset-0" baseHue={270} />
       
       <Header variant="digital" />
 

@@ -3,10 +3,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, TrendingUp, Clock, Users, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Vortex } from "@/components/ui/vortex";
-import { GradientText } from "@/components/ui/gradient-text";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
-import { aiUseCases } from "@/lib/data/pricing";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const detailedCases = [
@@ -85,8 +83,8 @@ export default function CasesPage() {
       <Vortex
         backgroundColor="black"
         className="fixed inset-0"
-        particleCount={isMobile ? 50 : 150}
-        baseHue={40}
+        particleCount={isMobile ? 30 : 80}
+        baseHue={45}
       />
 
       <Header 
@@ -100,7 +98,7 @@ export default function CasesPage() {
         <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Cas d'<span className="text-amber-400">usage</span> concrets
+              Cas d'<span className="text-yellow-400">usage</span> concrets
             </h1>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               Des implémentations réelles avec ROI mesurable. 
@@ -125,7 +123,7 @@ export default function CasesPage() {
                   {/* Left: Content */}
                   <div>
                     <h2 className="text-2xl font-bold text-white mb-2">{caseStudy.title}</h2>
-                    <p className="text-amber-400 mb-6">{caseStudy.subtitle}</p>
+                    <p className="text-yellow-400 mb-6">{caseStudy.subtitle}</p>
 
                     <div className="space-y-4 mb-6">
                       <div>
@@ -140,7 +138,7 @@ export default function CasesPage() {
 
                     <div className="flex flex-wrap gap-2 mb-6">
                       {caseStudy.technologies.map((tech) => (
-                        <span key={tech} className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs">
+                        <span key={tech} className="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs">
                           {tech}
                         </span>
                       ))}
@@ -158,7 +156,7 @@ export default function CasesPage() {
                     <div className="grid grid-cols-3 gap-4">
                       {caseStudy.results.map((result, i) => (
                         <div key={i} className="text-center">
-                          <result.icon className="w-6 h-6 text-amber-400 mx-auto mb-2" />
+                          <result.icon className="w-6 h-6 text-yellow-400 mx-auto mb-2" />
                           <div className="text-2xl font-bold text-white">{result.metric}</div>
                           <div className="text-xs text-gray-500">{result.label}</div>
                         </div>
@@ -172,7 +170,7 @@ export default function CasesPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 px-4 bg-gradient-to-t from-amber-950/20 to-black">
+        <section className="py-20 px-4 bg-gradient-to-t from-yellow-950/20 to-black">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-6">
               Votre cas ressemble à l'un de ces exemples ?
@@ -180,7 +178,7 @@ export default function CasesPage() {
             <Button 
               variant="cta" 
               size="xl" 
-              className="bg-indigo-500 hover:bg-indigo-600"
+              className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black font-semibold shadow-[0_0_30px_rgba(250,204,21,0.4)] hover:shadow-[0_0_50px_rgba(250,204,21,0.6)] transition-all duration-300"
               onClick={() => navigate("/consulting/contact")}
             >
               Discutons de votre projet

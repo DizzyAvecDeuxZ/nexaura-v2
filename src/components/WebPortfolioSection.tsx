@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -61,13 +60,7 @@ export function WebPortfolioSection() {
   return (
     <section id="portfolio" className="relative py-24 bg-gradient-to-b from-black via-violet-950/10 to-black overflow-hidden">
       <div className="container-wide relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 animate-slide-up">
           <span className="inline-block px-4 py-2 rounded-full bg-violet-500/10 text-violet-400 text-sm mb-6 border border-violet-500/20">
             Nos réalisations
           </span>
@@ -77,23 +70,21 @@ export function WebPortfolioSection() {
           <ShinyText className="text-lg text-gray-400 max-w-2xl mx-auto">
             Des projets variés, du site vitrine à l'e-commerce, tous conçus sur mesure
           </ShinyText>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {webProjects.map((item, index) => (
-            <motion.div
+            <div
               key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]"
+              className="group relative bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] animate-slide-up"
+              style={{ animationDelay: `${index * 0.05}s` }}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
                 {/* Glassmorphism overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-violet-600/80 via-violet-500/40 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm flex items-center justify-center">
@@ -141,18 +132,12 @@ export function WebPortfolioSection() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-slide-up" style={{ animationDelay: '0.3s' }}
           {[
             { value: "50+", label: "Sites livrés" },
             { value: "98%", label: "Clients satisfaits" },
@@ -164,7 +149,7 @@ export function WebPortfolioSection() {
               <div className="text-sm text-gray-400">{stat.label}</div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

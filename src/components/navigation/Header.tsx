@@ -18,7 +18,6 @@ interface HeaderProps {
 
 const navItems: Record<string, NavItem[]> = {
   digital: [
-    { label: "Sites", href: "/digital/sites" },
     { label: "Applications", href: "/digital/apps" },
     { label: "Maintenance", href: "/digital/maintenance" },
     { label: "Contact", href: "/digital/contact" }
@@ -82,6 +81,9 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
                   src="/logo-icon-white.png" 
                   alt="Nexaura" 
                   className={isScrolled ? "w-10 h-auto" : "w-12 h-auto"}
+                  loading="eager"
+                  width="48"
+                  height="48"
                 />
               )}
               <div className="hidden sm:block">

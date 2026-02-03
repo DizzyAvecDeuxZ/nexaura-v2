@@ -176,6 +176,7 @@ export function FitXPHero() {
                   src="/screenshots/fitxp/home-dark.png"
                   alt="FitXP Home Screen"
                   className="w-full h-full object-cover object-top"
+                  loading="lazy"
                 />
               </div>
 

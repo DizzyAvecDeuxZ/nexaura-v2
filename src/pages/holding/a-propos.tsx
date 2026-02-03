@@ -38,7 +38,7 @@ const AboutPage = () => {
         <Vortex
           backgroundColor="black"
           className="w-full h-full"
-          particleCount={isMobile ? 50 : 150}
+          particleCount={isMobile ? 30 : 80}
           baseHue={260}
           baseSpeed={0.01}
           rangeSpeed={0.3}

@@ -1,9 +1,10 @@
 'use client';
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { createNoise3D } from "simplex-noise";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface VortexProps {
   children?: any;
@@ -18,12 +19,24 @@ interface VortexProps {
   rangeRadius?: number;
   backgroundColor?: string;
   mixed?: boolean; // Alterne entre violet et jaune
+  disableOnMobile?: boolean; // Désactiver sur mobile
 }
 
 export const Vortex = (props: VortexProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef(null);
-  const particleCount = props.particleCount || 700;
+  const isMobile = useIsMobile();
+  
+  // Désactiver sur mobile si demandé ou par défaut pour les performances
+  const shouldDisable = props.disableOnMobile !== false && isMobile;
+  
+  // Optimisation: réduire le nombre de particules sur mobile
+  const particleCount = useMemo(() => {
+    if (shouldDisable) return 0;
+    if (props.particleCount) return props.particleCount;
+    return isMobile ? 30 : 80; // Réduit: 50→30 mobile, 150→80 desktop
+  }, [props.particleCount, isMobile, shouldDisable]);
+  
   const particlePropCount = 9;
   const particlePropsLength = particleCount * particlePropCount;
   const rangeY = props.rangeY || 100;
@@ -42,13 +55,13 @@ export const Vortex = (props: VortexProps) => {
   const zOff = 0.0005;
   const backgroundColor = props.backgroundColor || "transparent";
   let tick = 0;
-  const noise3D = createNoise3D();
+  const noise3D = useMemo(() => createNoise3D(), []);
   let particleProps = new Float32Array(particlePropsLength);
   let center: [number, number] = [0, 0];
+  const animationRef = useRef<number>();
 
   const HALF_PI: number = 0.5 * Math.PI;
   const TAU: number = 2 * Math.PI;
-  const TO_RAD: number = Math.PI / 180;
   const rand = (n: number): number => n * Math.random();
   const randRange = (n: number): number => n - rand(2 * n);
   const fadeInOut = (t: number, m: number): number => {
@@ -59,6 +72,7 @@ export const Vortex = (props: VortexProps) => {
     (1 - speed) * n1 + speed * n2;
 
   const setup = () => {
+    if (shouldDisable) return;
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (canvas && container) {
@@ -73,6 +87,7 @@ export const Vortex = (props: VortexProps) => {
   };
 
   const initParticles = () => {
+    if (shouldDisable) return;
     tick = 0;
     particleProps = new Float32Array(particlePropsLength);
 
@@ -102,6 +117,7 @@ export const Vortex = (props: VortexProps) => {
   };
 
   const draw = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
+    if (shouldDisable) return;
     tick++;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -113,7 +129,7 @@ export const Vortex = (props: VortexProps) => {
     renderGlow(canvas, ctx);
     renderToScreen(canvas, ctx);
 
-    window.requestAnimationFrame(() => draw(canvas, ctx));
+    animationRef.current = window.requestAnimationFrame(() => draw(canvas, ctx));
   };
 
   const drawParticles = (ctx: CanvasRenderingContext2D) => {
@@ -230,15 +246,34 @@ export const Vortex = (props: VortexProps) => {
   };
 
   useEffect(() => {
+    if (shouldDisable) return;
     setup();
-    window.addEventListener("resize", () => {
+    const handleResize = () => {
       const canvas = canvasRef.current;
       const ctx = canvas?.getContext("2d");
       if (canvas && ctx) {
         resize(canvas, ctx);
       }
-    });
-  }, []);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [shouldDisable, particleCount]);
+
+  // Si désactivé sur mobile, ne pas rendre le canvas
+  if (shouldDisable) {
+    return (
+      <div className={cn("relative h-full w-full", props.containerClassName)}>
+        <div className={cn("relative z-10", props.className)}>
+          {props.children}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={cn("relative h-full w-full", props.containerClassName)}>
@@ -247,8 +282,9 @@ export const Vortex = (props: VortexProps) => {
         animate={{ opacity: 1 }}
         ref={containerRef}
         className="absolute h-full w-full inset-0 z-0 bg-transparent flex items-center justify-center"
+        style={{ willChange: 'transform' }}
       >
-        <canvas ref={canvasRef}></canvas>
+        <canvas ref={canvasRef} style={{ willChange: 'transform' }}></canvas>
       </motion.div>
 
       <div className={cn("relative z-10", props.className)}>

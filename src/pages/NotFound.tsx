@@ -12,7 +12,7 @@ export default function NotFoundPage() {
       <Vortex
         backgroundColor="black"
         className="fixed inset-0"
-        particleCount={isMobile ? 50 : 150}
+        particleCount={isMobile ? 30 : 80}
         baseHue={0}
         rangeSpeed={0.2}
       />

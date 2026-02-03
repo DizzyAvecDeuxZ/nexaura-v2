@@ -31,7 +31,6 @@ export function Footer({ variant = "holding" }: FooterProps) {
           <div>
             <h4 className="text-white font-semibold mb-4">Digital</h4>
             <ul className="space-y-2">
-              <li><Link to="/digital/sites" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Sites Web</Link></li>
               <li><Link to="/digital/apps" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Applications</Link></li>
               <li><Link to="/digital/maintenance" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Maintenance</Link></li>
               <li><Link to="/digital/contact" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">Contact</Link></li>

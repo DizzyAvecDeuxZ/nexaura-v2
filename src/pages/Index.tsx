@@ -24,8 +24,8 @@ const Index = () => {
   
   const isRTL = i18n.language === "ar";
 
-  const particleCount = isMobile ? 50 : 150;
-  const rangeSpeed = isMobile ? 0.5 : 0.8;
+  const particleCount = isMobile ? 30 : 80; // Optimisé: 30 mobile, 80 desktop
+  const rangeSpeed = isMobile ? 0.3 : 0.6;
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
@@ -64,6 +64,9 @@ const Index = () => {
                 src="/logo-icon-white.png" 
                 alt="Nexaura" 
                 className={isMobile ? "w-20 h-auto" : "w-32 h-auto"}
+                loading="eager"
+                width="128"
+                height="128"
               />
             </motion.div>
 

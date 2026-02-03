@@ -327,8 +327,142 @@
   }
 }
 
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+@keyframes scrollIndicator {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+}
+
 .animate-orbit {
   animation: orbit 20s linear infinite;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 2s ease-in-out infinite;
+}
+
+.animate-scroll-indicator {
+  animation: scrollIndicator 2s ease-in-out infinite;
+}
+
+/* Animations optimisées pour FloatingParticles */
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translate(10px, -20px) scale(1.1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(20px, -40px) scale(1.2);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate(10px, -20px) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+.animate-float-particle {
+  animation: floatParticle ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes lineGrow {
+  from {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  to {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+.animate-line-grow {
+  animation: lineGrow 1.5s ease-out forwards;
+  transform: scaleY(0);
+}
+
+@keyframes orbFloatDown {
+  from {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+@keyframes orbFloatUp {
+  from {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
+
+.animate-orb-float-down {
+  animation: orbFloatDown 8s linear infinite;
+}
+
+.animate-orb-float-up {
+  animation: orbFloatUp 10s linear infinite;
+}
+
+@keyframes orbDrift {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-50px, 50px);
+  }
+}
+
+.animate-orb-drift {
+  animation: orbDrift 10s ease-in-out infinite;
 }
 
 .animate-gradient {

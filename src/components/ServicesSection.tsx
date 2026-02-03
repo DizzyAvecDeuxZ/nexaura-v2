@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Monitor, Smartphone, Check } from "lucide-react";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { ShinyText } from "@/components/ui/shiny-text";
@@ -59,39 +58,24 @@ export function ServicesSection() {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl" />
       
       <div className="container-wide relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
-          <motion.h2
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
+        <div className="text-center mb-20 animate-slide-up">
+          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Nos{" "}
             <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
               expertises
             </span>
-          </motion.h2>
+          </h2>
           <ShinyText className="text-xl text-gray-400 max-w-2xl">
             Des solutions digitales sur-mesure pour booster votre activité
           </ShinyText>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={service.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className={`relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border ${service.borderColor} hover:border-${index === 0 ? 'violet' : 'pink'}-500/50 transition-all duration-500 overflow-hidden group`}
+              className={`relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border ${service.borderColor} hover:border-${index === 0 ? 'violet' : 'pink'}-500/50 transition-all duration-500 overflow-hidden group hover:-translate-y-2 hover:scale-[1.02] animate-slide-up`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Glow effect on hover */}
               <div className={`absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500 bg-gradient-to-br ${service.gradient} blur-2xl -z-10`} />
@@ -125,23 +109,19 @@ export function ServicesSection() {
 
                 <ul className="space-y-4">
                   {service.items.map((item, idx) => (
-                    <motion.li 
+                    <li 
                       key={item} 
                       className="flex items-center gap-3"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
                     >
                       <div className={`w-6 h-6 rounded-full ${index === 0 ? 'bg-violet-500/20' : 'bg-pink-500/20'} flex items-center justify-center flex-shrink-0 border ${service.borderColor}`}>
                         <Check className={`w-4 h-4 ${index === 0 ? 'text-violet-400' : 'text-pink-400'}`} />
                       </div>
                       <span className="text-gray-300">{item}</span>
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -48,42 +47,20 @@ const faqs = [
 export function FAQSection() {
   return (
     <section className="relative py-32 bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* Animated gradient orb */}
-      <motion.div
-        className="absolute top-1/3 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl"
-        animate={{
-          x: [0, -50, 0],
-          y: [0, 50, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+      {/* Animated gradient orb - CSS animation */}
+      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl animate-orb-drift" />
 
       <div className="container-wide max-w-3xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12 animate-slide-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Questions <span className="gradient-text">fréquentes</span>
           </h2>
           <ShinyText className="text-lg text-gray-400">
             Tout ce que vous devez savoir avant de nous contacter
           </ShinyText>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
@@ -100,7 +77,7 @@ export function FAQSection() {
               </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

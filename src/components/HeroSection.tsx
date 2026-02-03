@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ShootingStars } from "@/components/ui/shooting-stars";
@@ -56,41 +55,21 @@ export function HeroSection({ onOpenContact }: HeroSectionProps) {
         </svg>
       </div>
 
-      <div className="relative z-10 container-wide px-4 md:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
-        >
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-          >
+      <div className="relative z-10 container-wide px-4 md:px-8 text-center animate-fade-in">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
             <GradientText>
               Créer l'expérience web de demain
             </GradientText>
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            className="mb-12"
-          >
+          <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <ShinyText className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
               Nous créons des sites et applications qui impressionnent. Design futuriste, technologie moderne, livraison rapide.
             </ShinyText>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>
             <ShimmerButton>
               <Button
                 variant="cta"
@@ -113,15 +92,10 @@ export function HeroSection({ onOpenContact }: HeroSectionProps) {
                 Réserver un appel
               </Button>
             </GlareCard>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2 }}
-          className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
-        >
+        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-slide-up" style={{ animationDelay: '0.4s' }}
           {[
             { value: "50+", label: "Projets livrés" },
             { value: "7-15j", label: "Délai moyen" },
@@ -139,20 +113,14 @@ export function HeroSection({ onOpenContact }: HeroSectionProps) {
       </div>
 
       {/* Scroll indicator - decorative */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden sm:block"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden sm:block animate-bounce-slow"
         aria-hidden="true"
       >
         <div className="w-6 h-10 rounded-full border-2 border-primary/30 flex items-start justify-center p-2 backdrop-blur-sm bg-white/5">
-          <motion.div
-            className="w-1.5 h-3 bg-gradient-to-b from-primary to-secondary rounded-full"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
+          <div className="w-1.5 h-3 bg-gradient-to-b from-primary to-secondary rounded-full animate-scroll-indicator" />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

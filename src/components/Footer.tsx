@@ -24,7 +24,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Logo & Description */}
           <div className="md:col-span-2">
-            <img src={logoNexaura} alt="Nexaura" className="h-32 w-auto mb-0 -ml-8" />
+            <img src={logoNexaura} alt="Nexaura" className="h-32 w-auto mb-0 -ml-8" loading="lazy" width="200" height="128" />
             <p className="text-gray-400 max-w-sm mb-6">
               Agence web next-gen. Design futuriste, technologie de pointe. Nous créons des expériences web qui impressionnent.
             </p>

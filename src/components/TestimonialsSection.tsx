@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { GradientText } from "@/components/ui/gradient-text";
 
@@ -41,12 +40,7 @@ export function TestimonialsSection() {
     <section className="py-24 px-4 bg-gradient-to-b from-black via-violet-950/5 to-black">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 animate-slide-up">
           <span className="inline-block px-4 py-2 rounded-full bg-violet-500/10 text-violet-400 text-sm mb-6 border border-violet-500/20">
             Témoignages clients
           </span>
@@ -56,18 +50,15 @@ export function TestimonialsSection() {
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             Des entrepreneurs et dirigeants qui ont transformé leur présence digitale avec Nexaura.
           </p>
-        </motion.div>
+        </div>
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-violet-500/30 transition-all duration-300"
+              className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-violet-500/30 transition-all duration-300 animate-slide-up"
+              style={{ animationDelay: `${index * 0.05}s` }}
             >
               {/* Quote Icon */}
               <div className="absolute -top-3 -left-3 w-10 h-10 bg-violet-500 rounded-xl flex items-center justify-center">
@@ -98,7 +89,7 @@ export function TestimonialsSection() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 

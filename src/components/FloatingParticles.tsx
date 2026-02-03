@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 
 type ParticleColor = "violet" | "green" | "yellow" | "amber" | "indigo" | "fuchsia";
 
@@ -12,21 +11,6 @@ interface Particle {
   delay: number;
   color: ParticleColor;
 }
-
-const colorOptions: ParticleColor[] = ["violet", "green", "yellow", "amber", "indigo", "fuchsia"];
-
-const generateParticles = (count: number, colors?: ParticleColor[]): Particle[] => {
-  const availableColors = colors && colors.length > 0 ? colors : ["violet", "green"];
-  return Array.from({ length: count }, (_, i) => ({
-    id: i,
-    size: Math.random() * 100 + 60,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 10 + 15,
-    delay: Math.random() * 5,
-    color: availableColors[Math.floor(Math.random() * availableColors.length)],
-  }));
-};
 
 interface FloatingParticlesProps {
   count?: number;
@@ -44,6 +28,39 @@ const colorClasses: Record<ParticleColor, string> = {
   fuchsia: "bg-fuchsia-500/20",
 };
 
+// Generate random particles - optimisé avec useMemo
+const generateParticles = (count: number, colors?: ParticleColor[]): Particle[] => {
+  const availableColors = colors && colors.length > 0 ? colors : ["violet", "green"];
+  return Array.from({ length: count }, (_, i) => ({
+    id: i,
+    size: Math.random() * 80 + 40, // Réduit légèrement la taille
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 8 + 12, // Légèrement réduit
+    delay: Math.random() * 3,
+    color: availableColors[Math.floor(Math.random() * availableColors.length)],
+  }));
+};
+
+// Composant pour une seule particule avec animation CSS
+function ParticleDot({ particle }: { particle: Particle }) {
+  const style: React.CSSProperties = {
+    width: particle.size,
+    height: particle.size,
+    left: `${particle.x}%`,
+    top: `${particle.y}%`,
+    animationDuration: `${particle.duration}s`,
+    animationDelay: `${particle.delay}s`,
+  };
+
+  return (
+    <div
+      className={`absolute rounded-full blur-3xl ${colorClasses[particle.color]} animate-float-particle`}
+      style={style}
+    />
+  );
+}
+
 // Composant pour une seule couche de particules
 function ParticleLayer({ 
   count, 
@@ -54,59 +71,30 @@ function ParticleLayer({
   colors?: ParticleColor[]; 
   offset: number;
 }) {
-  const [particles, setParticles] = useState<Particle[]>([]);
-  const [key, setKey] = useState(0);
-
-  const regenerateParticles = useCallback(() => {
-    setParticles(generateParticles(count, colors));
-    setKey(prev => prev + 1);
-  }, [count, colors]);
-
-  useEffect(() => {
-    regenerateParticles();
-  }, [regenerateParticles]);
+  const particles = useMemo(() => generateParticles(count, colors), [count, colors]);
 
   return (
     <div 
-      key={key} 
       className="fixed left-0 right-0 h-screen overflow-visible pointer-events-none"
       style={{ top: `${offset * 100}vh` }}
     >
       {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className={`absolute rounded-full blur-3xl ${colorClasses[particle.color]}`}
-          style={{
-            width: particle.size,
-            height: particle.size,
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-          }}
-          animate={{
-            y: [0, -40, 0],
-            x: [0, 20, 0],
-            scale: [1, 1.2, 1],
-            opacity: [0.4, 0.8, 0.4],
-          }}
-          transition={{
-            duration: particle.duration,
-            delay: particle.delay,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <ParticleDot key={particle.id} particle={particle} />
       ))}
     </div>
   );
 }
 
-export function FloatingParticles({ count = 6, className = "", colors, layers = 1 }: FloatingParticlesProps) {
+export function FloatingParticles({ count = 4, className = "", colors, layers = 1 }: FloatingParticlesProps) {
+  // Réduit le nombre de particules par défaut pour de meilleures performances
+  const optimizedCount = Math.min(count, 6);
+  
   return (
     <div className={className}>
       {Array.from({ length: layers }, (_, i) => (
         <ParticleLayer 
           key={i} 
-          count={count} 
+          count={optimizedCount} 
           colors={colors} 
           offset={i}
         />
@@ -161,30 +149,22 @@ export function AnimatedLines({ className = "", variant = "violet" }: AnimatedLi
 
   return (
     <div key={key} className={`fixed inset-0 overflow-hidden pointer-events-none ${className}`}>
-      {/* Vertical lines */}
-      <motion.div
-        className={`absolute left-[10%] top-0 w-px h-full bg-gradient-to-b ${colors.left}`}
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
+      {/* Vertical lines avec animation CSS */}
+      <div
+        className={`absolute left-[10%] top-0 w-px h-full bg-gradient-to-b ${colors.left} animate-line-grow`}
+        style={{ animationDelay: '0s' }}
       />
-      <motion.div
-        className={`absolute left-[90%] top-0 w-px h-full bg-gradient-to-b ${colors.right}`}
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 1 }}
-        transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+      <div
+        className={`absolute left-[90%] top-0 w-px h-full bg-gradient-to-b ${colors.right} animate-line-grow`}
+        style={{ animationDelay: '0.3s' }}
       />
       
-      {/* Floating orbs on lines */}
-      <motion.div
-        className={`absolute left-[10%] w-2 h-2 rounded-full ${colors.leftOrb}`}
-        animate={{ y: ["0vh", "100vh"] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+      {/* Floating orbs on lines avec animation CSS */}
+      <div
+        className={`absolute left-[10%] w-2 h-2 rounded-full ${colors.leftOrb} animate-orb-float-down`}
       />
-      <motion.div
-        className={`absolute left-[90%] w-2 h-2 rounded-full ${colors.rightOrb}`}
-        animate={{ y: ["100vh", "0vh"] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+      <div
+        className={`absolute left-[90%] w-2 h-2 rounded-full ${colors.rightOrb} animate-orb-float-up`}
       />
     </div>
   );

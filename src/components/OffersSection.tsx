@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Target, BarChart3, Rocket, Smartphone, Briefcase, Settings, Handshake, TrendingUp, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SparklesCore } from "@/components/ui/sparkles";

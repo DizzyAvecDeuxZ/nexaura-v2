@@ -32,8 +32,8 @@ export default function AuditPage() {
       <Vortex
         backgroundColor="black"
         className="fixed inset-0"
-        particleCount={isMobile ? 50 : 150}
-        baseHue={240}
+        particleCount={isMobile ? 30 : 80}
+        baseHue={45}
       />
 
       <Header 
@@ -57,10 +57,10 @@ export default function AuditPage() {
         </section>
 
         {/* Process */}
-        <section className="py-16 px-4 bg-gradient-to-b from-black via-indigo-950/10 to-black">
+        <section className="py-16 px-4 bg-gradient-to-b from-black via-yellow-950/10 to-black">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-white text-center mb-12">
-              Comment se déroule un <span className="text-indigo-400">audit</span> ?
+              Comment se déroule un <span className="text-yellow-400">audit</span> ?
             </h2>
 
             <div className="grid md:grid-cols-4 gap-6">
@@ -73,7 +73,7 @@ export default function AuditPage() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 text-center"
                 >
-                  <step.icon className="w-10 h-10 text-indigo-400 mx-auto mb-4" />
+                  <step.icon className="w-10 h-10 text-yellow-400 mx-auto mb-4" />
                   <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
                   <p className="text-gray-400 text-sm">{step.desc}</p>
                 </motion.div>
@@ -99,14 +99,14 @@ export default function AuditPage() {
                     priceEUR={expressOffer.priceEUR} 
                     priceDZD={expressOffer.priceDZD} 
                     currency={currency}
-                    className="text-indigo-400 text-4xl mb-2"
+                    className="text-yellow-400 text-4xl mb-2"
                   />
                   <p className="text-gray-500 mb-6">⏱️ {expressOffer.duration}</p>
 
                   <ul className="space-y-3 mb-8">
                     {expressOffer.deliverables.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-gray-300">
-                        <Check className="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" />
+                        <Check className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -114,7 +114,7 @@ export default function AuditPage() {
 
                   <Button 
                     variant="outline" 
-                    className="w-full"
+                    className="w-full border-yellow-500/50 text-yellow-300 hover:bg-yellow-500/20 hover:border-yellow-400"
                     onClick={() => setShowCalendly(true)}
                   >
                     Réserver un appel
@@ -123,8 +123,8 @@ export default function AuditPage() {
               )}
 
               {strategicOffer && (
-                <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border-2 border-indigo-500">
-                  <span className="inline-block bg-indigo-500 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border-2 border-yellow-500 shadow-[0_0_30px_rgba(250,204,21,0.2)]">
+                  <span className="inline-block bg-gradient-to-r from-yellow-400 to-amber-500 text-black text-xs font-bold px-3 py-1 rounded-full mb-4 shadow-[0_0_15px_rgba(250,204,21,0.5)]">
                     Recommandé
                   </span>
                   <h3 className="text-2xl font-bold text-white mb-2">{strategicOffer.name}</h3>
@@ -134,21 +134,21 @@ export default function AuditPage() {
                     priceEUR={strategicOffer.priceEUR} 
                     priceDZD={strategicOffer.priceDZD} 
                     currency={currency}
-                    className="text-indigo-400 text-4xl mb-2"
+                    className="text-yellow-400 text-4xl mb-2"
                   />
                   <p className="text-gray-500 mb-6">⏱️ {strategicOffer.duration}</p>
 
                   <ul className="space-y-3 mb-8">
                     {strategicOffer.deliverables.map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-gray-300">
-                        <Check className="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" />
+                        <Check className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                         {item}
                       </li>
                     ))}
                   </ul>
 
                   <Button 
-                    className="w-full bg-indigo-500 hover:bg-indigo-600"
+                    className="w-full bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black font-semibold shadow-[0_0_20px_rgba(250,204,21,0.4)]"
                     onClick={() => setShowCalendly(true)}
                   >
                     Prendre RDV stratégique
@@ -160,7 +160,7 @@ export default function AuditPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-gradient-to-t from-yellow-950/20 to-black">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-6">
               Commençons par un échange
@@ -168,7 +168,7 @@ export default function AuditPage() {
             <Button 
               variant="cta" 
               size="xl" 
-              className="bg-indigo-500 hover:bg-indigo-600"
+              className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black font-semibold shadow-[0_0_30px_rgba(250,204,21,0.4)] hover:shadow-[0_0_50px_rgba(250,204,21,0.6)] transition-all duration-300"
               onClick={() => setShowCalendly(true)}
             >
               Réserver un appel découverte
@@ -191,14 +191,14 @@ export default function AuditPage() {
               ×
             </button>
             <div className="text-center">
-              <Calendar className="w-16 h-16 text-indigo-400 mx-auto mb-4" />
+              <Calendar className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">Prendre rendez-vous</h3>
               <p className="text-gray-400 mb-6">
                 Envoyez-nous un email avec vos disponibilités. Nous vous proposerons un créneau sous 24h.
               </p>
               <a
                 href="mailto:alexis.pinalopez@nexauraholding.com?subject=Demande%20de%20rendez-vous%20-%20Audit%20IA&body=Bonjour,%0A%0AJe%20souhaite%20prendre%20rendez-vous%20pour%20un%20Audit%20IA.%0A%0AMes%20disponibilités%20:%0A-%0A-%0A-%0A%0ACordialement,"
-                className="inline-flex items-center justify-center w-full px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-xl transition-colors"
+                className="inline-flex items-center justify-center w-full px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-xl transition-colors"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Envoyer une demande de RDV

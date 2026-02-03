@@ -36,8 +36,8 @@ export function DigitalLayout() {
                 </span>
               </div>
               <p className="text-gray-500 text-sm max-w-md">
-                Expertise en développement web et mobile. Nous créons des solutions 
-                digitales sur-mesure pour accompagner votre transformation numérique.
+                Expertise en applications métiers B2B et digitalisation opérationnelle. 
+                Nous créons des solutions sur-mesure pour accompagner votre transformation numérique.
               </p>
             </div>
 
@@ -45,11 +45,6 @@ export function DigitalLayout() {
             <div>
               <h4 className="text-white font-semibold mb-4">Services</h4>
               <ul className="space-y-2">
-                <li>
-                  <Link to="/digital/sites" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">
-                    Sites Web
-                  </Link>
-                </li>
                 <li>
                   <Link to="/digital/apps" className="text-gray-500 hover:text-violet-400 text-sm transition-colors">
                     Applications

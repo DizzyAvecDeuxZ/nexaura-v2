@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -97,12 +96,8 @@ export function PortfolioSection() {
       />
 
       <div className="container-wide relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+        <div
+          className="text-center mb-16 animate-slide-up"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Notre <span className="gradient-text">univers créatif</span>
@@ -110,23 +105,21 @@ export function PortfolioSection() {
           <ShinyText className="text-lg text-gray-400 max-w-2xl">
             Découvrez quelques-unes de nos réalisations récentes
           </ShinyText>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {portfolioItems.map((item, index) => (
-            <motion.div
+            <div
               key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]"
+              className="group relative bg-white/5 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] animate-slide-up"
+              style={{ animationDelay: `${index * 0.05}s` }}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
                 {/* Glassmorphism overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-violet-600/80 via-violet-500/40 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm flex items-center justify-center">
@@ -174,7 +167,7 @@ export function PortfolioSection() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

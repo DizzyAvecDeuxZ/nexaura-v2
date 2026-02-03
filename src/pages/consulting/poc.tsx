@@ -31,8 +31,8 @@ export default function PocPage() {
       <Vortex
         backgroundColor="black"
         className="fixed inset-0"
-        particleCount={isMobile ? 50 : 150}
-        baseHue={280}
+        particleCount={isMobile ? 30 : 80}
+        baseHue={45}
       />
 
       <Header 
@@ -56,10 +56,10 @@ export default function PocPage() {
         </section>
 
         {/* Why POC */}
-        <section className="py-16 px-4 bg-gradient-to-b from-black via-purple-950/10 to-black">
+        <section className="py-16 px-4 bg-gradient-to-b from-black via-amber-950/10 to-black">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-white text-center mb-12">
-              Pourquoi faire un <span className="text-purple-400">POC</span> ?
+              Pourquoi faire un <span className="text-yellow-400">POC</span> ?
             </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -88,7 +88,7 @@ export default function PocPage() {
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-white text-center mb-12">
-              Notre <span className="text-purple-400">processus</span>
+              Notre <span className="text-yellow-400">processus</span>
             </h2>
 
             <div className="grid md:grid-cols-4 gap-4">
@@ -101,8 +101,8 @@ export default function PocPage() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 text-center"
                 >
-                  <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="w-6 h-6 text-purple-400" />
+                  <div className="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center mx-auto mb-4">
+                    <step.icon className="w-6 h-6 text-yellow-400" />
                   </div>
                   <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
                   <p className="text-gray-400 text-sm">{step.desc}</p>
@@ -114,13 +114,13 @@ export default function PocPage() {
 
         {/* Pricing */}
         {pocOffer && (
-          <section className="py-16 px-4 bg-gradient-to-b from-black via-purple-950/10 to-black">
+          <section className="py-16 px-4 bg-gradient-to-b from-black via-amber-950/10 to-black">
             <div className="max-w-4xl mx-auto">
               <div className="flex justify-center mb-8">
                 <CurrencyToggle currency={currency} onChange={setCurrency} variant="consulting" />
               </div>
 
-              <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border-2 border-purple-500">
+              <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border-2 border-yellow-500 shadow-[0_0_30px_rgba(250,204,21,0.2)]">
                 <div className="text-center mb-8">
                   <h3 className="text-3xl font-bold text-white mb-2">{pocOffer.name}</h3>
                   <p className="text-gray-400">{pocOffer.description}</p>
@@ -131,7 +131,7 @@ export default function PocPage() {
                     priceEUR={pocOffer.priceEUR} 
                     priceDZD={pocOffer.priceDZD} 
                     currency={currency}
-                    className="text-purple-400 text-5xl"
+                    className="text-yellow-400 text-5xl"
                   />
                 </div>
 
@@ -140,7 +140,7 @@ export default function PocPage() {
                 <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
                   {pocOffer.deliverables.map((item, i) => (
                     <div key={i} className="flex items-start gap-3 text-gray-300">
-                      <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <Check className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                       {item}
                     </div>
                   ))}
@@ -149,7 +149,7 @@ export default function PocPage() {
                 <div className="text-center">
                   <Button 
                     size="xl"
-                    className="bg-purple-500 hover:bg-purple-600"
+                    className="bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-black font-semibold shadow-[0_0_30px_rgba(250,204,21,0.4)] hover:shadow-[0_0_50px_rgba(250,204,21,0.6)] transition-all duration-300"
                     onClick={() => setShowCalendly(true)}
                   >
                     Discuter de mon POC
@@ -165,7 +165,7 @@ export default function PocPage() {
         <section className="py-16 px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-white text-center mb-12">
-              Questions <span className="text-purple-400">fréquentes</span>
+              Questions <span className="text-yellow-400">fréquentes</span>
             </h2>
 
             <div className="space-y-4">
@@ -197,14 +197,14 @@ export default function PocPage() {
               ×
             </button>
             <div className="text-center">
-              <Calendar className="w-16 h-16 text-indigo-400 mx-auto mb-4" />
+              <Calendar className="w-16 h-16 text-yellow-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">Prendre rendez-vous</h3>
               <p className="text-gray-400 mb-6">
                 Envoyez-nous un email avec vos disponibilités. Nous vous proposerons un créneau sous 24h.
               </p>
               <a
                 href="mailto:alexis.pinalopez@nexauraholding.com?subject=Demande%20de%20rendez-vous%20-%20POC%20IA&body=Bonjour,%0A%0AJe%20souhaite%20prendre%20rendez-vous%20pour%20discuter%20d'un%20POC%20IA.%0A%0AMes%20disponibilités%20:%0A-%0A-%0A-%0A%0ACordialement,"
-                className="inline-flex items-center justify-center w-full px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold rounded-xl transition-colors"
+                className="inline-flex items-center justify-center w-full px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-xl transition-colors"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Envoyer une demande de RDV
