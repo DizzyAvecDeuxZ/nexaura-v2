@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowLeft } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { NexauraLogo3DChrome } from "@/components/NexauraLogo3DChrome";
 
@@ -43,6 +44,7 @@ const brandColors = {
 export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -68,16 +70,16 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
           {/* Left: Back button + Logo */}
           <div className="flex items-center gap-4">
             {showBackButton && (
-              <a 
-                href="/"
+              <Link 
+                to="/"
                 className="hidden md:flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span className="text-sm">Retour</span>
-              </a>
+              </Link>
             )}
             
-            <a href={`/${variant === "holding" ? "" : variant}`} className="flex items-center gap-3">
+            <Link to={`/${variant === "holding" ? "" : variant}`} className="flex items-center gap-3">
               {variant === "holding" ? (
                 <NexauraLogo3DChrome size={isScrolled ? 45 : 55} />
               ) : (
@@ -95,19 +97,23 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
                   </span>
                 )}
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Center: Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {items.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
-                className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white rounded-lg hover:bg-white/5 transition-all"
+                to={item.href}
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
+                  location.pathname === item.href
+                    ? "text-white bg-white/10"
+                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -146,24 +152,29 @@ export function Header({ variant, onCtaClick, ctaLabel }: HeaderProps) {
           >
             <nav className="flex flex-col gap-2">
               {showBackButton && (
-                <a 
-                  href="/"
+                <Link 
+                  to="/"
                   className="flex items-center gap-2 text-gray-400 py-3 border-b border-white/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Retour à l'accueil</span>
-                </a>
+                </Link>
               )}
               
               {items.map((item) => (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
-                  className="text-lg font-medium text-gray-300 hover:text-white py-3 border-b border-white/10"
+                  to={item.href}
+                  className={`text-lg font-medium py-3 border-b border-white/10 ${
+                    location.pathname === item.href
+                      ? "text-white"
+                      : "text-gray-300 hover:text-white"
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               
               {ctaLabel && onCtaClick && (
