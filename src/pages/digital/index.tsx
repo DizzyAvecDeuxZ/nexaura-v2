@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Globe, Smartphone, Zap, Clock, Shield } from "lucide-react";
+import { ArrowRight, Check, Smartphone, Zap, Clock, Shield, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import { GradientText } from "@/components/ui/gradient-text";
@@ -12,8 +12,7 @@ import { Footer } from "@/components/navigation/Footer";
 import { Vortex } from "@/components/ui/vortex";
 import { CurrencyToggle } from "@/components/shared/CurrencyToggle";
 import { PriceDisplay } from "@/components/shared/PriceDisplay";
-import { WebPortfolioSection } from "@/components/WebPortfolioSection";
-import { websiteTiers, appTiers } from "@/lib/data/pricing";
+import { appTiers, maintenanceTiers } from "@/lib/data/pricing";
 
 
 const stats = [
@@ -65,17 +64,17 @@ export default function DigitalPage() {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block px-4 py-2 rounded-full bg-violet-500/10 text-violet-400 text-sm mb-6 border border-violet-500/20">
-                Développement Web & Mobile
+                Applications Mobiles & Maintenance
               </span>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-                Votre projet digital,{" "}
-                <GradientText>livré en 4 semaines</GradientText>
+                Votre application mobile,{" "}
+                <GradientText>du concept au store</GradientText>
               </h1>
 
               <ShinyText className="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-                Sites vitrines, e-commerce, applications iOS/Android. 
-                Design premium, code moderne, livraison garantie.
+                iOS & Android. Développement natif et cross-platform.
+                Design premium, code moderne, publication garantie.
               </ShinyText>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -108,86 +107,6 @@ export default function DigitalPage() {
                 ))}
               </div>
             </motion.div>
-          </div>
-        </section>
-
-        {/* Website Pricing */}
-        <section id="pricing" className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                Sites <GradientText>Web</GradientText>
-              </h2>
-              <ShinyText className="text-lg text-gray-400 mb-8">
-                Des solutions adaptées à chaque étape de votre croissance
-              </ShinyText>
-              <CurrencyToggle currency={currency} onChange={setCurrency} variant="digital" />
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {websiteTiers.map((tier, index) => (
-                <motion.div
-                  key={tier.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <TiltedCard
-                    className={`relative h-full bg-white/5 backdrop-blur-xl rounded-2xl p-6 border-2 ${
-                      tier.popular ? 'border-violet-500' : 'border-white/10'
-                    } hover:border-violet-500/50 transition-all duration-300`}
-                  >
-                    {tier.badge && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-xs font-semibold px-4 py-1 rounded-full">
-                        {tier.badge}
-                      </span>
-                    )}
-
-                    <div className={`w-12 h-12 rounded-xl ${tier.popular ? 'bg-violet-500/20' : 'bg-white/10'} flex items-center justify-center mb-4`}>
-                      <Globe className="w-6 h-6 text-violet-400" />
-                    </div>
-
-                    <h3 className="text-xl font-bold text-white mb-2">{tier.name}</h3>
-                    <p className="text-gray-400 text-sm mb-4">{tier.description}</p>
-
-                    <PriceDisplay 
-                      priceEUR={tier.priceEUR} 
-                      priceDZD={tier.priceDZD} 
-                      currency={currency}
-                      className="text-violet-400"
-                    />
-
-                    <p className="text-gray-500 text-sm mt-2 mb-4">⏱️ {tier.deliveryTime}</p>
-
-                    <ul className="space-y-2 mb-6">
-                      {tier.features.slice(0, 4).map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
-                          <Check className="w-4 h-4 text-violet-400 mt-0.5 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-
-                    {tier.popular ? (
-                      <Button variant="cta" className="w-full" onClick={() => window.location.href = "/digital/contact"}>
-                        Demander un devis
-                      </Button>
-                    ) : (
-                      <GlareHover className="w-full rounded-lg">
-                        <Button 
-                          variant="outline" 
-                          className="w-full bg-white/5 hover:bg-white/10 text-white border-white/20"
-                          onClick={() => window.location.href = "/digital/contact"}
-                        >
-                          En savoir plus
-                        </Button>
-                      </GlareHover>
-                    )}
-                  </TiltedCard>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -253,8 +172,82 @@ export default function DigitalPage() {
           </div>
         </section>
 
-        {/* Portfolio */}
-        <WebPortfolioSection />
+        {/* Maintenance Section */}
+        <section className="py-24 px-4 bg-gradient-to-b from-black via-emerald-950/10 to-black">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                Maintenance & <span className="text-emerald-400">Support</span>
+              </h2>
+              <ShinyText className="text-lg text-gray-400 mb-8">
+                Gardez votre application performante avec nos formules tout-inclus
+              </ShinyText>
+              <CurrencyToggle currency={currency} onChange={setCurrency} variant="digital" />
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {maintenanceTiers.map((tier, index) => (
+                <motion.div
+                  key={tier.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <TiltedCard
+                    className={`relative h-full bg-white/5 backdrop-blur-xl rounded-2xl p-6 border-2 ${
+                      tier.popular ? 'border-emerald-500' : 'border-white/10'
+                    } hover:border-emerald-500/50 transition-all duration-300`}
+                  >
+                    {tier.popular && (
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs font-semibold px-4 py-1 rounded-full">
+                        Recommandé
+                      </span>
+                    )}
+
+                    <div className={`w-12 h-12 rounded-xl ${tier.popular ? 'bg-emerald-500/20' : 'bg-white/10'} flex items-center justify-center mb-4`}>
+                      <Wrench className="w-6 h-6 text-emerald-400" />
+                    </div>
+
+                    <h3 className="text-xl font-bold text-white mb-2">{tier.name}</h3>
+                    <p className="text-gray-400 text-sm mb-4">{tier.description}</p>
+
+                    <div className="mb-4">
+                      {tier.priceEURMonthly === 0 ? (
+                        <span className="text-2xl font-bold text-emerald-400">Sur devis</span>
+                      ) : (
+                        <>
+                          <span className="text-3xl font-bold text-emerald-400">
+                            {currency === "eur" ? tier.priceEURMonthly : tier.priceDZDMonthly}
+                            {currency === "eur" ? " €" : " DA"}
+                          </span>
+                          <span className="text-gray-500 text-sm">/mois</span>
+                        </>
+                      )}
+                    </div>
+
+                    <ul className="space-y-2 mb-6">
+                      {tier.features.slice(0, 4).map((feature, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
+                          <Check className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Button 
+                      variant={tier.popular ? "cta" : "outline"}
+                      className="w-full"
+                      onClick={() => window.location.href = "/digital/contact"}
+                    >
+                      {tier.priceEURMonthly === 0 ? "Nous contacter" : "Souscrire"}
+                    </Button>
+                  </TiltedCard>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Process */}
         <section className="py-24 px-4">

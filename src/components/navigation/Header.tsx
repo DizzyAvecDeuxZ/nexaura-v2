@@ -17,7 +17,6 @@ interface HeaderProps {
 
 const navItems: Record<string, NavItem[]> = {
   digital: [
-    { label: "Sites Web", href: "/digital/sites" },
     { label: "Applications", href: "/digital/apps" },
     { label: "Maintenance", href: "/digital/maintenance" },
     { label: "Contact", href: "/digital/contact" }
