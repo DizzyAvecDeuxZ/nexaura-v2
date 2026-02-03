@@ -438,6 +438,157 @@ export function formatPrice(price: number, currency: 'eur' | 'dzd'): string {
   }
 }
 
+// ═══════════════════════════════════════════════════════════════
+// NEXAURA DIGITAL - GRILLES TARIFAIRES B2B ENTREPRISE
+// ═══════════════════════════════════════════════════════════════
+
+export interface EnterpriseTier {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  deliveryTime: string;
+  features: string[];
+  popular?: boolean;
+  badge?: string;
+  icon: typeof Building2;
+  cta: string;
+}
+
+export const enterpriseTiers: EnterpriseTier[] = [
+  {
+    id: "audit-express",
+    name: "Audit Digital Express",
+    description: "Diagnostic rapide de vos processus et identification des gains potentiels",
+    price: "4 900 €",
+    deliveryTime: "5 jours",
+    features: [
+      "Entretien avec équipes opérationnelles",
+      "Analyse de 3 processus prioritaires",
+      "Rapport 30 pages avec préconisations",
+      "Estimation ROI et planning",
+      "Présentation aux décideurs"
+    ],
+    popular: false,
+    icon: Building2,
+    cta: "Demander un audit"
+  },
+  {
+    id: "poc-metier",
+    name: "POC Métier",
+    description: "Preuve de concept fonctionnelle pour valider l'approche avant investissement",
+    price: "15 000 € - 25 000 €",
+    deliveryTime: "4-6 semaines",
+    features: [
+      "Cadrage précis du périmètre",
+      "Développement fonctionnalités clés",
+      "Tests avec utilisateurs finaux",
+      "Documentation technique",
+      "Roadmap déploiement complet"
+    ],
+    popular: true,
+    badge: "Recommandé",
+    icon: Building2,
+    cta: "Lancer mon POC"
+  },
+  {
+    id: "app-sur-mesure",
+    name: "Application Sur-mesure",
+    description: "Solution digitale complète, intégrée à votre écosystème",
+    price: "35 000 € - 120 000 €+",
+    deliveryTime: "10-20 semaines",
+    features: [
+      "Architecture scalable & sécurisée",
+      "Mode offline avec synchronisation",
+      "Intégrations API (ERP, CRM, etc.)",
+      "Formation équipes & documentation",
+      "Support 12 mois inclus",
+      "SLA 99.9% garanti"
+    ],
+    popular: false,
+    badge: "Sur devis",
+    icon: Building2,
+    cta: "Discuter du projet"
+  }
+];
+
+export interface MaintenanceEnterpriseTier {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  period?: string;
+  features: string[];
+  popular?: boolean;
+}
+
+export const maintenanceEnterpriseTiers: MaintenanceEnterpriseTier[] = [
+  {
+    id: "support-essentiel",
+    name: "Support Essentiel",
+    description: "Maintenance corrective pour applications en production",
+    price: "15%",
+    period: " du projet/an",
+    features: [
+      "Corrections de bugs",
+      "Mises à jour sécurité",
+      "Support email (48h)",
+      "Monitoring basique"
+    ],
+    popular: false
+  },
+  {
+    id: "accompagnement-pro",
+    name: "Accompagnement Pro",
+    description: "Évolution continue et support prioritaire",
+    price: "3 500 €",
+    period: "/mois",
+    features: [
+      "Évolutions fonctionnelles",
+      "Support prioritaire (24h)",
+      "Rapports mensuels d'usage",
+      "Optimisations performances",
+      "Hotline technique"
+    ],
+    popular: true
+  },
+  {
+    id: "partenaire-strategique",
+    name: "Partenaire Stratégique",
+    description: "Équipe dédiée et innovation continue",
+    price: "7 000 €",
+    period: "/mois",
+    features: [
+      "Évolutions illimitées",
+      "Support 24/7",
+      "Product manager dédié",
+      "Innovation & veille",
+      "SLA 99.9%",
+      "Ateliers trimestriels"
+    ],
+    popular: false
+  },
+  {
+    id: "enterprise-dedie",
+    name: "Enterprise Dédié",
+    description: "Infrastructure et équipe dédiées",
+    price: "Sur devis",
+    features: [
+      "Équipe dédiée full-time",
+      "Infrastructure cloud sur mesure",
+      "Cybersécurité renforcée",
+      "Disaster recovery",
+      "Audit trimestriel",
+      "Accompagnement transformation"
+    ],
+    popular: false
+  }
+];
+
+// ═══════════════════════════════════════════════════════════════
+// UTILITAIRES DE FORMATAGE
+// ═══════════════════════════════════════════════════════════════
+
 export function convertPrice(priceEUR: number): number {
   if (priceEUR === 0) return 0;
   return Math.round(priceEUR * EXCHANGE_RATE / 1000) * 1000;

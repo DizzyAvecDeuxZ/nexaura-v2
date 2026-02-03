@@ -8,28 +8,28 @@
   },
   "hero": {
     "title": "Nexaura",
-    "description": "Nexaura accompagne les entreprises dans leur transformation digitale, de la création de sites web performants à l'intégration de l'IA dans leurs processus métier."
+    "description": "Solutions digitales B2B pour entreprises : applications métiers sur-mesure et IA opérationnelle. Preuve par l'exemple avec sixtTrack, app en production pour sous-traitant aéroportuaire."
   },
   "cards": {
     "digital": {
       "title": "Nexaura Digital",
-      "tagline": "Votre présence digitale, optimisée par la data",
-      "description": "Sites web, applications mobiles, e-commerce",
+      "tagline": "Digitalisation opérationnelle B2B",
+      "description": "Applications métiers, automatisation processus, dashboards temps réel. Pour ETI et grands comptes.",
       "stats": {
-        "responsive": "100% responsive",
-        "seo": "SEO natif",
-        "support": "Maintenance & support inclus"
+        "responsive": "Mode offline inclus",
+        "seo": "ROI mesurable",
+        "support": "Accompagnement transformation"
       },
-      "cta": "Découvrir nos solutions"
+      "cta": "Découvrir nos solutions B2B"
     },
     "consulting": {
       "title": "Nexaura Consulting",
-      "tagline": "L'intelligence artificielle au service de vos décisions",
-      "description": "Intelligence artificielle, automatisation, transformation",
+      "tagline": "L'IA au service de vos performances",
+      "description": "Intelligence artificielle, automatisation appels d'offres, transformation digitale",
       "stats": {
-        "roi": "ROI mesurable",
-        "automation": "Automatisation 24/7",
-        "predictions": "Prédictions temps réel"
+        "roi": "ROI +340% constaté",
+        "automation": "IA Appels d'Offres",
+        "predictions": "Dashboards temps réel"
       },
       "cta": "Auditer mon projet"
     }
