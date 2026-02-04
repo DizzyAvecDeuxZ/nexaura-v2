@@ -30,14 +30,14 @@ const translations = {
     nav: { home: "Home", digital: "Digital", consulting: "Consulting", about: "About", contact: "Contact" },
     hero: {
       title: "Nexaura",
-      description: "Nexaura helps businesses in their digital transformation, from creating high-performance websites to integrating AI into their business processes."
+      description: "Nexaura helps businesses in their digital transformation, from operational digitalization to integrating AI into their business processes."
     },
     cards: {
       digital: {
         title: "Nexaura Digital",
-        tagline: "Your digital presence, optimized by data",
-        description: "Websites, mobile applications, e-commerce",
-        stats: { responsive: "100% responsive", seo: "Native SEO", support: "Maintenance & support included" },
+        tagline: "Your operational digitalization, optimized by data",
+        description: "B2B business applications, tailor-made solutions",
+        stats: { responsive: "100% responsive", performance: "Optimal performance", support: "Maintenance & support included" },
         cta: "Discover our solutions"
       },
       consulting: {
@@ -55,14 +55,14 @@ const translations = {
     nav: { home: "الرئيسية", digital: "الرقمية", consulting: "الاستشارات", about: "من نحن", contact: "اتصل بنا" },
     hero: {
       title: "نيكسورا",
-      description: "ترافق نيكسورا الشركات في تحولها الرقمي، من إنشاء مواقع ويب عالية الأداء إلى دمج الذكاء الاصطناعي في عملياتها التجارية."
+      description: "ترافق نيكسورا الشركات في تحولها الرقمي، من الرقمنة التشغيلية إلى دمج الذكاء الاصطناعي في عملياتها التجارية."
     },
     cards: {
       digital: {
         title: "نيكسورا الرقمية",
-        tagline: "presenceك الرقمية، محسّنة بالبيانات",
-        description: "مواقع الويب، تطبيقات الجوال، التجارة الإلكترونية",
-        stats: { responsive: "100% متجاوب", seo: "SEO مدمج", support: "صيانة ودعم شامل" },
+        tagline: "الرقمنة التشغيلية الخاصة بك، محسّنة بالبيانات",
+        description: "تطبيقات الأعمال B2B، حلول مخصصة",
+        stats: { responsive: "100% متجاوب", performance: "أداء مثالي", support: "صيانة ودعم شامل" },
         cta: "اكتشف حلولنا"
       },
       consulting: {

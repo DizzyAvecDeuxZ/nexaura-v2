@@ -87,7 +87,7 @@ const AboutPage = () => {
               <p className="text-gray-400 text-lg leading-relaxed">
                 Nexaura est né d'un constat simple : les entreprises ont besoin d'accompagnement 
                 à deux niveaux distincts. D'abord, une exécution technique irréprochable pour leurs 
-                projets digitaux (sites, applications). Ensuite, une expertise stratégique pour 
+                projets digitaux (applications métier). Ensuite, une expertise stratégique pour 
                 naviguer dans la révolution de l'intelligence artificielle.
               </p>
               <p className="text-gray-400 text-lg leading-relaxed mt-4">
@@ -136,8 +136,8 @@ const AboutPage = () => {
                   Nexaura <span className="text-violet-400">Digital</span>
                 </h3>
                 <p className="text-gray-400 mb-4">
-                  Agence de développement web et mobile. Sites vitrines, e-commerce, 
-                  applications iOS/Android. Livraison rapide, qualité premium.
+                  Agence de développement mobile. Applications iOS/Android sur-mesure. 
+                  Livraison rapide, qualité premium.
                 </p>
                 <a href="/digital" className="text-violet-400 hover:text-violet-300 inline-flex items-center gap-2">
                   Découvrir Digital <ArrowLeft className="w-4 h-4 rotate-180" />

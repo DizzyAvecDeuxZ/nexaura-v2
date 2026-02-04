@@ -65,7 +65,7 @@ export function HeroSection({ onOpenContact }: HeroSectionProps) {
 
           <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <ShinyText className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
-              Nous créons des sites et applications qui impressionnent. Design futuriste, technologie moderne, livraison rapide.
+              Nous créons des applications métiers qui impressionnent. Design futuriste, technologie moderne, livraison rapide.
             </ShinyText>
           </div>
 

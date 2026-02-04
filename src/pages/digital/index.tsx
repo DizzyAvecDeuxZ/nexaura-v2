@@ -112,7 +112,7 @@ const solutions = [
   {
     icon: Zap,
     title: "Validation Technique & POC",
-    desc: "Validation technique de votre projet en 4-6 semaines. Architecture, faisabilité et POC concret avant investissement. Pas d'audit stratégique, de la preuve technique.",
+    desc: "Validation technique de votre projet en 4-6 semaines. Architecture, faisabilité et POC concret avant investissement. Preuve technique, pas de slides.",
     price: "15 000 € - 25 000 €",
     target: "Premier projet digital"
   }
@@ -566,14 +566,14 @@ export default function DigitalPage() {
           </div>
         </section>
 
-        {/* Trust Section */}
+        {/* Trust Section - Stats uniquement */}
         <section className="py-24 px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
               Ils nous font <GradientText>confiance</GradientText>
             </h2>
             
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
                 <div className="text-4xl font-bold text-violet-400 mb-2">340%</div>
                 <p className="text-gray-400 text-sm">ROI moyen constaté chez nos clients ETI</p>
@@ -586,15 +586,6 @@ export default function DigitalPage() {
                 <div className="text-4xl font-bold text-emerald-400 mb-2">4-6s</div>
                 <p className="text-gray-400 text-sm">Délai moyen pour un POC validant</p>
               </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-violet-500/10 via-fuchsia-500/10 to-emerald-500/10 rounded-2xl p-8 border border-white/10">
-              <p className="text-xl text-white mb-4">
-                "Ce qui nous a convaincus ? La preuve par l'exemple. L'équipe de Nexaura avait déjà 
-                développé sixtTrack, une application similaire à ce dont nous avions besoin. 
-                Résultat : livraison en 10 semaines au lieu de 6 mois."
-              </p>
-              <p className="text-gray-400">— Directeur des Opérations, Sous-traitant logistique</p>
             </div>
           </div>
         </section>

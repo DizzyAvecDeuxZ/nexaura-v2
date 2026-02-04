@@ -6,7 +6,7 @@
 export const EXCHANGE_RATE = 146;
 
 // ═══════════════════════════════════════════════════════════════
-// NEXAURA DIGITAL - DÉVELOPPEMENT WEB & MOBILE
+// NEXAURA DIGITAL - APPLICATIONS MÉTIERS B2B
 // ═══════════════════════════════════════════════════════════════
 
 export interface PricingTier {
@@ -21,87 +21,10 @@ export interface PricingTier {
   badge?: string;
 }
 
-export const websiteTiers: PricingTier[] = [
-  {
-    id: "one-page",
-    name: "One Page",
-    description: "Landing page, portfolio, vitrine simple - idéal pour démarrer",
-    priceEUR: 990,
-    priceDZD: 145000,
-    deliveryTime: "5-7 jours",
-    features: [
-      "Design sur-mesure unique",
-      "Responsive mobile & tablette",
-      "Formulaire de contact",
-      "Optimisation SEO de base",
-      "Hébergement 1 an offert",
-      "Certificat SSL inclus",
-      "1 révision incluse"
-    ],
-    popular: false
-  },
-  {
-    id: "business",
-    name: "Business",
-    description: "Site 5-10 pages, blog, SEO avancé - pour entreprises en croissance",
-    priceEUR: 2490,
-    priceDZD: 365000,
-    deliveryTime: "10-14 jours",
-    features: [
-      "Tout l'offre One Page",
-      "5 à 10 pages personnalisées",
-      "Module blog / actualités",
-      "SEO avancé & analytics",
-      "Rapport mensuel performance",
-      "Support 6 mois inclus",
-      "2 révisions incluses"
-    ],
-    popular: true,
-    badge: "Populaire"
-  },
-  {
-    id: "ecommerce",
-    name: "E-commerce",
-    description: "Boutique en ligne complète avec paiement et gestion",
-    priceEUR: 4900,
-    priceDZD: 720000,
-    deliveryTime: "3-4 semaines",
-    features: [
-      "Jusqu'à 100 produits",
-      "Paiement sécurisé (Stripe/PayPal)",
-      "Gestion stocks & commandes",
-      "Comptes clients & historique",
-      "Formation admin 2h",
-      "Support 12 mois inclus",
-      "3 révisions incluses"
-    ],
-    popular: false
-  },
-  {
-    id: "custom-web",
-    name: "Sur-mesure",
-    description: "Architecture complexe, API, intranet - solutions enterprise",
-    priceEUR: 0,
-    priceDZD: 0,
-    deliveryTime: "6+ semaines",
-    features: [
-      "Architecture personnalisée",
-      "Intégrations API tierces",
-      "Back-office sur-mesure",
-      "Multi-utilisateurs & rôles",
-      "Sécurité renforcée (OWASP)",
-      "Documentation technique",
-      "Maintenance dédiée SLA"
-    ],
-    popular: false,
-    badge: "Sur devis"
-  }
-];
-
 export const appTiers: PricingTier[] = [
   {
-    id: "app-vitrine",
-    name: "App Vitrine",
+    id: "app-starter",
+    name: "App Starter",
     description: "iOS ou Android, fonctionnalités de base - idéal pour tester votre concept",
     priceEUR: 8900,
     priceDZD: 1300000,
@@ -275,8 +198,8 @@ export const consultingOffers: ConsultingOffer[] = [
     id: "audit-express",
     name: "Audit IA Express",
     description: "Diagnostic rapide des opportunités IA dans votre entreprise",
-    priceEUR: 2900,
-    priceDZD: 420000,
+    priceEUR: 4500,
+    priceDZD: 657000,
     duration: "2-3 jours",
     targetAudience: "PME & Startups",
     deliverables: [
@@ -293,8 +216,8 @@ export const consultingOffers: ConsultingOffer[] = [
     id: "audit-strategique",
     name: "Audit IA Stratégique",
     description: "Étude approfondie pour grandes organisations",
-    priceEUR: 8500,
-    priceDZD: 1200000,
+    priceEUR: 12500,
+    priceDZD: 1825000,
     duration: "1 semaine",
     targetAudience: "ETI & Grands groupes",
     deliverables: [
@@ -312,8 +235,8 @@ export const consultingOffers: ConsultingOffer[] = [
     id: "poc-custom",
     name: "POC sur-mesure",
     description: "Développement d'un prototype IA fonctionnel",
-    priceEUR: 15000,
-    priceDZD: 2200000,
+    priceEUR: 22000,
+    priceDZD: 3212000,
     duration: "4-6 semaines",
     targetAudience: "Entreprises engagées",
     deliverables: [
@@ -462,7 +385,7 @@ export const enterpriseTiers: EnterpriseTier[] = [
     id: "audit-express",
     name: "Audit Digital Express",
     description: "Diagnostic rapide de vos processus et identification des gains potentiels",
-    price: "4 900 €",
+    price: "À partir de 8 500 €",
     deliveryTime: "5 jours",
     features: [
       "Entretien avec équipes opérationnelles",
@@ -479,7 +402,7 @@ export const enterpriseTiers: EnterpriseTier[] = [
     id: "poc-metier",
     name: "POC Métier",
     description: "Preuve de concept fonctionnelle pour valider l'approche avant investissement",
-    price: "15 000 € - 25 000 €",
+    price: "À partir de 18 000 €",
     deliveryTime: "4-6 semaines",
     features: [
       "Cadrage précis du périmètre",
@@ -497,7 +420,7 @@ export const enterpriseTiers: EnterpriseTier[] = [
     id: "app-sur-mesure",
     name: "Application Sur-mesure",
     description: "Solution digitale complète, intégrée à votre écosystème",
-    price: "35 000 € - 120 000 €+",
+    price: "À partir de 45 000 €",
     deliveryTime: "10-20 semaines",
     features: [
       "Architecture scalable & sécurisée",

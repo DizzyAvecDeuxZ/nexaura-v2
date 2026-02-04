@@ -8,19 +8,19 @@ import { ShinyText } from "@/components/ui/shiny-text";
 
 const faqs = [
   {
-    question: "Combien de temps pour créer un site ?",
+    question: "Combien de temps pour créer une application ?",
     answer:
-      "Selon la complexité : 5-7 jours pour un one-page, 7-12 jours pour un site vitrine multi-pages, et 15+ jours pour un projet sur-mesure. Nous vous donnons toujours une estimation précise après notre call de découverte.",
+      "Selon la complexité : 10-15 jours pour une app vitrine simple, 20-30 jours pour une app business complète, et 30+ jours pour un projet sur-mesure. Nous vous donnons toujours une estimation précise après notre call de découverte.",
   },
   {
     question: "Allez-vous utiliser un no-code ou du code custom ?",
     answer:
-      "Nous utilisons les technologies les plus adaptées à votre projet. Pour les sites simples, nous privilégions des solutions modernes et performantes. Pour les projets complexes, nous développons du code sur-mesure pour une flexibilité maximale.",
+      "Nous utilisons les technologies les plus adaptées à votre projet. Pour les applications simples, nous privilégions des solutions modernes et performantes. Pour les projets complexes, nous développons du code sur-mesure pour une flexibilité maximale.",
   },
   {
-    question: "Est-ce que je peux modifier le site après ?",
+    question: "Est-ce que je peux modifier l'application après ?",
     answer:
-      "Absolument ! Nous vous livrons un site avec une interface d'administration simple. Vous pourrez modifier textes, images et contenu en toute autonomie. Pour les modifications plus techniques, nous proposons des forfaits de maintenance.",
+      "Absolument ! Nous vous livrons une application avec une interface d'administration simple. Vous pourrez modifier textes, images et contenu en toute autonomie. Pour les modifications plus techniques, nous proposons des forfaits de maintenance.",
   },
   {
     question: "Et les mises à jour, c'est inclus ?",
@@ -35,7 +35,7 @@ const faqs = [
   {
     question: "Vous faites aussi du SEO ?",
     answer:
-      "Oui ! Tous nos sites sont optimisés pour le référencement naturel (SEO on-page). Pour une stratégie SEO plus avancée, nous proposons des accompagnements dédiés.",
+      "Oui ! Toutes nos applications sont optimisées pour le référencement naturel (SEO on-page). Pour une stratégie SEO plus avancée, nous proposons des accompagnements dédiés.",
   },
   {
     question: "Quel est votre délai de réponse ?",
