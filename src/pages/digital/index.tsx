@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Check, Building2, Zap, Clock, Shield, Wrench, Sparkles, TrendingUp, Users, Truck, HardHat, Factory, Plane, Briefcase, FileText, BarChart3 } from "lucide-react";
@@ -27,8 +27,8 @@ const differentiators = [
   },
   {
     icon: Shield,
-    title: "Preuve par l'Exemple",
-    desc: "sixtTrack gère déjà les opérations d'un sous-traitant aéroportuaire. On ne vend pas du vent."
+    title: "Solutions Robustes",
+    desc: "Architecture scalable, mode offline, et intégrations API pour s'adapter à vos systèmes existants."
   },
   {
     icon: TrendingUp,
@@ -50,42 +50,7 @@ const sectors = [
   { name: "Facility Management", growth: "+16%", desc: "Interventions terrain, gestion des OT, reporting client", icon: Building2 },
 ];
 
-const caseStudies = [
-  {
-    id: "sixttrack",
-    title: "sixtTrack",
-    subtitle: "Sous-traitant aéroportuaire",
-    industry: "Transport / Aéroportuaire",
-    description: "Application de gestion opérationnelle pour le suivi des mouvements de véhicules et la gestion des équipes sur l'aéroport CDG.",
-    metrics: [
-      { label: "Temps de saisie", value: "-87%", detail: "De 8 min à 1 min par opération" },
-      { label: "Erreurs de saisie", value: "-88%", detail: "Grâce à la validation automatique" },
-      { label: "Visibilité temps réel", value: "100%", detail: "Dashboard manager live" },
-      { label: "ROI", value: "340%", detail: "En 12 mois" }
-    ],
-    features: ["Mode offline avec sync", "Dashboard KPI temps réel", "Export CSV", "Règles métier intégrées", "Multi-utilisateurs"],
-    demoUrl: "https://app.testpage.fr/",
-    demoCreds: "Emp001 / 123456",
-    color: "blue"
-  },
-  {
-    id: "ia-ao",
-    title: "IA Appels d'Offres",
-    subtitle: "Automatisation B2B",
-    industry: "Services / BTP",
-    description: "Application métier d'automatisation qui analyse les cahiers des charges et génère des réponses structurées aux appels d'offres. Solution technique concrète, pas de l'IA générique.",
-    metrics: [
-      { label: "Temps de réponse", value: "-70%", detail: "De 3 jours à 4 heures" },
-      { label: "Taux de réussite", value: "+50%", detail: "Meilleure qualité des réponses" },
-      { label: "AO analysés/mois", value: "50+", detail: "Capacité de traitement" },
-      { label: "ROI", value: "1 150%", detail: "Sur 6 mois" }
-    ],
-    features: ["Parsing PDF automatique", "Génération réponses structurées", "Base de connaissances", "Apprentissage continu", "Intégration CRM"],
-    demoUrl: null,
-    demoCreds: null,
-    color: "violet"
-  }
-];
+const caseStudies: any[] = [];
 
 const solutions = [
   {
@@ -95,13 +60,7 @@ const solutions = [
     price: "À partir de 35 000 €",
     target: "ETI & Grands comptes"
   },
-  {
-    icon: FileText,
-    title: "IA pour Appels d'Offres",
-    desc: "Automatisez la réponse aux marchés publics et privés. Gagnez du temps, augmentez votre taux de réussite.",
-    price: "8 500 € + 450 €/mois",
-    target: "BTP, Services, Consulting"
-  },
+
   {
     icon: BarChart3,
     title: "Dashboards & Analytics",
@@ -119,7 +78,6 @@ const solutions = [
 ];
 
 export default function DigitalPage() {
-  const [activeCaseStudy, setActiveCaseStudy] = useState(0);
 
   return (
     <div className="relative min-h-screen bg-black overflow-x-hidden">
@@ -161,7 +119,7 @@ export default function DigitalPage() {
 
               <ShinyText className="text-xl text-gray-400 max-w-3xl mx-auto mb-10">
                 Applications métiers sur-mesure et IA opérationnelle pour ETI et grands comptes. 
-                Preuve par l'exemple : sixtTrack gère déjà les opérations d'un sous-traitant aéroportuaire.
+                Des solutions concrètes, pas de la théorie.
               </ShinyText>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -169,13 +127,7 @@ export default function DigitalPage() {
                   Audit gratuit de mon projet
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="xl"
-                  onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Voir nos réalisations
-                </Button>
+
               </div>
 
               {/* Stats */}
@@ -192,103 +144,6 @@ export default function DigitalPage() {
                     <div className="text-gray-500 text-sm">{stat.label}</div>
                   </motion.div>
                 ))}
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Case Studies Section */}
-        <section id="case-studies" className="py-24 px-4 bg-gradient-to-b from-black via-violet-950/10 to-black">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                Nos <GradientText>réalisations</GradientText>
-              </h2>
-              <ShinyText className="text-lg text-gray-400">
-                Des applications métier en production, pas des maquettes
-              </ShinyText>
-            </div>
-
-            {/* Case Study Selector */}
-            <div className="flex justify-center gap-4 mb-12">
-              {caseStudies.map((cs, index) => (
-                <button
-                  key={cs.id}
-                  onClick={() => setActiveCaseStudy(index)}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                    activeCaseStudy === index 
-                      ? 'bg-violet-500 text-white' 
-                      : 'bg-white/5 text-gray-400 hover:bg-white/10'
-                  }`}
-                >
-                  {cs.title}
-                </button>
-              ))}
-            </div>
-
-            {/* Active Case Study */}
-            <motion.div
-              key={activeCaseStudy}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 md:p-12 border border-white/10"
-            >
-              <div className="grid lg:grid-cols-2 gap-12">
-                <div>
-                  <div className="inline-block px-3 py-1 rounded-full bg-violet-500/20 text-violet-400 text-sm mb-4">
-                    {caseStudies[activeCaseStudy].industry}
-                  </div>
-                  <h3 className="text-3xl font-bold text-white mb-2">
-                    {caseStudies[activeCaseStudy].title}
-                  </h3>
-                  <p className="text-xl text-gray-400 mb-6">
-                    {caseStudies[activeCaseStudy].subtitle}
-                  </p>
-                  <p className="text-gray-300 mb-8">
-                    {caseStudies[activeCaseStudy].description}
-                  </p>
-
-                  {caseStudies[activeCaseStudy].demoUrl && (
-                    <div className="bg-violet-500/10 rounded-xl p-4 mb-8 border border-violet-500/20">
-                      <p className="text-violet-400 font-semibold mb-2">🚀 Démo en ligne disponible</p>
-                      <p className="text-gray-400 text-sm mb-3">
-                        Testez l'application avec les identifiants ci-dessous
-                      </p>
-                      <div className="flex gap-4 text-sm">
-                        <code className="bg-black/50 px-3 py-1 rounded text-gray-300">
-                          URL: {caseStudies[activeCaseStudy].demoUrl}
-                        </code>
-                        <code className="bg-black/50 px-3 py-1 rounded text-gray-300">
-                          {caseStudies[activeCaseStudy].demoCreds}
-                        </code>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="space-y-3">
-                    {caseStudies[activeCaseStudy].features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                        <span className="text-gray-300">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-6">Résultats mesurés</h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    {caseStudies[activeCaseStudy].metrics.map((metric, i) => (
-                      <div key={i} className="bg-white/5 rounded-2xl p-6 border border-white/10">
-                        <div className="text-3xl font-bold text-emerald-400 mb-1">
-                          {metric.value}
-                        </div>
-                        <div className="text-white font-medium mb-1">{metric.label}</div>
-                        <div className="text-gray-500 text-sm">{metric.detail}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -580,7 +435,7 @@ export default function DigitalPage() {
               </div>
               <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
                 <div className="text-4xl font-bold text-fuchsia-400 mb-2">-87%</div>
-                <p className="text-gray-400 text-sm">Temps de saisie réduit (cas sixtTrack)</p>
+                <p className="text-gray-400 text-sm">Temps de saisie réduit pour nos clients</p>
               </div>
               <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
                 <div className="text-4xl font-bold text-emerald-400 mb-2">4-6s</div>
@@ -605,7 +460,7 @@ export default function DigitalPage() {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <p className="text-gray-500 text-sm mt-4">
-              Réponse sous 24h · Sans engagement · Démo sixtTrack disponible
+              Réponse sous 24h · Sans engagement · Audit gratuit
             </p>
           </div>
         </section>
